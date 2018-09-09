@@ -1,0 +1,62 @@
+.default-avatar {
+  display: inline-block;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.user-list {
+  .user-list-header {
+    background-color: #f6f7f9;
+    border-bottom: 1px solid #dddfe2;
+    border-radius: 3px 3px 0 0;
+  }
+
+  .search-container {
+    right: 10px;
+  }
+
+  .user-list-item {
+    border-bottom: 1px solid #eee;
+
+    &:hover {
+      background-color: #edeff0;
+    }
+
+    ._item {
+      padding: 10px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+
+      &:hover {
+        background-color: transparent;
+        color: #333;
+      }
+    }
+  }
+}
+
+// Reminder
+.more-actions {
+  .dots {
+    padding: 0 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: inherit;
+
+    i {
+      color: #8c8c8c;
+    }
+
+    &:hover, &:focus {
+      i {
+        color: #666;
+      }
+    }
+  }
+}

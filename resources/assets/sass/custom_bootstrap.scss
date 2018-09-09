@@ -1,0 +1,41 @@
+.form-control {
+  box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
+  border: 1px solid $gray-light-color;
+
+  &:focus {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+
+  &:disabled, &[readonly] {
+    background-color: #fff;
+  }
+}
+
+.navbar-light {
+  .navbar-nav {
+    .nav-link {
+      color: #dddad3;
+      &:hover, &:focus {
+        color: #dddad3;
+      }
+    }
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #dddad3;
+    &:hover, &:focus {
+      color: #dddad3;
+    }
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='#dddad3' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+  }
+
+  .navbar-toggler {
+    border-color: #dddad3;
+  }
+}

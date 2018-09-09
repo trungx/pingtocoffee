@@ -1,0 +1,47 @@
+.entry-list {
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+    border: 1px dashed $gray-color;
+    position: absolute;
+    top: 0;
+    left: 4px;
+  }
+
+  .entry-item {
+    border: 1px solid $gray-lighter-color;
+
+    & > span {
+      content: "";
+      display: block;
+      width: 0;
+      height: 100%;
+      border: 1px solid $gray-color;
+      position: absolute;
+      top: 0;
+      left: -29px;
+
+      &:before, &:after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #ccc;
+        position: absolute;
+        left: -5px;
+      }
+
+      &:before {
+        top: -10px;
+      }
+
+      &:after {
+        top: 95%;
+      }
+    }
+  }
+}
