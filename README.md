@@ -95,7 +95,7 @@ There are many ways that everyone can help.
 
 If you are a programmer, and want to contribute to the development, then do the following:
 
-- Please read the [guide line](https:://github/pingnow/pingtocoffee/CONTRIBUTING.md) carefully before starting.
+- Please read the [guide line](https://github.com/pingnow/pingtocoffee/blob/master/CONTRIBUTING.md) carefully before starting.
 - Search for the label [bug](https://github.com/pingnow/pingtocoffee/issues?q=is%3Aissue+is%3Aopen+label%3Abug) and help resolve if you want ease level.
 - Search for [help wanted](https://github.com/pingnow/pingtocoffee/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) to solve a bit harder.
 - If you are an advanced programmer, try searching for [feature request](https://github.com/pingnow/pingtocoffee/issues?q=is%3Aissue+is%3Aopen+label%3A%22feature+request%22) to address them. But pay attention, these problems are difficult to solve and require high skills.
