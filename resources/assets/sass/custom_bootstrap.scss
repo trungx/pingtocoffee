@@ -16,6 +16,8 @@
   .navbar-nav {
     .nav-link {
       color: #dddad3;
+      line-height: 32px;
+      padding: 0.25rem 0.5rem;
       &:hover, &:focus {
         color: #dddad3;
       }
