@@ -37,6 +37,21 @@
           </li>
         @else
           <li>
+            <a class="nav-link" href="/contact/{{ auth()->user()->id }}" title="{{ __('app.header_profile_link') }}">
+              <span>
+                @if (auth()->user()->has_avatar)
+                  <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-1 br-100" avatar="Avatar" width="30">
+                @else
+                  <div class="default-avatar mr-1 br-100" style="background-color: {{ auth()->user()->default_avatar_color }}; width:30px; height:30px; font-size:10px;">
+                    {{ auth()->user()->getInitials() }}
+                  </div>
+                @endif
+                
+                <span>{{ auth()->user()->first_name }}</span>
+              </span>
+            </a>
+          </li>
+          <li>
             <a class="nav-link" href="/dashboard">
               {{ __('app.header_dashboard_link') }}
             </a>
