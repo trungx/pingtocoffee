@@ -58,7 +58,7 @@ I'm currently defaulting to the database name **pingtocoffee**. You can create a
 
 **Step 3 - Install**
 
-a) First create the environment file from the **.env.example** file with the command `cp .example.env .env`.
+a) First create the environment file from the **.env.example** file with the command `cp .env.example .env`.
 
 Then change the information accordingly to the environmental information of the system you have. I've explained what the variables in the `.env.example` file mean. Do not forget to change the database information you created in step 2.
 
