@@ -8,7 +8,7 @@
     <div>
       <div class="light-gray-text">{{ $key }}:</div>
       @foreach($items as $item)
-        <div class="pb2">{{ $item->value }}</div>
+        <div class="pb2"><a href="{{ $item->value }}">{{ $item->value }}</a></div>
       @endforeach
     </div>
   @endforeach
