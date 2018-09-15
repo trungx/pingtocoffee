@@ -50,6 +50,11 @@
               @endif
               <form action="/settings/store" id="setting-form" method="POST">
                 @csrf
+                <!-- Username -->
+                <div class="form-group">
+                  <label for="username">{{ __('settings.username') }}</label>
+                  <input type="text" class="form-control" name="username" id="username" placeholder="@henryonsoftware" value="{{ old('username') ?? auth()->user()->username }}">
+                </div>
                 <div class="row">
                   <div class="col-md-6">
                     <!-- First name -->
@@ -112,6 +117,9 @@
   </div>
 @endsection
 @push('scripts')
+  <!-- Laravel Javascript Validation -->
+  <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+  {!! JsValidator::formRequest('App\Http\Requests\SettingRequest'); !!}
   <script type="text/javascript">
     // index => month [0-11]
     let numberDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];

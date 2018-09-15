@@ -10530,11 +10530,26 @@ a {
   color: #212121;
 }
 
+.dark-text:hover,
+.dark-text:focus {
+  color: #212121;
+}
+
 .gray-text {
   color: #4a4a4a;
 }
 
+.gray-text:hover,
+.gray-text:focus {
+  color: #4a4a4a;
+}
+
 .light-gray-text {
+  color: #737373;
+}
+
+.light-gray-text:hover,
+.light-gray-text:focus {
   color: #737373;
 }
 

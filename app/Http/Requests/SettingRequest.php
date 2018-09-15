@@ -42,6 +42,7 @@ class SettingRequest extends FormRequest
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'description' => 'max:300',
+            'username' => 'required|max:100|unique:users,username,' . $this->user()->id,
             'email' => 'required|email|max:2083|unique:users,email,' . $this->user()->id,
             'gender' => 'in:male,female,other,none',
             'timezone' => 'required',

@@ -7,7 +7,7 @@
           <div class="p-4">
             <div class="sidebar-profile" style="border-bottom: 1px dashed #d9d9d9;">
               <div class="header mv3">
-                <div class="avatar-container tc">
+                <div class="avatar-container tc mb-2">
                   @if ($user->has_avatar)
                     <img class="br-100" src="{{ $user->getAvatarUrl(\App\Helpers\ImageHelper::MEDIUM_SIZE) }}" alt="Avatar" style="width:87px;">
                   @else
@@ -16,7 +16,10 @@
                     </div>
                   @endif
                 </div>
-                <h3 class="people-name tc mt-3">{{ $user->getCompleteName() }}</h3>
+                <div class="people-name tc f4">{{ $user->getCompleteName() }}</div>
+                <div class="f6 tc mb-2 gray-text">
+                  @<a href="/contact/{{ $user->username }}" class="gray-text">{{ $user->username }}</a>
+                </div>
                 <div class="light-gray-text tc mb-3">{{ $user->description }}</div>
                 <actions-component :user-id="{{ $user->id }}" :authenticated-user-id="{{ auth()->user()->id }}" :default-type="'{{ $relationship->type }}'"></actions-component>
               </div>

@@ -82,10 +82,13 @@ class RegisterController extends Controller
             $isExistReferralCode = User::where('referral_code', $referralCode)->exists();
         } while ($isExistReferralCode);
 
+        $fullName = implode(" ", [$data['first_name'], $data['last_name']]);
+
         $user = User::create([
             'account_id' => $account->id,
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
+            'username' => User::generateUniqueUsername($fullName),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'referral_code' => $referralCode,

@@ -35,6 +35,7 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'description',
+        'username',
         'email',
         'password',
         'birthday',
@@ -405,5 +406,41 @@ class User extends Authenticatable
     public function scopeNonBlockingUsers($query)
     {
         return $query->whereNotIn('id', Relationship::blockedIds($this->id));
+    }
+
+    /**
+     * Generate unique username.
+     *
+     * @param string $stringName
+     * @param int $randNo
+     * @return string
+     */
+    public static function generateUniqueUsername($stringName = "Mike Tyson", $randNo = 200) {
+        while (true) {
+            $usernameParts = array_filter(explode(" ", strtolower($stringName))); //explode and lowercase name
+            $usernameParts = array_slice($usernameParts, 0, 2); //return only first two arry part
+        
+            $part1 = (!empty($usernameParts[0])) ? substr($usernameParts[0], 0,8) : ""; //cut first name to 8 letters
+            $part2 = (!empty($usernameParts[1])) ? substr($usernameParts[1], 0,5) : ""; //cut second name to 5 letters
+            $part3 = ($randNo) ? rand(0, $randNo) : "";
+            
+            $username = $part1 . str_shuffle($part2) . $part3; //str_shuffle to randomly shuffle all characters 
+            
+            $usernameAlreadyBeenTaken = User::hasUsernameAlreadyBeenTaken($username); //check username in database
+            if (!$usernameAlreadyBeenTaken) {
+                return $username;
+            }
+        }
+    }
+
+    /**
+     * Validate username already has been taken.
+     *
+     * @param $userName
+     * @return mixed
+     */
+    public static function hasUsernameAlreadyBeenTaken($userName)
+    {
+        return User::where('username', $userName)->exists();
     }
 }
