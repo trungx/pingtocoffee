@@ -37,7 +37,7 @@
           </li>
         @else
           <li>
-            <a class="nav-link" href="/contact/{{ auth()->user()->id }}" title="{{ __('app.header_profile_link') }}">
+            <a class="nav-link" href="/{{ auth()->user()->username }}" title="{{ __('app.header_profile_link') }}">
               <span>
                 @if (auth()->user()->has_avatar)
                   <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-1 br-100" avatar="Avatar" width="30">

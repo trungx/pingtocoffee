@@ -35,6 +35,7 @@ class DashboardController extends Controller
                 'id' => $contactLog->id,
                 'log_icon_class' => config('icons.' . $contactLog->contactType->icon),
                 'contact_id' => $contactLog->contact->id,
+                'contact_username' => $contactLog->contact->username,
                 'contact_name' => $contactLog->contact->getCompleteName(),
                 'contact_time' => DateHelper::convertToTimezone($contactLog->contact_time, $userTimezone)->format('h:i A'),
                 'full_contact_time' => DateHelper::convertToTimezone($contactLog->contact_time, $userTimezone)->format('F d, Y, h:i A'),
@@ -63,6 +64,7 @@ class DashboardController extends Controller
                 'next_expected_date' => DateHelper::convertToTimezone($reminder->next_expected_date, $userTimezone)->format('h:i A'),
                 'full_next_expected_date' => DateHelper::convertToTimezone($reminder->next_expected_date, $userTimezone)->format('F d, Y, h:i A'),
                 'contact_id' => $reminder->contact->id,
+                'contact_username' => $reminder->contact->username,
                 'contact_name' => $reminder->contact->getCompleteName(),
             ];
             $reminderCollect->push($data);

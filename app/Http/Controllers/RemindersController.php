@@ -53,7 +53,7 @@ class RemindersController extends Controller
         // Create event log
         $reminder->createLogForFeed(Event::ADD_ACTION);
 
-        return redirect('/contact/' . $user->id . '?tab=reminders')
+        return redirect('/' . $user->username . '?tab=reminders')
             ->with('success', trans('user.reminders_add_success'));
     }
 
@@ -98,7 +98,7 @@ class RemindersController extends Controller
 
         $reminder->update($reminderData);
 
-        return redirect('/contact/' . $user->id . '?tab=reminders')
+        return redirect('/' . $user->username . '?tab=reminders')
             ->with('success', __('user.reminders_edit_success'));
     }
 
@@ -114,7 +114,7 @@ class RemindersController extends Controller
     {
         $reminder->delete();
 
-        return redirect('/contact/' . $user->id . '?tab=reminders')
+        return redirect('/' . $user->username . '?tab=reminders')
             ->with('success', trans('user.reminders_delete_success'));
     }
 }

@@ -34,7 +34,7 @@ function Search(form, input, resultsContainer, showResults) {
             let person = {};
 
             person.id = user.id;
-            person.url = `/contact/${user.id}`;
+            person.url = `/${user.username}`;
             person.name = user.first_name + ' ' + user.last_name;
             person.avatar = user.avatar;
             person.initials = user.initials;

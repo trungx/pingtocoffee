@@ -21,7 +21,7 @@
               @else
                 @foreach($contacts as $contact)
                   <li class="user-list-item">
-                    <a class="_item" href="/contact/{{ $contact->id }}">
+                    <a class="_item" href="/{{ $contact->username }}">
                       @if ($contact->has_avatar)
                         <img src="{{ $contact->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-2" alt="Avatar" width="43">
                       @else

@@ -30,7 +30,7 @@
           
           <ul v-if="!contactLogsLoading && contactLogs.length !== 0" class="relative list pl3">
             <li v-for="contactLog in contactLogs" :key="contactLog.id" class="pt2 pb2">
-              <a :href="'/contact/' + contactLog.contact_id">
+              <a :href="'/' + contactLog.contact_username">
                 <i :class="contactLog.log_icon_class" class="light-gray-text mr3"></i>{{ contactLog.contact_name }}
               </a>
               <span class="fr light-gray-text" :title="contactLog.full_contact_time">{{ contactLog.contact_time }}</span>
@@ -61,7 +61,7 @@
             <li v-for="reminder in reminders" :key="reminder.id" class="mb3 relative pa2 pl3 br1" style="border: 1px solid #dee2e6;">
               <p>{{ reminder.title }}</p>
               <div class="f7 light-gray-text">
-                <a :href="'/contact/' + reminder.contact_id + '?tab=reminders'">{{ reminder.contact_name }}</a> - <span :title="reminder.full_next_expected_date">{{ reminder.next_expected_date }}</span><a :href="'/contact/' + reminder.contact_id + '/reminder/' + reminder.id" class="fr">{{ __('user.edit') }}</a>
+                <a :href="'/' + reminder.contact_username + '?tab=reminders'">{{ reminder.contact_name }}</a> - <span :title="reminder.full_next_expected_date">{{ reminder.next_expected_date }}</span><a :href="'/contact/' + reminder.contact_id + '/reminder/' + reminder.id" class="fr">{{ __('user.edit') }}</a>
               </div>
             </li>
           </ul>
