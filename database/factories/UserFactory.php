@@ -33,6 +33,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'account_id' => $account->id,
         'first_name' => $faker->firstName,
         'last_name' => $faker->lastName,
+        'username' => $faker->userName,
         'email' => $faker->unique()->safeEmail,
         'password' => Hash::make('secret'),
         'remember_token' => str_random(10),
