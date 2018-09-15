@@ -13,6 +13,7 @@ return [
     'profile-picture' => 'Profile picture',
     'upload_new_picture' => 'Upload new picture',
     'uploading' => 'Uploading...',
+    'username' => 'Username',
     'firstname' => 'First name',
     'lastname' => 'Last name',
     'description' => 'Short description',

@@ -50,6 +50,11 @@
               @endif
               <form action="/settings/store" id="setting-form" method="POST">
                 @csrf
+                <!-- Username -->
+                <div class="form-group">
+                  <label for="username">{{ __('settings.username') }}</label>
+                  <input type="text" class="form-control" name="username" id="username" placeholder="@henryonsoftware" value="{{ old('username') ?? auth()->user()->username }}">
+                </div>
                 <div class="row">
                   <div class="col-md-6">
                     <!-- First name -->
