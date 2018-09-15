@@ -29,11 +29,14 @@ $factory->define(App\User::class, function (Faker $faker) {
     $account = new \App\Account();
     $account->save();
 
+    $firstName = $faker->firstName;
+    $lastName = $faker->lastName;
+
     return [
         'account_id' => $account->id,
-        'first_name' => $faker->firstName,
-        'last_name' => $faker->lastName,
-        'username' => $faker->userName,
+        'first_name' => $firstName,
+        'last_name' => $lastName,
+        'username' => \App\User::generateUniqueUsername($firstName . " " . $lastName),
         'email' => $faker->unique()->safeEmail,
         'password' => Hash::make('secret'),
         'remember_token' => str_random(10),
