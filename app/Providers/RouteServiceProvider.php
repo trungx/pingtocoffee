@@ -7,6 +7,7 @@ use App\ContactLog;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use App\Reminder;
+use App\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class RouteServiceProvider extends ServiceProvider
@@ -55,6 +56,21 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('reminder', function ($value) {
             try {
                 return Reminder::where('from_user_id', auth()->user()->id)->findOrFail($value);
+            } catch (ModelNotFoundException $ex) {
+                redirect('/')->send();
+            }
+        });
+
+        /**
+         * Checking for user ID or username.
+         */
+        Route::bind('user', function ($value) {
+            try {
+                $user = User::where('id', $value)->orWhere('username', $value)->first();
+                if (!$user) {
+                    throw new ModelNotFoundException();
+                }
+                return $user;
             } catch (ModelNotFoundException $ex) {
                 redirect('/')->send();
             }
