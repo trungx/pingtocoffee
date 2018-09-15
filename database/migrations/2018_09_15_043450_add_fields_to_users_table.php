@@ -20,7 +20,7 @@ class AddFieldsToUsersTable extends Migration
         // Update old accounts (15/09/2018).
         $users = \App\User::all();
         foreach ($users as $user) {
-            $randomUserName = \App\User::generateUniqueUsername($user->getCompleteName());
+            $randomUserName = \App\User::generateUniqueUsername($user->email);
             $user->username = $randomUserName;
             $user->save();
         }
