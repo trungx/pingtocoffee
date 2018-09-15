@@ -32,7 +32,7 @@
             {{ __('user.contact_logs_save') }}
           @endif
         </button>
-        <a href="/contact/{{ $user->id }}?tab=contact-logs" class="btn btn-link gray-text">{{ __('user.contact_logs_cancel_cta') }}</a>
+        <a href="/{{ $user->username }}?tab=contact-logs" class="btn btn-link gray-text">{{ __('user.contact_logs_cancel_cta') }}</a>
       </div>
     </div>
   </div>

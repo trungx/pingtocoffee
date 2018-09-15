@@ -27,7 +27,7 @@ class ReminderTest extends FeatureTestcase
         ];
 
         $response = $this->post('/contact/' . $friend->id . '/reminder', $params);
-        $response->assertRedirect('/contact/' . $friend->id . '?tab=reminders');
+        $response->assertRedirect('/' . $friend->username . '?tab=reminders');
 
         // Check the reminder has been added
         $params['next_expected_date'] = "2018-12-12 22:10:00";
@@ -54,7 +54,7 @@ class ReminderTest extends FeatureTestcase
         ];
 
         $response = $this->put('/contact/' . $friend->id . '/reminder/' . $reminder->id, $params);
-        $response->assertRedirect('/contact/' . $friend->id . '?tab=reminders');
+        $response->assertRedirect('/' . $friend->username . '?tab=reminders');
 
         // Assert the reminder has been updated
         $params['next_expected_date'] = "2018-12-12 22:10:00";
@@ -75,7 +75,7 @@ class ReminderTest extends FeatureTestcase
         ]);
 
         $response = $this->delete('/contact/' . $friend->id . '/reminder/' . $reminder->id);
-        $response->assertRedirect('/contact/' . $friend->id . '?tab=reminders');
+        $response->assertRedirect('/' . $friend->username . '?tab=reminders');
 
         // Assert the reminder has been deleted
         $this->assertDatabaseMissing('reminders', $reminder->toArray());

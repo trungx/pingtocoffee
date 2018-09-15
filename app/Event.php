@@ -39,7 +39,7 @@ class Event extends Model
     {
         $objectTypeName = snake_case(class_basename($this->object_type));
         $body = __('dashboard.' . $this->type_of_action. '_' . $objectTypeName . '_event_body', [
-            'userId' => $this->contact->id,
+            'username' => $this->contact->username,
             'fullName' => $this->contact->getCompleteName(),
         ]);
 

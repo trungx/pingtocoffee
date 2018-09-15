@@ -46,7 +46,7 @@ class ContactLogController extends Controller
         // Create event log
         $contactLog->createLogForFeed(Event::ADD_ACTION);
 
-        return redirect('/contact/' . $user->id . '?tab=contact-logs');
+        return redirect('/' . $user->username . '?tab=contact-logs');
     }
 
     /**
@@ -80,7 +80,7 @@ class ContactLogController extends Controller
             'contact_time' => DateHelper::fromHumanToSystem($request->get('contact_time'), auth()->user()->timezone),
         ];
         $contactLog->update($data);
-        return redirect('/contact/' . $user->id . '?tab=contact-logs');
+        return redirect('/' . $user->username . '?tab=contact-logs');
     }
 
     /**
@@ -94,6 +94,6 @@ class ContactLogController extends Controller
     public function destroy(User $user, ContactLog $contactLog)
     {
         $contactLog->delete();
-        return redirect('/contact/' . $user->id . '?tab=contact-logs');
+        return redirect('/' . $user->username . '?tab=contact-logs');
     }
 }

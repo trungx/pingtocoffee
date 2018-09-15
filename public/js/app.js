@@ -40444,9 +40444,7 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              attrs: {
-                                href: "/contact/" + contactLog.contact_id
-                              }
+                              attrs: { href: "/" + contactLog.contact_username }
                             },
                             [
                               _c("i", {
@@ -40541,8 +40539,8 @@ var render = function() {
                               {
                                 attrs: {
                                   href:
-                                    "/contact/" +
-                                    reminder.contact_id +
+                                    "/" +
+                                    reminder.contact_username +
                                     "?tab=reminders"
                                 }
                               },
@@ -41071,7 +41069,7 @@ var render = function() {
                         "a",
                         {
                           staticClass: "mb-1 dib",
-                          attrs: { href: "/contact/" + contact.id }
+                          attrs: { href: "/" + contact.username }
                         },
                         [
                           contact.avatar
@@ -41437,7 +41435,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "mb-1 dib",
-                      attrs: { href: "/contact/" + contact.id }
+                      attrs: { href: "/" + contact.username }
                     },
                     [
                       contact.avatar
@@ -53943,7 +53941,7 @@ function Search(form, input, resultsContainer, showResults) {
             var person = {};
 
             person.id = user.id;
-            person.url = '/contact/' + user.id;
+            person.url = '/' + user.username;
             person.name = user.first_name + ' ' + user.last_name;
             person.avatar = user.avatar;
             person.initials = user.initials;

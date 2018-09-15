@@ -41,7 +41,7 @@
             {{ __('user.reminder_edit_cta') }}
           @endif
         </button>
-        <a href="/contact/{{ $user->id }}?tab=reminders" class="btn btn-link gray-text">{{ __('user.cancel_cta') }}</a>
+        <a href="/{{ $user->username }}?tab=reminders" class="btn btn-link gray-text">{{ __('user.cancel_cta') }}</a>
       </div>
     </div>
   </div>
