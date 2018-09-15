@@ -117,6 +117,9 @@
   </div>
 @endsection
 @push('scripts')
+  <!-- Laravel Javascript Validation -->
+  <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+  {!! JsValidator::formRequest('App\Http\Requests\SettingRequest'); !!}
   <script type="text/javascript">
     // index => month [0-11]
     let numberDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
