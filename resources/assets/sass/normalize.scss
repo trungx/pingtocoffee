@@ -12,14 +12,26 @@ a {
 
 .dark-text {
   color: $color;
+
+  &:hover, &:focus {
+    color: $color;
+  }
 }
 
 .gray-text {
   color: hsl(0, 0%, 29%);
+
+  &:hover, &:focus {
+    color: hsl(0, 0%, 29%);
+  }
 }
 
 .light-gray-text {
   color: hsl(0, 0%, 45%);
+
+  &:hover, &:focus {
+    color: hsl(0, 0%, 45%);
+  }
 }
 
 .middotDivider {
