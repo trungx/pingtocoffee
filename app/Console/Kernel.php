@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'App\Console\Commands\ProductionWizard',
-        'App\Console\Commands\SendMails'
+        'App\Console\Commands\SendMails',
+        'App\Console\Commands\DestroyUsers',
     ];
 
     /**
@@ -25,7 +26,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('ping:sendmails')->everyMinute();
+        $schedule->command('ping:destroy-users')->daily();
+        $schedule->command('ping:sendmails')->everyMinute();
 
         // start the queue worker, if its not running
         if (!$this->osProcessIsRunning('queue:work')) {
