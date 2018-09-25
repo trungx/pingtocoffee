@@ -45,6 +45,7 @@ class User extends Authenticatable
         'has_avatar',
         'avatar_file_name',
         'referral_code',
+        'destroy_date',
     ];
 
     /**
