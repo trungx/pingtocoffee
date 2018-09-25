@@ -40,5 +40,9 @@ return [
     'feedback' => 'Feedback',
     'news' => 'News',
     'terms-of-use' => 'Terms of Use',
-    'privacy-policy' => 'Privacy Policy'
+    'privacy-policy' => 'Privacy Policy',
+
+    // Destroy user.
+    'destroy_date_desc' => 'Your account will be deleted in <b>:day_will_be_deleted</b>',
+    'reactive_suggestion' => 'You can cancel this action by <a href="/login">log in</a> into your account and access Settings > Security.',
 ];

@@ -64,6 +64,10 @@ return [
     'only_me_privacy_desc' => 'This information will be seen by only you',
 
     // Security
+    'delete_account_title' => 'Delete Account',
+    'delete_account_desc' => 'This application don\'t save your personal information, so this is hard delete. All your related data will be removed out our system.',
+    'deleted_account_desc' => 'Your account will be deleted at <b>:destroy_date</b>',
+    'delete_account_confirmation' => 'Are you sure about permanently delete account?',
     'security_title' => 'Security',
     'password_current' => 'Current password',
     'password_new' => 'New password',
@@ -81,6 +85,8 @@ return [
     'send_invite' => 'Send Invite',
     'copy' => 'Copy',
     'save-changes' => 'Save Changes',
+    'delete_account_btn' => 'Delete your account',
+    'cancel_delete_account_btn' => 'Cancel delete account',
 
     // Messages
     'account_information_changed' => 'Your changes was saved!',
@@ -90,4 +96,5 @@ return [
     'referrals_mail_send_success' => 'Invitation email was sent successfully!',
     'something_wrong' => 'Something wrong, please try again!',
     'avatar_uploaded' => 'Your profile picture was uploaded!',
+    'delete_account_was_cancelled' => 'Your account active now!'
 ];

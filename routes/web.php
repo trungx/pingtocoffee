@@ -23,6 +23,7 @@ Route::get('/', function () {
     return redirect()->route('home');
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/destroy/success', 'UsersController@destroySuccess')->name('users.destroy-success');
 
 Auth::routes();
 
@@ -54,8 +55,10 @@ Route::middleware(['auth'])->group(function () {
     });
 
     
-    // Search
+    // Users
     Route::post('/users/search', 'UsersController@search')->name('users.search');
+    Route::post('/users/destroy', 'UsersController@destroy')->name('users.destroy');
+    Route::post('/users/reverse', 'UsersController@reverse')->name('users.reverse');
 
     // Referrals
     Route::get('/referrals', 'UsersController@showReferralsForm')->name('.referrals.showReferralsForm');
