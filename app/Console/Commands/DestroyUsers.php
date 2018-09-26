@@ -31,10 +31,7 @@ class DestroyUsers extends Command
     public function handle()
     {
         // Get all users need to be deleted today.
-        $users = User::where('destroy_date', Carbon::now()->format('Y-m-d'))->delete();
-
-        foreach ($users as $user) {
-            dispatch(new DestroyUser($user));
-        }
+        $users = User::where('destroy_date', '<=', Carbon::now()->format('Y-m-d'))->get();
+        dispatch(new DestroyUser($users));
     }
 }

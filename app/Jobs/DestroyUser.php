@@ -17,15 +17,15 @@ class DestroyUser implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $user;
+    protected $users;
 
     /**
      * DestroyUser constructor.
-     * @param $user
+     * @param $users
      */
-    public function __construct($user)
+    public function __construct($users)
     {
-        $this->user = $user;
+        $this->users = $users;
     }
 
     /**
@@ -35,27 +35,29 @@ class DestroyUser implements ShouldQueue
      */
     public function handle()
     {
-        // Delete relationship.
-        Relationship::where('user_first_id', $this->user->id)
-            ->orWhere('user_second_id', $this->user->id)
-            ->delete();
+        foreach ($this->users as $user) {
+            // Delete relationship.
+            Relationship::where('user_first_id', $user->id)
+                ->orWhere('user_second_id', $user->id)
+                ->delete();
 
-        // Delete contact logs.
-        ContactLog::where('from_user_id', $this->user->id)->delete();
+            // Delete contact logs.
+            ContactLog::where('from_user_id', $user->id)->delete();
 
-        // Delete reminders.
-        Reminder::where('from_user_id', $this->user->id)->delete();
+            // Delete reminders.
+            Reminder::where('from_user_id', $user->id)->delete();
 
-        // Delete contact information.
-        ContactFieldValue::where('user_id', $this->user->id)->delete();
+            // Delete contact information.
+            ContactFieldValue::where('user_id', $user->id)->delete();
 
-        // Delete feeds.
-        Feed::where('user_id', $this->user->id)->delete();
+            // Delete feeds.
+            Feed::where('user_id', $user->id)->delete();
 
-        // Delete account.
-        Account::where('id', $this->user->account_id)->delete();
+            // Delete account.
+            Account::where('id', $user->account_id)->delete();
 
-        // Delete user.
-        $this->user->delete();
+            // Delete user.
+            $user->delete();
+        }
     }
 }
