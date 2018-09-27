@@ -11,10 +11,10 @@
             Raven.showReportDialog({
                 eventId: '{{ Sentry::getLastEventID() }}',
                 // use the public DSN (dont include your secret!)
-                dsn: {{ env('SENTRY_LARAVEL_DSN') }},
+                dsn: '{{ config('sentry.dns') }}',
                 user: {
-                    'name': 'Henry Bui',
-                    'email': 'viethuongdev@gmail.com',
+                    'name': '{{ auth()->user()->getCompleteName() }}',
+                    'email': '{{ auth()->user()->email }}',
                 }
             });
         </script>
