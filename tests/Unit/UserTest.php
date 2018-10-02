@@ -67,4 +67,18 @@ class UserTest extends TestCase
 
         $this->assertEquals('Henry Bui', $user->getCompleteName());
     }
+
+    public function testIsBirthdayTodayReturnCorrect()
+    {
+        $user = factory(User::class)->create([
+            'first_name' => 'Henry',
+            'last_name' => 'Bui',
+            'birthday' => '1993-01-01',
+        ]);
+
+        // Set test day.
+        Carbon::setTestNow(Carbon::create(2018, 1, 1));
+
+        $this->assertEquals(true, $user->isBirthdayToday());
+    }
 }
