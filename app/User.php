@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Traits\Searchable;
 use App\Helpers\DateHelper;
 use App\Helpers\ImageHelper;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -438,5 +439,17 @@ class User extends Authenticatable
     public static function hasUsernameAlreadyBeenTaken($userName)
     {
         return User::where('username', $userName)->exists();
+    }
+
+    /**
+     * Check if today is user birthday.
+     *
+     * @return bool
+     */
+    public function isBirthdayToday()
+    {
+        $birthday = Carbon::createFromFormat('Y-m-d', $this->birthday)->format('m-d');
+        $today = Carbon::now()->format('m-d');
+        return $birthday == $today;
     }
 }
