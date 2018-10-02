@@ -21,6 +21,11 @@
                   @<a href="/{{ $user->username }}" class="gray-text">{{ $user->username }}</a>
                 </div>
                 <div class="light-gray-text tc mb-3">{{ $user->description }}</div>
+                @if ($user->isBirthdayToday())
+                  <div class="mb3">
+                    <i class="fas fa-birthday-cake mr2"></i>{{ __('user.contact_birthday_notify', ['firstName' => $user->first_name]) }}
+                  </div>
+                @endif
                 <actions-component :user-id="{{ $user->id }}" :authenticated-user-id="{{ auth()->user()->id }}" :default-type="'{{ $relationship->type }}'"></actions-component>
               </div>
             </div>

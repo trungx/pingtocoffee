@@ -20,6 +20,7 @@ return [
     'contact_empty' => 'You have no contact yet.',
     'contact_list_total' => 'You have total <strong>:total</strong> contacts',
     'contact_empty_suggestion' => 'Use the search box to find friends and see their information',
+    'contact_birthday_notify' => 'Today is :firstName\'s birthday',
 
     // Actions
     'add_cta' => 'Add Friend',

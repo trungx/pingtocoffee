@@ -30,6 +30,11 @@
                         </div>
                       @endif
                       <span class="f5">{{ $contact->getCompleteName() }}</span>
+                      @if ($contact->isBirthdayToday())
+                        <span class="mh2 gray-text" title="{{ __('user.contact_birthday_notify', ['firstName' => $contact->first_name]) }}">
+                          <i class="fas fa-birthday-cake"></i>
+                        </span>
+                      @endif
                     </a>
                   </li>
                 @endforeach
