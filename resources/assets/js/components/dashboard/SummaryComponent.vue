@@ -30,7 +30,7 @@
           
           <ul v-if="!contactLogsLoading && contactLogs.length !== 0" class="relative list pl3">
             <li v-for="contactLog in contactLogs" :key="contactLog.id" class="pt2 pb2">
-              <a :href="'/' + contactLog.contact_username">
+              <a :href="'/' + contactLog.contact_username + '?tab=contact-logs'">
                 <i :class="contactLog.log_icon_class" class="light-gray-text mr3"></i>{{ contactLog.contact_name }}
               </a>
               <span class="fr light-gray-text" :title="contactLog.full_contact_time">{{ contactLog.contact_time }}</span>

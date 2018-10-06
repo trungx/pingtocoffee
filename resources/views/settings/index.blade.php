@@ -54,6 +54,12 @@
                 <div class="form-group">
                   <label for="username">{{ __('settings.username') }}</label>
                   <input type="text" class="form-control" name="username" id="username" placeholder="@henryonsoftware" value="{{ old('username') ?? auth()->user()->username }}">
+                  <!-- Display profile link with username -->
+                  @if (auth()->user()->username)
+                    <a href="/{{ auth()->user()->username }}" class="f7">
+                      {{ config('app.url') }}/<b>{{ auth()->user()->username }}</b>
+                    </a>
+                  @endif
                 </div>
                 <div class="row">
                   <div class="col-md-6">
@@ -148,15 +154,15 @@
           success: function (data) {
             hideLoading();
             if (data.status == 'success') {
-              $('#print-msg').html(data.msg).addClass('db').removeClass('dn').addClass('alert-success').removeClass('alert-danger');
-              $('#account-avatar').html(`<img src="${data.src}" width="200">`);
+              $('#print-msg').html(data.msg).addClass('db').removeClass('dn').addClass('alert-success').removeClass('alert-danger').css('width', 200);
+              $('#account-avatar').html(`<img class="br2" src="${data.src}" width="200">`);
             } else {
               let errorsText = "";
-              for (i = 0; i < data.errors.length; i++) {
+              for (let i = 0; i < data.errors.length; i++) {
                 errorsText += `<li>${data.errors[i]}</li>`;
               }
               let errorsTexts = `<ul class="pl-2">${errorsText}</ul>`;
-              $('#print-msg').html(errorsTexts).addClass('db').removeClass('dn').addClass('alert-danger').removeClass('alert-success');
+              $('#print-msg').html(errorsTexts).addClass('db').removeClass('dn').addClass('alert-danger').removeClass('alert-success').css('width', 200);
             }
           },
           error: function (e) {
@@ -200,7 +206,7 @@
 
       let d = new Date();
       let yearOption = `<option value="">{{ __('settings.year_lc') }}</option>`;
-      for (let k = 1918; k <= d.getFullYear(); k++) {// years start i
+      for (let k = d.getFullYear(); k >= 1918; k--) {// years start k
         if (k === selectedYear) {
           yearOption += `<option value="${k}" selected>${k}</option>`;
         } else {

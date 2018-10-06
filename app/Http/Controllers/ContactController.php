@@ -42,7 +42,7 @@ class ContactController extends Controller
                 $reminders = auth()->user()->getReminders($user->id);
                 break;
             default:
-                $activeTab = 'contact-logs';
+                $activeTab = 'reminders';
                 $contactLogs = auth()->user()->getContactLogs($user->id);
                 break;
         }

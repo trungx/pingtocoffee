@@ -40444,7 +40444,12 @@ var render = function() {
                           _c(
                             "a",
                             {
-                              attrs: { href: "/" + contactLog.contact_username }
+                              attrs: {
+                                href:
+                                  "/" +
+                                  contactLog.contact_username +
+                                  "?tab=contact-logs"
+                              }
                             },
                             [
                               _c("i", {
