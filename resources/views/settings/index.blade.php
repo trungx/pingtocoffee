@@ -200,7 +200,7 @@
 
       let d = new Date();
       let yearOption = `<option value="">{{ __('settings.year_lc') }}</option>`;
-      for (let k = 1918; k <= d.getFullYear(); k++) {// years start i
+      for (let k = d.getFullYear(); k >= 1918; k--) {// years start k
         if (k === selectedYear) {
           yearOption += `<option value="${k}" selected>${k}</option>`;
         } else {
