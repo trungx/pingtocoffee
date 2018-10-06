@@ -18,7 +18,7 @@ Example: `123-fix-validation-name`
 
 We are using `phpunit` to cover the test for the backend. So if your PR contents the logic change and it needs the test cases, please write and run the test before creating PR.
 
-Make sure you follow the [instructions](https://github.com/pingnow/pingtocoffee/blob/master/docs/contribute/index.md) on how to setup the test suite.
+Make sure you follow the [instructions](https://github.com/pingnow/pingtocoffee/tree/master/docs/contribute/index.md) on how to setup the test suite.
 
 ### 4. Did you find a bug?
 

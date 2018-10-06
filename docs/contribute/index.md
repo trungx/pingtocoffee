@@ -3,7 +3,7 @@
 We try to cover most features and new methods with unit and functional tests. Any pull request submitted on GitHub should have test and will be checked before being merged. Moreover, we strongly encourage adding unit tests for every new method added to the codebase to ensure code stability, and we will probably refuse a pull request if there is no tests for it.
 
 
-###Setup
+### Setup
 
 To setup the test environment:
 
