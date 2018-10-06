@@ -1,5 +1,8 @@
 # Ping to coffee
 
+[![Build Status](https://travis-ci.org/pingnow/pingtocoffee.svg?branch=master)](https://travis-ci.org/pingnow/pingtocoffee)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
 This is a project that helps you store, update your contact information and connect with friends, relatives and colleagues for their latest information. In addition, this project helps you develop a relationship so it gets better and better.
 
 
