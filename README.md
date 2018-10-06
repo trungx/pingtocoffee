@@ -64,7 +64,7 @@ Then change the information accordingly to the environmental information of the 
 
 b) Run the `composer install` command to install packages from the packagist. If your environment does not have [composer](https://getcomposer.org/), it is mandatory to install it before running this command.
 
-If you are installing for the **production** environment, add `--no-interaction --prefer-dist -no-suggest --optimize-autoloader` options to optimize the installation.
+If you are installing for the **production** environment, add `--no-interaction --prefer-dist --no-suggest --optimize-autoloader` options to optimize the installation.
 
 c) Next, run `php artisan setup:production` to create the database table, create the default data, and create a symbolic link for the storage directory.
 
