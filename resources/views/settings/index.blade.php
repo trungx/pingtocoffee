@@ -148,15 +148,15 @@
           success: function (data) {
             hideLoading();
             if (data.status == 'success') {
-              $('#print-msg').html(data.msg).addClass('db').removeClass('dn').addClass('alert-success').removeClass('alert-danger');
-              $('#account-avatar').html(`<img src="${data.src}" width="200">`);
+              $('#print-msg').html(data.msg).addClass('db').removeClass('dn').addClass('alert-success').removeClass('alert-danger').css('width', 200);
+              $('#account-avatar').html(`<img class="br2" src="${data.src}" width="200">`);
             } else {
               let errorsText = "";
-              for (i = 0; i < data.errors.length; i++) {
+              for (let i = 0; i < data.errors.length; i++) {
                 errorsText += `<li>${data.errors[i]}</li>`;
               }
               let errorsTexts = `<ul class="pl-2">${errorsText}</ul>`;
-              $('#print-msg').html(errorsTexts).addClass('db').removeClass('dn').addClass('alert-danger').removeClass('alert-success');
+              $('#print-msg').html(errorsTexts).addClass('db').removeClass('dn').addClass('alert-danger').removeClass('alert-success').css('width', 200);
             }
           },
           error: function (e) {
