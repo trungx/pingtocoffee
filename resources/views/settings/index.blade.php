@@ -54,6 +54,11 @@
                 <div class="form-group">
                   <label for="username">{{ __('settings.username') }}</label>
                   <input type="text" class="form-control" name="username" id="username" placeholder="@henryonsoftware" value="{{ old('username') ?? auth()->user()->username }}">
+                  @if (auth()->user()->username)
+                    <a href="/{{ auth()->user()->username }}" class="f7">
+                      {{ config('app.url') }}/<b>{{ auth()->user()->username }}</b>
+                    </a>
+                    @endif
                 </div>
                 <div class="row">
                   <div class="col-md-6">
