@@ -31,7 +31,7 @@ class InvitationEmail extends Mailable
     public function build()
     {
         return $this->markdown('emails.users.invitation')
-            ->subject('Invitation from ' . env('APP_NAME'))
+            ->subject('Invitation from ' . config('app.name'))
             ->with('user', $this->user);
     }
 }

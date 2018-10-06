@@ -3,7 +3,7 @@
 return [
     // Default event body
     'feed_heading' => 'Activity Browser',
-    'signed_up_event' => 'Hooray! You signed up and become a member of ' . env('APP_NAME', 'Ping to coffee'),
+    'signed_up_event' => 'Hooray! You signed up and become a member of ' . config('app.name'),
     'first_reminder_event' => 'You created the first reminder!',
     'add_contact_log_event_body' => 'You added a contact log for <a href="/:username?tab=contact-logs" class="link-gray-dark b">:fullName</a>',
     'add_reminder_event_body' => 'You set new reminder for <a href="/:username?tab=reminders" class="link-gray-dark b">:fullName</a>',
