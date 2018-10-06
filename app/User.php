@@ -448,6 +448,9 @@ class User extends Authenticatable
      */
     public function isBirthdayToday()
     {
+        if (empty($this->birthday)) {
+            return false;
+        }
         $birthday = Carbon::createFromFormat('Y-m-d', $this->birthday)->format('m-d');
         $today = Carbon::now()->format('m-d');
         return $birthday == $today;
