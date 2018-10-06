@@ -6,7 +6,7 @@
   If you've been trying to control your busy life, we bet you don't want to lost friendships.
   Joining with us is a correct decision of you and we believe you will have more good friends.
 
-  @component('mail::button', ['url' => env('APP_URL'), 'color' => 'green'])
+  @component('mail::button', ['url' => config('app.url'), 'color' => 'green'])
     Open the app
   @endcomponent
 

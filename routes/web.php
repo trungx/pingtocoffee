@@ -12,7 +12,7 @@
 */
 
 // Force production URL to use https protocol
-if (env('APP_ENV') === 'production') {
+if (config('app.env') === 'production') {
     URL::forceScheme('https');
 }
 

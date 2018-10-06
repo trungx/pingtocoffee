@@ -31,7 +31,7 @@
                 <form onsubmit="return false">
                   <div class="form-group mr-3 mb-2">
                     <label for="email" class="sr-only">Invite link</label>
-                    <input type="text" class="form-control" id="affiliate-link" value="{{ env('APP_URL') }}/register?ref={{ $referralCode }}" style="min-width: 290px;" readonly>
+                    <input type="text" class="form-control" id="affiliate-link" value="{{ config('app.url') }}/register?ref={{ $referralCode }}" style="min-width: 290px;" readonly>
                   </div>
                   <button type="submit" class="btn default-btn b mb-2" id="copy-to-clipboard-btn" data-clipboard-target="#affiliate-link">{{ __('settings.copy') }}</button>
                 </form>
