@@ -16,7 +16,7 @@ install:
 
 before_script:
   - mysql -e 'create database pingtocoffee_test;'
-  - php artisan migrate --force --seed
+  - php artisan migrate --force
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - php artisan serve &
 
