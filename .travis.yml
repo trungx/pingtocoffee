@@ -17,3 +17,4 @@ before_script:
 script:
  - php artisan key:generate
  - vendor/bin/phpunit
+ - php artisan dusk

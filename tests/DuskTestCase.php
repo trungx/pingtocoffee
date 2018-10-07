@@ -40,4 +40,17 @@ abstract class DuskTestCase extends BaseTestCase
             )
         );
     }
+
+    /**
+     * Sign up new user.
+     *
+     * @return mixed
+     */
+    public function signUp()
+    {
+        $user = factory(\App\User::class)->create([
+            'email' => 'henryonsoftware@gmail.com',
+        ]);
+        return $user;
+    }
 }
