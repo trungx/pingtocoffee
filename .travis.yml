@@ -1,20 +1,26 @@
+sudo: required
+dist: trusty
+
+addons:
+  chrome: stable
+
 language: php
 
 php:
   - '7.2'
 
-sudo: false
-
 install:
- - cp .env.travis .env
- - composer self-update
- - travis_retry composer install --no-interaction --prefer-source
+  - cp .env.travis .env
+  - composer self-update
+  - travis_retry composer install --no-interaction --prefer-source
 
 before_script:
   - mysql -e 'create database pingtocoffee_test;'
   - php artisan migrate --force --seed
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
 
 script:
- - php artisan key:generate
- - vendor/bin/phpunit
- - php artisan dusk
+  - php artisan key:generate
+  - vendor/bin/phpunit
+  - php artisan dusk
