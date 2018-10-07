@@ -4,10 +4,10 @@
 #addons:
 #  chrome: stable
 #
-#language: php
+language: php
 #
-#php:
-#  - '7.2'
+php:
+  - '7.2'
 #
 #install:
 #  - cp .env.travis .env
