@@ -22,5 +22,5 @@ before_script:
 
 script:
   - php artisan key:generate
-  - vendor/bin/phpunit
+  - phpunit
   - php artisan dusk
