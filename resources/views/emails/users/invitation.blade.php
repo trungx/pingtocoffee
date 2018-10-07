@@ -7,7 +7,7 @@
 
   Interested? **Sign up** for free at below button. We hope you will get more better relationships.
 
-  @component('mail::button', ['url' => config('app.url') . '/register?ref=' . $user->referral_code, 'color' => 'blue'])
+  @component('mail::button', ['url' => config('app.url') . '/register?ref=' . $user->referral_code, 'color' => 'primary'])
     Sign Up
   @endcomponent
 

@@ -12,10 +12,10 @@ let tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css').version();
+mix.js('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css').version();
 
-mix.sass('resources/assets/sass/marketing/app.scss', 'public/css/marketing')
+mix.sass('resources/sass/marketing/app.scss', 'public/css/marketing')
   .options({
     processCssUrls: false,
     postCss: [ tailwindcss('tailwind.js') ],
