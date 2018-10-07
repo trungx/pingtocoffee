@@ -4,10 +4,6 @@
 #addons:
 #  chrome: stable
 #
-language: php
-#
-php:
-  - '7.2'
 #
 #install:
 #  - cp .env.travis .env
@@ -25,10 +21,18 @@ php:
 #  - phpunit
 #  - php artisan dusk
 sudo: required
+
 dist: trusty
+
+language: php
+
+php:
+  - '7.2'
 
 addons:
    chrome: stable
+   hosts:
+     - pingtocoffee.io
 
 install:
    - cp .env.travis .env
@@ -37,7 +41,7 @@ install:
 before_script:
    - mysql -e 'create database pingtocoffee_test;'
    - php artisan migrate --force
-   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://127.0.0.1 &
+   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://pingtocoffee.io &
    - php artisan serve &
 
 script:
