@@ -1,6 +1,10 @@
-<form method="POST" action="{{ $action }}">
+<form method="POST" action="{{ $action }}" class="contact-logs-form">
   @method($method)
   @csrf
+  <div class="form-group">
+    <label for="notes">{{ __('user.contact_logs_notes_lbl') }}</label>
+    <textarea type="text" class="form-control" name="notes" id="notes" placeholder="{{ __('user.notes_placeholder') }}">{{ old('notes') ?? $contactLog->notes }}</textarea>
+  </div>
   <div class="form-group">
     <label for="contact_type">{{ __('user.contact_logs_title') }}</label>
     <select class="form-control" id="contact_type" name="contact_type">
@@ -9,7 +13,10 @@
       @endforeach
     </select>
   </div>
-  <div class="form-group">
+  <div class="pv2 date-it-happened">
+    {{ __('user.contact_logs_not_happened_today') }} <a href="#" class="change-datetime underline">{{ __('user.contact_logs_change') }}</a>
+  </div>
+  <div class="form-group exact-datetime" style="display:none">
     <label for="contact_time">{{ __('user.contact_logs_contact_time_lbl') }}</label>
     <div class="input-group date" id="contact_time" data-target-input="nearest">
       <input type="text" class="form-control datetimepicker-input" name="contact_time" data-target="#contact_time" value="{{ old('contact_time') ?? \App\Helpers\DateHelper::convertToTimezone($contactLog->contact_time, auth()->user()->timezone)->format('Y/m/d h:i A') }}">
@@ -17,10 +24,6 @@
         <div class="input-group-text"><i class="fa fa-calendar-alt"></i></div>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="notes">{{ __('user.contact_logs_notes_lbl') }}</label>
-    <textarea type="text" class="form-control" name="notes" id="notes" placeholder="{{ __('user.notes_placeholder') }}">{{ old('notes') ?? $contactLog->notes }}</textarea>
   </div>
   <div class="row">
     <div class="col-12">
