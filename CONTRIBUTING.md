@@ -48,4 +48,4 @@ Also, keep in mind that this project is still a side project. Maintainers of thi
 
 Even the simplest change is appreciated. It can be a typo error, translating the application in a new language, fix a bug. No change is too small.
 
-- If your contribution involves a change in the UI (even if it's very small), please ping @henryonsoftware in an issue before you start working on it, explaining what you want to achieve, why and how. We want to maintain a high level of visual quality in the software and we will dismiss all pull requests that change the front end that have not been discussed before-hand.
+- If your contribution involves a change in the UI (even if it's very small), please ping [@henryonsoftware](https://github.com/henryonsoftware) in an issue before you start working on it, explaining what you want to achieve, why and how. We want to maintain a high level of visual quality in the software and we will dismiss all pull requests that change the front end that have not been discussed before-hand.

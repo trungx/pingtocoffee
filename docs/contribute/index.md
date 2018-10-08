@@ -18,3 +18,9 @@ The test suite uses phpunit. It's mainly used to perform unit tests or quick, sm
 To run the test suite:
 
 `phpunit` or `./vendor/bin/phpunit` in the root of the folder containing code from GitHub.
+
+### Browser test
+
+We are using Laravel Dusk to help testing with browsers. If it is not intimate with you, please read about it [here](https://laravel.com/docs/5.7/dusk).
+
+The test suite can be run with command: `php artisan dusk`
