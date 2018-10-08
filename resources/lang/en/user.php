@@ -78,6 +78,8 @@ return [
     'contact_logs_contact_time_lbl' => 'When did it happen?',
     'contact_logs_delete_confirmation' => 'Are you sure you want to delete this log?',
     'contact_logs_notes_lbl' => 'Notes(optional)',
+    'contact_logs_not_happened_today' => 'This conversation was not happening today.',
+    'contact_logs_change' => 'Change',
     'contact_logs_add_cta' => 'Add a log',
     'contact_logs_edit_cta' => 'Edit',
     'contact_logs_save' => 'Save Changes',

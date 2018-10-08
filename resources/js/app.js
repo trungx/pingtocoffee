@@ -44,3 +44,5 @@ const app = new Vue({
 require('./search');
 
 require('./form');
+
+require('./contacts');
