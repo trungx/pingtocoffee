@@ -73,7 +73,7 @@ c) Next, run `php artisan setup:production` to create the database table, create
 
 Note: The production environment default requires https. If you need to turn it off, please edit it in `routes/web.php`. Or change the APP_ENV to **local** for development.
 
-d) Currently the application is using [task scheduling](https://laravel.com/docs/5.6/scheduling) as background processes to perform tasks(send mail, set next reminder date,...). So you need to install cron job to initialize the necessary background processes.
+d) Currently the application is using [task scheduling](https://laravel.com/docs/5.7/scheduling) as background processes to perform tasks(send mail, set next reminder date,...). So you need to install cron job to initialize the necessary background processes.
 
 For example:
 
