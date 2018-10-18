@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/destroy/success', 'UsersController@destroySuccess')->name('users.destroy-success');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::middleware(['auth'])->group(function () {
     // Dashboard

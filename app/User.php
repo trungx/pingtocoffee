@@ -9,8 +9,9 @@ use App\Traits\Searchable;
 use App\Helpers\DateHelper;
 use App\Helpers\ImageHelper;
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use Searchable;

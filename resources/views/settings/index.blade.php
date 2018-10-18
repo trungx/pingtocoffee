@@ -86,6 +86,11 @@
                 <div class="form-group">
                   <label for="email">{{ __('settings.email') }}</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="{{ __('settings.email_placeholder') }}" required value="{{ old('email') ?? auth()->user()->email }}">
+                  @if(auth()->user()->hasVerifiedEmail())
+                    <small class="f7 green">{{ __('settings.verified') }}<i class="ml1 far fa-check-circle"></i></small>
+                  @else
+                    <small class="f7">{{ __('settings.verify_require_desc') }}<a href="#" class="ml1">{{ __('settings.resend') }}</a></small>
+                  @endif
                 </div>
                 <!-- Birthday -->
                 <div class="form-group">
