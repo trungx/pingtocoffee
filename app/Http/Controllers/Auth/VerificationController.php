@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
 
 class VerificationController extends Controller
 {
@@ -37,5 +38,44 @@ class VerificationController extends Controller
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
+    }
+
+    /**
+     * Resend the email verification notification.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function resend(Request $request)
+    {
+        if ($request->user()->hasVerifiedEmail() || !$this->shouldSend($request->user)) {
+            return redirect($this->redirectPath());
+        }
+
+        $request->user()->sendEmailVerificationNotification();
+
+        // Update last date time email was sent.
+        $request->user->forceFill([
+            'last_verification_email_sent' => $request->user->freshTimestamp(),
+        ])->save();
+
+        return back()->with('status', __('settings.resent'));
+    }
+
+    /**
+     * Check it should send verification email.
+     *
+     * @param $user
+     * @return bool
+     */
+    public function shouldSend($user)
+    {
+        if (! $user->last_verification_email_sent) {
+            return true;
+        }
+
+        $minutes = \Carbon\Carbon::now()->diffInMinutes($user->last_verification_email_sent);
+
+        return $minutes > config('user.resend_verification_email_after');
     }
 }

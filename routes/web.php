@@ -54,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/security', 'Auth\\ChangePasswordController@update')->name('.security.update');
     });
 
+    // Verification
+    Route::post('/email/verify/resend/{user}', 'Auth\VerificationController@resend')->name('resend-verification-email');
     
     // Users
     Route::post('/users/search', 'UsersController@search')->name('users.search');

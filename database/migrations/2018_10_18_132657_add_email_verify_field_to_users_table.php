@@ -15,6 +15,7 @@ class AddEmailVerifyFieldToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('last_verification_email_sent')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddEmailVerifyFieldToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('email_verified_at');
+            $table->dropColumn('last_verification_email_sent');
         });
     }
 }

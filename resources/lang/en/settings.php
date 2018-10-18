@@ -88,6 +88,7 @@ return [
     'copy' => 'Copy',
     'save-changes' => 'Save Changes',
     'resend' => 'Resend',
+    'resent' => 'We sent a verification link to your email',
     'delete_account_btn' => 'Delete your account',
     'cancel_delete_account_btn' => 'Cancel delete account',
 
