@@ -456,4 +456,15 @@ class User extends Authenticatable implements MustVerifyEmail
         $today = Carbon::now()->format('m-d');
         return $birthday == $today;
     }
+
+    /**
+     * How much time until next email send.
+     *
+     * @return int
+     */
+    public function sendNextVerificationEmailAfter()
+    {
+        $minutes = Carbon::now()->diffInMinutes($this->last_verification_email_sent);
+        return config('user.resend_email_after') - $minutes;
+    }
 }

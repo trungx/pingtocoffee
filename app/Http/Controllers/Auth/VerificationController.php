@@ -48,15 +48,21 @@ class VerificationController extends Controller
      */
     public function resend(Request $request)
     {
-        if ($request->user()->hasVerifiedEmail() || !$this->shouldSend($request->user)) {
+        if ($request->user()->hasVerifiedEmail()) {
             return redirect($this->redirectPath());
+        }
+
+        if (! $this->shouldSend($request->user())) {
+            $minutes = $request->user()->sendNextVerificationEmailAfter();
+
+            return back()->with('status', __('settings.resend_email_throttle', ['minutes' => $minutes]));
         }
 
         $request->user()->sendEmailVerificationNotification();
 
         // Update last date time email was sent.
-        $request->user->forceFill([
-            'last_verification_email_sent' => $request->user->freshTimestamp(),
+        $request->user()->forceFill([
+            'last_verification_email_sent' => $request->user()->freshTimestamp(),
         ])->save();
 
         return back()->with('status', __('settings.resent'));
@@ -74,8 +80,6 @@ class VerificationController extends Controller
             return true;
         }
 
-        $minutes = \Carbon\Carbon::now()->diffInMinutes($user->last_verification_email_sent);
-
-        return $minutes > config('user.resend_verification_email_after');
+        return $user->sendNextVerificationEmailAfter() > config('user.resend_email_after');
     }
 }

@@ -89,6 +89,7 @@ return [
     'save-changes' => 'Save Changes',
     'resend' => 'Resend',
     'resent' => 'We sent a verification link to your email',
+    'resend_email_throttle' => 'We sent an email for you, wait a minutes or try resend again after :minutes minutes',
     'delete_account_btn' => 'Delete your account',
     'cancel_delete_account_btn' => 'Cancel delete account',
 

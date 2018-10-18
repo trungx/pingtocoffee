@@ -20,5 +20,5 @@ return [
     | The minutes next verification email will be sent when click Resend.
     |
     */
-    'resend_verification_email_after' => 30,
+    'resend_email_after' => 30,
 ];
