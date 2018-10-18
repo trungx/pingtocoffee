@@ -76,10 +76,10 @@ class VerificationController extends Controller
      */
     public function shouldSend($user)
     {
-        if (! $user->last_verification_email_sent) {
+        if (empty($user->last_verification_email_sent)) {
             return true;
         }
 
-        return $user->sendNextVerificationEmailAfter() > config('user.resend_email_after');
+        return $user->sendNextVerificationEmailAfter() <= 0;
     }
 }
