@@ -97,4 +97,26 @@ class UserTest extends TestCase
 
         $this->assertEquals(false, $user3->isBirthdayToday());
     }
+
+    public function testSendNextVerificationEmailAfterReturnCorrect()
+    {
+        $user = factory(User::class)->create([
+            'last_verification_email_sent' => Carbon::now()
+        ]);
+
+        // Set config
+        config(['user.resend_email_after' => 30]);
+
+        $this->assertEquals(30, $user->sendNextVerificationEmailAfter());
+
+        $user->last_verification_email_sent = Carbon::now()->subMinutes(20);
+        $user->save();
+
+        $this->assertEquals(10, $user->sendNextVerificationEmailAfter());
+
+        $user->last_verification_email_sent = Carbon::now()->subMinutes(100);
+        $user->save();
+
+        $this->assertEquals(0, $user->sendNextVerificationEmailAfter());
+    }
 }
