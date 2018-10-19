@@ -180,7 +180,7 @@
 
       if (oldBirthday !== "") {
         selectedDay = parseInt(oldBirthday.substr(8, 2));
-        selectedMonth = parseInt(oldBirthday.substr(6, 2));
+        selectedMonth = parseInt(oldBirthday.substr(5, 2));
         selectedYear = parseInt(oldBirthday.substr(0, 4));
       }
 
