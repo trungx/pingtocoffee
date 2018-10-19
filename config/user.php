@@ -10,4 +10,15 @@ return [
     |
     */
     'days_to_destroy' => 30,
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Time to resend email
+    |--------------------------------------------------------------------------
+    |
+    | The minutes next verification email will be sent when click Resend.
+    |
+    */
+    'resend_email_after' => 30,
 ];

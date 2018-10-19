@@ -19,6 +19,8 @@ return [
     'description' => 'Short description',
     'description_placeholder' => 'Tell something about yourself...',
     'email' => 'Email',
+    'verified' => 'Verified',
+    'verify_require_desc' => 'Please verify email by link we sent to you.',
     'birthday' => 'Birthday',
     'year_lc' => 'year',
     'month_lc' => 'month',
@@ -85,6 +87,9 @@ return [
     'send_invite' => 'Send Invite',
     'copy' => 'Copy',
     'save-changes' => 'Save Changes',
+    'resend' => 'Resend',
+    'resent' => 'We sent a verification link to your email',
+    'resend_email_throttle' => 'We sent an email for you, wait a minutes or try resend again after :minutes minutes',
     'delete_account_btn' => 'Delete your account',
     'cancel_delete_account_btn' => 'Cancel delete account',
 

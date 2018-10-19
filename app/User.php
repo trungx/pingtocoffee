@@ -9,8 +9,9 @@ use App\Traits\Searchable;
 use App\Helpers\DateHelper;
 use App\Helpers\ImageHelper;
 use Carbon\Carbon;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use Searchable;
@@ -454,5 +455,16 @@ class User extends Authenticatable
         $birthday = Carbon::createFromFormat('Y-m-d', $this->birthday)->format('m-d');
         $today = Carbon::now()->format('m-d');
         return $birthday == $today;
+    }
+
+    /**
+     * How much time until next email send.
+     *
+     * @return int
+     */
+    public function sendNextVerificationEmailAfter()
+    {
+        $minutes = Carbon::now()->diffInMinutes($this->last_verification_email_sent);
+        return config('user.resend_email_after') - $minutes;
     }
 }

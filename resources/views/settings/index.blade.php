@@ -86,6 +86,11 @@
                 <div class="form-group">
                   <label for="email">{{ __('settings.email') }}</label>
                   <input type="email" class="form-control" name="email" id="email" placeholder="{{ __('settings.email_placeholder') }}" required value="{{ old('email') ?? auth()->user()->email }}">
+                  @if(auth()->user()->hasVerifiedEmail())
+                    <small class="f7 green">{{ __('settings.verified') }}<i class="ml1 far fa-check-circle"></i></small>
+                  @else
+                    <small class="f7">{{ __('settings.verify_require_desc') }}<a href="javascript:void(0)" class="ml1" onclick="event.preventDefault(); document.getElementById('resend-email-form').submit();">{{ __('settings.resend') }}</a></small>
+                  @endif
                 </div>
                 <!-- Birthday -->
                 <div class="form-group">
@@ -114,6 +119,11 @@
                   @include('settings.countries')
                 </div>
                 <button type="submit" class="btn default-btn b">{{ __('settings.save') }}</button>
+              </form>
+
+              <!-- Resend verification email form -->
+              <form id="resend-email-form" action="{{ route('resend-verification-email', ['user' => auth()->user()]) }}" method="POST" style="display: none;">
+                @csrf
               </form>
             </div>
           </div>

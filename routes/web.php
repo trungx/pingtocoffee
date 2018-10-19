@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/users/destroy/success', 'UsersController@destroySuccess')->name('users.destroy-success');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::middleware(['auth'])->group(function () {
     // Dashboard
@@ -54,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/security', 'Auth\\ChangePasswordController@update')->name('.security.update');
     });
 
+    // Verification
+    Route::post('/email/verify/resend/{user}', 'Auth\VerificationController@resend')->name('resend-verification-email');
     
     // Users
     Route::post('/users/search', 'UsersController@search')->name('users.search');
