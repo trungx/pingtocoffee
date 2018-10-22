@@ -47,7 +47,16 @@ class SettingsController extends Controller
             return redirect('/settings');
         }
 
+        if ($updatingData['email'] != $request->user()->email) {
+            // Reset email verified data.
+            $updatingData['email_verified_at'] = null;
+            $updatingData['last_verification_email_sent'] = $request->user()->freshTimestamp();
+        }
+
         $request->user()->update($updatingData);
+
+        // Send verify new email.
+        $request->user()->sendEmailVerificationNotification();
 
         return redirect('settings')->with('status', __('settings.account_information_changed'));
     }
