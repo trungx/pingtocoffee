@@ -48,6 +48,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'avatar_file_name',
         'referral_code',
         'destroy_date',
+        'email_verified_at',
+        'last_verification_email_sent',
     ];
 
     /**
