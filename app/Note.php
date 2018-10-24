@@ -36,4 +36,28 @@ class Note extends Model
     {
         return $this->belongsTo('App\User', 'to_user_id');
     }
+
+    /**
+     * Scope of reminder owner.
+     *
+     * @param $query
+     * @param $userId
+     * @return mixed
+     */
+    public function scopeOfOwner($query, $userId)
+    {
+        return $query->where('from_user_id', $userId);
+    }
+
+    /**
+     * Scope of reminder contact.
+     *
+     * @param $query
+     * @param $userId
+     * @return mixed
+     */
+    public function scopeOfContact($query, $userId)
+    {
+        return $query->where('to_user_id', $userId);
+    }
 }

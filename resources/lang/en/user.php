@@ -66,6 +66,13 @@ return [
     'next_time_explain' => 'The time that the reminder will be sent',
     'frequency_explain' => 'The send frequency of reminder',
 
+    // Notes
+    'notes' => 'Notes',
+    'notes_tab' => 'Notes',
+    'notes_add_cta' => 'Add a note',
+    'notes_empty' => 'No notes yet',
+    'notes_empty_whats' => 'Let\'s add a new note.',
+
     // Contact logs
     'contact_logs_heading' => 'Contact logs',
     'add_contact_logs_lbl' => 'Add a contact log',
