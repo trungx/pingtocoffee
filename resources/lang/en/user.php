@@ -66,6 +66,20 @@ return [
     'next_time_explain' => 'The time that the reminder will be sent',
     'frequency_explain' => 'The send frequency of reminder',
 
+    // Notes
+    'notes' => 'Notes',
+    'notes_tab' => 'Notes',
+    'new_note' => 'New note',
+    'notes_add_cta' => 'Add a note',
+    'add_note_placeholder' => 'Add a note...',
+    'notes_empty' => 'No notes yet',
+    'notes_empty_whats' => 'Let\'s add a new note.',
+    'notes_delete_confirmation' => 'Are you sure you want to delete this note?',
+    'notes_delete_success' => 'Your note was deleted!',
+    'notes_add_cta' => 'Add a note',
+    'notes_cancel_cta' => 'Cancel',
+    'notes_add_success' => 'Add note successfully',
+
     // Contact logs
     'contact_logs_heading' => 'Contact logs',
     'add_contact_logs_lbl' => 'Add a contact log',
@@ -135,6 +149,7 @@ return [
     'reminders_edit_success' => 'Edit reminder successfully',
     'reminders_delete_success' => 'Delete reminder successfully',
     'user_search_no_result' => 'Sorry, not found any result!',
+    'something_wrong' => 'Something went wrong.',
 
     // Referrals
     'referrals_title' => 'Help us grow Ping to coffee',

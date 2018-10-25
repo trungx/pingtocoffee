@@ -96,6 +96,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get note records
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function notes()
+    {
+        return $this->hasMany('App\Note', 'from_user_id');
+    }
+
+    /**
      * Get reminder records
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -259,6 +269,22 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->default_avatar_color = $color ?? $colors[mt_rand(0, count($colors) - 1)];
 
         $this->save();
+    }
+
+    /**
+     * Get notes of contact
+     *
+     * @param $contactId
+     * @return mixed
+     */
+    public function getNotes($contactId)
+    {
+        $notes = $this->notes()->ofContact($contactId)->with(['owner'])->get();
+        $notes->each(function($note) {
+            $note->datetime = Carbon::createFromTimestamp(strtotime($note->created_at))->diffForHumans();
+            $note->full_datetime = DateHelper::convertToTimezone($note->created_at, auth()->user()->timezone)->format('F d, Y, h:i A');
+        });
+        return $notes;
     }
 
     /**

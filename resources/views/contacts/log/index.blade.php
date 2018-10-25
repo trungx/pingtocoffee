@@ -1,8 +1,7 @@
 <div class="relative">
   <div class="db mb1">
     <div class="dib light-gray-text">
-      <i class="fas fa-history mr-2 fl f5"></i>
-      <div class="fl ttu f5 b">{{ __('user.contact_logs_heading') }}</div>
+      <div class="fl f5">{{ __('user.contact_logs_heading') }}</div>
     </div>
     <!-- Add cta -->
     <a href="/contact/{{ $user->id }}/contact-log" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.contact_logs_add_cta') }}</a>

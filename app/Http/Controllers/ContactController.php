@@ -30,11 +30,15 @@ class ContactController extends Controller
     public function show(Request $request, User $user)
     {
         $customInformation = collect();
+        $notes = collect();
         $reminders = collect();
         $contactLogs = collect();
         $activeTab = $request->get('tab');
 
         switch ($activeTab) {
+            case 'notes':
+                $notes = auth()->user()->getNotes($user->id);
+                break;
             case 'contact-logs':
                 $contactLogs = auth()->user()->getContactLogs($user->id);
                 break;
@@ -42,8 +46,8 @@ class ContactController extends Controller
                 $reminders = auth()->user()->getReminders($user->id);
                 break;
             default:
-                $activeTab = 'reminders';
-                $reminders = auth()->user()->getReminders($user->id);
+                $activeTab = 'notes';
+                $notes = auth()->user()->getNotes($user->id);
                 break;
         }
 
@@ -64,6 +68,7 @@ class ContactController extends Controller
             'user' => $user,
             'activeTab' => $activeTab,
             'relationship' => $relationship,
+            'notes' => $notes,
             'reminders' => $reminders,
             'contactLogs' => $contactLogs,
             'customInformation' => $customInformation,

@@ -17,6 +17,11 @@ class Event extends Model
     const EDIT_ACTION = 'edit';
 
     /**
+     * Delete event type
+     */
+    const DELETE_ACTION = 'delete';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
