@@ -10,6 +10,10 @@ class NoteController extends Controller
 {
     /**
      * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @param User $user
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request, User $user)
     {
@@ -26,18 +30,21 @@ class NoteController extends Controller
     }
 
     /**
+     * Delete a resource in storage.
      *
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param User $user
+     * @param Note $note
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(User $user, Note $note)
     {
         try {
             $note->delete();
-            return redirect('/' . $user->username . '?tab=notes')->with('success', trans('user.notes_delete_success'));
+            return redirect('/' . $user->username . '?tab=notes')
+                ->with('success', trans('user.notes_delete_success'));
         } catch (\Exception $e) {
-            return redirect('/' . $user->username . '?tab=notes')->with('error', trans('user.something_wrong'));
+            return redirect('/' . $user->username . '?tab=notes')
+                ->with('error', trans('user.something_wrong'));
         }
     }
 }
