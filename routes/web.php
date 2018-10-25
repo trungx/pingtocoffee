@@ -74,6 +74,9 @@ Route::middleware(['auth'])->group(function () {
     // Contact profile
     Route::get('/{user}', 'ContactController@show')->name('contact.show');
     Route::group(['prefix' => 'contact', 'as' => 'contact'], function() {
+        // Notes
+        Route::delete('/{user}/note/{note}', 'NoteController@destroy')->name('.note.destroy');
+
         // Contact logs
         Route::get('/{user}/contact-log', 'ContactLogController@create')->name('.contact-log.create');
         Route::post('/{user}/contact-log', 'ContactLogController@store')->name('.contact-log.store');

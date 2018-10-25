@@ -72,6 +72,8 @@ return [
     'notes_add_cta' => 'Add a note',
     'notes_empty' => 'No notes yet',
     'notes_empty_whats' => 'Let\'s add a new note.',
+    'notes_delete_confirmation' => 'Are you sure you want to delete this note?',
+    'notes_delete_success' => 'Your note was deleted!',
 
     // Contact logs
     'contact_logs_heading' => 'Contact logs',
@@ -142,6 +144,7 @@ return [
     'reminders_edit_success' => 'Edit reminder successfully',
     'reminders_delete_success' => 'Delete reminder successfully',
     'user_search_no_result' => 'Sorry, not found any result!',
+    'something_wrong' => 'Something went wrong.',
 
     // Referrals
     'referrals_title' => 'Help us grow Ping to coffee',

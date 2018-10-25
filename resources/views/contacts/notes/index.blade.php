@@ -17,7 +17,7 @@
   @else
     <ul class="pa0 relative list">
       @foreach($notes as $note)
-        <li class="mb3 relative pa2 pl3">
+        <li class="mb3 relative pa2 pl3 data-row">
           <div class="avatar-container fl mr3">
             @if ($note->owner->has_avatar)
               <img class="br-100" src="{{ $note->owner->getAvatarUrl(\App\Helpers\ImageHelper::MEDIUM_SIZE) }}" alt="Avatar" style="width:42px;">
@@ -39,11 +39,16 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
               <a class="dropdown-item f7" href="#"><i class="fa fa-edit mr-2"></i>{{ __('user.edit') }}</a>
-              <a class="dropdown-item f7" href="#">
+              <a class="dropdown-item f7" href="#" onclick="if(confirm('{{ __('user.notes_delete_confirmation') }}')) { $(this).closest('.data-row').find('.entry-delete-form').submit(); } return false;">
                 <i class="fa fa-trash mr-2"></i>{{ __('user.delete') }}
               </a>
             </div>
           </div>
+          {{--Delete form--}}
+          <form method="POST" action="/contact/{{ $user->id }}/note/{{ $note->id }}" class="entry-delete-form">
+            @method('DELETE')
+            @csrf
+          </form>
         </li>
       @endforeach
     </ul>
