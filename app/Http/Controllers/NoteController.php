@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 use App\User;
 use App\Note;
@@ -25,6 +26,9 @@ class NoteController extends Controller
 
         $note = Note::create($noteData);
 
+        // Create event log
+        $note->createLogForFeed(Event::ADD_ACTION);
+
         return redirect('/' . $user->username . '?tab=notes')
             ->with('success', trans('user.notes_add_success'));
     }
@@ -40,6 +44,10 @@ class NoteController extends Controller
     {
         try {
             $note->delete();
+
+            // Create event log
+            $note->createLogForFeed(Event::DELETE_ACTION);
+
             return redirect('/' . $user->username . '?tab=notes')
                 ->with('success', trans('user.notes_delete_success'));
         } catch (\Exception $e) {
