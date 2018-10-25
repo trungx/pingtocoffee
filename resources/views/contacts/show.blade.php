@@ -64,7 +64,7 @@
               </ul>
             </div>
           </div>
-          <div class="p-3">
+          <div class="p-3 mb3">
             @if($activeTab == 'notes')
               @include('contacts.notes.index')
             @endif

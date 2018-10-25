@@ -69,11 +69,16 @@ return [
     // Notes
     'notes' => 'Notes',
     'notes_tab' => 'Notes',
+    'new_note' => 'New note',
     'notes_add_cta' => 'Add a note',
+    'add_note_placeholder' => 'Add a note...',
     'notes_empty' => 'No notes yet',
     'notes_empty_whats' => 'Let\'s add a new note.',
     'notes_delete_confirmation' => 'Are you sure you want to delete this note?',
     'notes_delete_success' => 'Your note was deleted!',
+    'notes_add_cta' => 'Add a note',
+    'notes_cancel_cta' => 'Cancel',
+    'notes_add_success' => 'Add note successfully',
 
     // Contact logs
     'contact_logs_heading' => 'Contact logs',

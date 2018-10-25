@@ -1,8 +1,7 @@
 <div class="relative">
   <div class="db mb1">
     <div class="dib light-gray-text">
-      <i class="fas fa-bell mr-2 fl f5"></i>
-      <div class="fl ttu f5 b">{{ __('user.reminders') }}</div>
+      <div class="fl f5">{{ __('user.reminders') }}</div>
     </div>
     <!-- Add cta -->
     <a href="/contact/{{ $user->id }}/reminder" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.reminder_add_cta') }}</a>
