@@ -4,7 +4,7 @@
       <div class="fl f5">{{ __('user.notes') }}</div>
     </div>
     <!-- Add cta -->
-    <a href="#" data-toggle="modal" data-target="#noteModal" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.notes_add_cta') }}</a>
+    <a href="javascript:void(0);" data-toggle="modal" data-target="#noteModal" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.notes_add_cta') }}</a>
   </div>
 
   @if ($notes->count() == 0)
@@ -26,6 +26,7 @@
               </div>
             @endif
           </div>
+
           <div class="ml5">
             <div class="mb-2">
               <div class="mb-1">{!! nl2br($note->note) !!}</div>
@@ -38,13 +39,14 @@
                 <i class="fa fa-ellipsis-h"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item f7" href="#" onclick="if(confirm('{{ __('user.notes_delete_confirmation') }}')) { $(this).closest('.data-row').find('.entry-delete-form').submit(); } return false;">
+                <a class="dropdown-item f7" href="javascript:void(0);" onclick="if(confirm('{{ __('user.notes_delete_confirmation') }}')) { $(this).closest('.data-row').find('.entry-delete-form').submit(); } return false;">
                   <i class="fa fa-trash-alt mr-2"></i>{{ __('user.delete') }}
                 </a>
               </div>
             </div>
           </div>
-          {{--Delete form--}}
+
+          <!--Delete form-->
           <form method="POST" action="/contact/{{ $user->id }}/note/{{ $note->id }}" class="entry-delete-form">
             @method('DELETE')
             @csrf
@@ -54,5 +56,6 @@
     </ul>
   @endif
 
+  <!-- Add note form -->
   @include('contacts.notes.add')
 </div>

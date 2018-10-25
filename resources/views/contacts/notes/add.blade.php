@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -15,7 +14,7 @@
             <textarea type="text" class="form-control" id="note" name="note" placeholder="{{ __('user.add_note_placeholder') }}"></textarea>
           </div>
           <div class="form-group tr">
-            <a href="#" class="btn btn-link gray-text" data-dismiss="modal">{{ __('user.notes_cancel_cta') }}</a>
+            <a href="javascript:void(0);" class="btn btn-link gray-text" data-dismiss="modal">{{ __('user.notes_cancel_cta') }}</a>
             <button type="submit" class="btn default-btn b">{{ __('user.notes_add_cta') }}</button>
           </div>
         </form>
