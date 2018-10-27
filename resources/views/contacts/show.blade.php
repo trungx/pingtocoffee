@@ -49,34 +49,17 @@
       </div>
       <div class="col-md-8">
         <div class="card mb-3">
-          <div class="component-header">
-            <div class="mb-3">
-              <ul class="relative list ma0 pa0 overflow-hidden">
-                <li class="fl">
-                  <a href="/{{ $user->username }}?tab=notes" class="db tc pa3 {{ $activeTab == 'notes' ? 'fw6' : '' }}" style="{{ $activeTab == 'notes' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.notes_tab') }}</a>
-                </li>
-                <li class="fl">
-                  <a href="/{{ $user->username }}?tab=reminders" class="db tc pa3 {{ $activeTab == 'reminders' ? 'fw6' : '' }}" style="{{ $activeTab == 'reminders' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.reminders_tab') }}</a>
-                </li>
-                <li class="fl">
-                  <a href="/{{ $user->username }}?tab=contact-logs" class="db tc pa3 {{ $activeTab == 'contact-logs' ? 'fw6' : '' }}" style="{{ $activeTab == 'contact-logs' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.contact_logs_tab') }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="p-3 mb3">
-            @if($activeTab == 'notes')
-              @include('contacts.notes.index')
-            @endif
+          @if($activeTab == 'notes')
+            @include('contacts.notes.index')
+          @endif
 
-            @if($activeTab == 'reminders')
-              @include('contacts.reminder.index')
-            @endif
+          @if($activeTab == 'reminders')
+            @include('contacts.reminder.index')
+          @endif
 
-            @if($activeTab == 'contact-logs')
-              @include('contacts.log.index')
-            @endif
-          </div>
+          @if($activeTab == 'contact-logs')
+            @include('contacts.log.index')
+          @endif
         </div>
       </div>
     </div>
