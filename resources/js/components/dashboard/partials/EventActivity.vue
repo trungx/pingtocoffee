@@ -1,5 +1,5 @@
 <template>
-  <div class="entry-item relative mv4 ml4 pv2 ph3 br3">
+  <div class="entry-item relative mv4 mr2 pv2 ph3 br3" style="margin-left:7rem;">
     <span></span>
     <div class="info" v-html="event.body"></div>
     <div class="mv1">

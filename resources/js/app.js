@@ -23,7 +23,7 @@ Vue.component('requests-sent', require('./components/contact/RequestsSent.vue'))
 
 Vue.component('summary-component', require('./components/dashboard/SummaryComponent.vue'));
 
-Vue.component('feeds-component', require('./components/dashboard/FeedsComponent.vue'));
+Vue.component('activity-log', require('./components/dashboard/ActivityLog.vue'));
 
 Vue.component('default-event-activity', require('./components/dashboard/partials/DefaultEventActivity.vue'));
 

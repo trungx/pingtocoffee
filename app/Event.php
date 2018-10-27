@@ -55,6 +55,10 @@ class Event extends Model
             'icon_class' => $this->icon_class,
             'type_of_action' => $this->type_of_action,
             'body' => $body,
+            'calendar' => $this->created_at
+                ->copy()
+                ->setTimezone(auth()->user()->timezone)
+                ->format('M d'),
         ];
     }
 
