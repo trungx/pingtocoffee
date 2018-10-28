@@ -74,6 +74,7 @@ class ContactController extends Controller
             'contactLogs' => $contactLogs,
             'customInformation' => $customInformation,
             'contactInformation' => $contactInformation,
+            'isProfileOwner' => $user->id == auth()->user()->id,
         ]);
     }
 
@@ -174,6 +175,11 @@ class ContactController extends Controller
      */
     public function activityLog(User $user)
     {
+        // Verify just logged in user can access.
+        if (auth()->user()->id != $user->id) {
+            return redirect('/' . $user->username);
+        }
+
         $customInformation = collect();
         $sortedUsers = collect([auth()->user(), $user])->sortBy('id');
         $relationship = Relationship::where([

@@ -1,19 +1,3 @@
-<div class="component-header">
-  <div class="mb-3">
-    <ul class="relative list ma0 pa0 overflow-hidden">
-      <li class="fl">
-        <a href="/{{ $user->username }}?tab=notes" class="db tc pa3 {{ $activeTab == 'notes' ? 'fw6' : '' }}" style="{{ $activeTab == 'notes' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.notes_tab') }}</a>
-      </li>
-      <li class="fl">
-        <a href="/{{ $user->username }}?tab=reminders" class="db tc pa3 {{ $activeTab == 'reminders' ? 'fw6' : '' }}" style="{{ $activeTab == 'reminders' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.reminders_tab') }}</a>
-      </li>
-      <li class="fl">
-        <a href="/{{ $user->username }}?tab=contact-logs" class="db tc pa3 {{ $activeTab == 'contact-logs' ? 'fw6' : '' }}" style="{{ $activeTab == 'contact-logs' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.contact_logs_tab') }}</a>
-      </li>
-    </ul>
-  </div>
-</div>
-
 <div class="p-3 mb3">
   <div class="relative">
     <div class="db mb1">
