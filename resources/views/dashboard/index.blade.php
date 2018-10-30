@@ -7,7 +7,7 @@
           <summary-component :default-active-tab="'logs'"></summary-component>
         </div>
         <div class="col-md-7 mb-3">
-          <feeds-component></feeds-component>
+          <activity-log></activity-log>
         </div>
       </div>
     </div>

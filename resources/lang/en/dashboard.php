@@ -2,7 +2,7 @@
 
 return [
     // Default event body
-    'feed_heading' => 'Activity Browser',
+    'feed_heading' => 'Activity Log',
     'signed_up_event' => 'Hooray! You signed up and become a member of ' . config('app.name'),
     'first_reminder_event' => 'You created the first reminder!',
     'add_note_event_body' => 'You added a note for <a href="/:username?tab=notes" class="link-gray-dark b">:fullName</a>',

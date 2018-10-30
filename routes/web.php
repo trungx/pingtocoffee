@@ -32,7 +32,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard.index');
     Route::get('/dashboard/summary/logs', 'DashboardController@getContactLogs');
     Route::get('/dashboard/summary/reminders', 'DashboardController@getNextReminders');
-    Route::get('/dashboard/feed', 'DashboardController@getFeeds');
 
     // Settings
     Route::group(['prefix' => 'settings', 'as' => 'settings'], function () {
@@ -68,8 +67,13 @@ Route::middleware(['auth'])->group(function () {
 
     // Contacts
     Route::get('/contacts', 'ContactController@index')->name('contact.index');
+
     // Contacts Requests
     Route::get('/contacts/requests', 'ContactController@requests')->name('contact.requests');
+
+    // Activity log
+    Route::get('/activity-log', 'ContactController@getActivityLogData');
+    Route::get('/{user}/activity-log', 'ContactController@activityLog');
 
     // Contact profile
     Route::get('/{user}', 'ContactController@show')->name('contact.show');

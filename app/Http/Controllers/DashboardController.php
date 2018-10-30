@@ -71,38 +71,4 @@ class DashboardController extends Controller
         }
         return $reminderCollect;
     }
-
-    /**
-     * Get newsfeed records.
-     *
-     * @return array
-     */
-    public function getFeeds()
-    {
-        $feedCollect = collect([]);
-        $feeds = auth()->user()->feeds()->paginate(20);
-        $userTimezone = auth()->user()->timezone;
-
-        foreach ($feeds as $feed) {
-            $data = [
-                'id' => $feed->id,
-                'feedable_id' => $feed->feedable_id,
-                'feedable_type' => $feed->feedable_type,
-                'object' => $feed->getObjectData(),
-                'datetime' => \Carbon\Carbon::createFromTimestamp(strtotime($feed->datetime))->diffForHumans(),
-                'full_datetime' => DateHelper::convertToTimezone($feed->datetime, $userTimezone)->format('F d, Y, h:i A'),
-            ];
-
-            $feedCollect->push($data);
-        }
-
-        return [
-            'total' => $feeds->total(),
-            'per_page' => $feeds->perPage(),
-            'current_page' => $feeds->currentPage(),
-            'next_page_url' => $feeds->nextPageUrl(),
-            'prev_page_url' => $feeds->previousPageUrl(),
-            'data' => $feedCollect,
-        ];
-    }
 }

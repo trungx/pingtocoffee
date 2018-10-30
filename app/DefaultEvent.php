@@ -19,7 +19,11 @@ class DefaultEvent extends Model
     {
         return [
             'body' => __('dashboard.' . $this->body),
-            'icon_class' => __('dashboard.' . $this->icon_class)
+            'icon_class' => __('dashboard.' . $this->icon_class),
+            'calendar' => $this->created_at
+                ->copy()
+                ->setTimezone(auth()->user()->timezone)
+                ->format('M d'),
         ];
     }
 }

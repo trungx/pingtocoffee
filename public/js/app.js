@@ -3431,13 +3431,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/dashboard/FeedsComponent.vue":
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/dashboard/ActivityLog.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_epic_spinners__ = __webpack_require__("./node_modules/epic-spinners/src/lib.js");
-//
 //
 //
 //
@@ -3500,7 +3499,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     getTimelines: function getTimelines() {
       var _this = this;
 
-      axios.get('/dashboard/feed').then(function (response) {
+      axios.get('/activity-log').then(function (response) {
         _this.feeds = response.data;
         _this.feeds.current_page = response.data.current_page;
         _this.feeds.next_page_url = response.data.next_page_url;
@@ -3514,7 +3513,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this2 = this;
 
       this.loadingMore = true;
-      axios.get('/dashboard/feed?page=' + (this.feeds.current_page + 1)).then(function (response) {
+      axios.get('/activity-log?page=' + (this.feeds.current_page + 1)).then(function (response) {
         _this2.feeds.current_page = response.data.current_page;
         _this2.feeds.next_page_url = response.data.next_page_url;
         _this2.feeds.per_page = response.data.per_page;
@@ -40614,6 +40613,114 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-49214742\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/dashboard/ActivityLog.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "bg-white br2 pa3",
+      staticStyle: { "box-shadow": "0 1px 1px #ccc" }
+    },
+    [
+      _c("div", { staticClass: "mb2 f4 fw6" }, [
+        _vm._v(_vm._s(_vm.__("dashboard.feed_heading")))
+      ]),
+      _vm._v(" "),
+      _vm.feedsLoading
+        ? _c("div", { staticClass: "tc pv3" }, [
+            _c(
+              "div",
+              { staticClass: "m-auto", staticStyle: { width: "20px" } },
+              [
+                _c("half-circle-spinner", {
+                  attrs: {
+                    "animation-duration": 1000,
+                    size: 15,
+                    color: "#808080"
+                  }
+                })
+              ],
+              1
+            )
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "entry-list list ma0 pa0 relative" },
+        _vm._l(_vm.feeds.data, function(feed) {
+          return _c(
+            "li",
+            { staticClass: "relative" },
+            [
+              feed.show_calendar
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "pa2 b light-gray-text absolute",
+                      staticStyle: { top: "-22px", left: "16px" }
+                    },
+                    [_vm._v(_vm._s(feed.object.calendar))]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              feed.feedable_type == "App\\Event"
+                ? _c("event-activity", { attrs: { feed: feed } })
+                : _vm._e(),
+              _vm._v(" "),
+              feed.feedable_type == "App\\DefaultEvent"
+                ? _c("default-event-activity", { attrs: { feed: feed } })
+                : _vm._e()
+            ],
+            1
+          )
+        })
+      ),
+      _vm._v(" "),
+      _vm.shouldShowLoadMore
+        ? _c("div", { staticClass: "load-more tc" }, [
+            !_vm.loadingMore
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn default-btn pv1 ph3 mv2 br4 fw6",
+                    on: {
+                      click: function($event) {
+                        _vm.loadMore()
+                      }
+                    }
+                  },
+                  [_vm._v(_vm._s(_vm.__("dashboard.load_more")))]
+                )
+              : _c(
+                  "button",
+                  {
+                    staticClass: "btn default-btn pv1 ph3 mv2 br4 fw6 disabled"
+                  },
+                  [_vm._v(_vm._s(_vm.__("dashboard.loading")))]
+                )
+          ])
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-49214742", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4bfc81ff\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/relationships/ActionsComponent.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -40861,27 +40968,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "entry-item relative mv4 ml4 pv2 ph3 br3" }, [
-    _c("span"),
-    _vm._v(" "),
-    _c("div", {
-      staticClass: "info",
-      domProps: { innerHTML: _vm._s(_vm.event.body) }
-    }),
-    _vm._v(" "),
-    _c("div", { staticClass: "mv1" }, [
-      _c("i", { staticClass: "mr-2", class: _vm.event.icon_class }),
+  return _c(
+    "div",
+    {
+      staticClass: "entry-item relative mv4 mr2 pv2 ph3 br3",
+      staticStyle: { "margin-left": "7rem" }
+    },
+    [
+      _c("span"),
       _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass: "f7 light-gray-text",
-          attrs: { title: _vm.feed.full_datetime }
-        },
-        [_vm._v(_vm._s(_vm.feed.datetime))]
-      )
-    ])
-  ])
+      _c("div", {
+        staticClass: "info",
+        domProps: { innerHTML: _vm._s(_vm.event.body) }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "mv1" }, [
+        _c("i", { staticClass: "mr-2", class: _vm.event.icon_class }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "f7 light-gray-text",
+            attrs: { title: _vm.feed.full_datetime }
+          },
+          [_vm._v(_vm._s(_vm.feed.datetime))]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -40992,24 +41106,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "entry-item relative mv4 ml4 pv2 ph3 br3" }, [
-    _c("span"),
-    _vm._v(" "),
-    _c("div", { staticClass: "info" }, [_vm._v(_vm._s(_vm.defaultEvent.body))]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mv1" }, [
-      _c("i", { staticClass: "mr-2", class: _vm.defaultEvent.icon_class }),
+  return _c(
+    "div",
+    {
+      staticClass: "entry-item relative mv4 mr2 pv2 ph3 br3",
+      staticStyle: { "margin-left": "7rem" }
+    },
+    [
+      _c("span"),
       _vm._v(" "),
-      _c(
-        "span",
-        {
-          staticClass: "f7 light-gray-text",
-          attrs: { title: _vm.feed.full_datetime }
-        },
-        [_vm._v(_vm._s(_vm.feed.datetime))]
-      )
-    ])
-  ])
+      _c("div", { staticClass: "info" }, [
+        _vm._v(_vm._s(_vm.defaultEvent.body))
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mv1" }, [
+        _c("i", { staticClass: "mr-2", class: _vm.defaultEvent.icon_class }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "f7 light-gray-text",
+            attrs: { title: _vm.feed.full_datetime }
+          },
+          [_vm._v(_vm._s(_vm.feed.datetime))]
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -41072,105 +41195,6 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-6a8af1dc", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-931f7ea4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/dashboard/FeedsComponent.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "bg-white br2 pa3",
-      staticStyle: { "box-shadow": "0 1px 1px #ccc" }
-    },
-    [
-      _c("div", { staticClass: "pl3" }, [
-        _c("div", { staticClass: "mb2 f4 fw6" }, [
-          _vm._v(_vm._s(_vm.__("dashboard.feed_heading")))
-        ]),
-        _vm._v(" "),
-        _vm.feedsLoading
-          ? _c("div", { staticClass: "tc pv3" }, [
-              _c(
-                "div",
-                { staticClass: "m-auto", staticStyle: { width: "20px" } },
-                [
-                  _c("half-circle-spinner", {
-                    attrs: {
-                      "animation-duration": 1000,
-                      size: 15,
-                      color: "#808080"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "ul",
-          { staticClass: "entry-list list ma0 pa0 relative" },
-          _vm._l(_vm.feeds.data, function(feed) {
-            return _c(
-              "li",
-              [
-                feed.feedable_type == "App\\Event"
-                  ? _c("event-activity", { attrs: { feed: feed } })
-                  : _vm._e(),
-                _vm._v(" "),
-                feed.feedable_type == "App\\DefaultEvent"
-                  ? _c("default-event-activity", { attrs: { feed: feed } })
-                  : _vm._e()
-              ],
-              1
-            )
-          })
-        ),
-        _vm._v(" "),
-        _vm.shouldShowLoadMore
-          ? _c("div", { staticClass: "load-more tc" }, [
-              !_vm.loadingMore
-                ? _c(
-                    "button",
-                    {
-                      staticClass: "btn default-btn pv1 ph3 mv2 br4 fw6",
-                      on: {
-                        click: function($event) {
-                          _vm.loadMore()
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.__("dashboard.load_more")))]
-                  )
-                : _c(
-                    "button",
-                    {
-                      staticClass:
-                        "btn default-btn pv1 ph3 mv2 br4 fw6 disabled"
-                    },
-                    [_vm._v(_vm._s(_vm.__("dashboard.loading")))]
-                  )
-            ])
-          : _vm._e()
-      ])
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-931f7ea4", module.exports)
   }
 }
 
@@ -53474,7 +53498,7 @@ Vue.component('requests-sent', __webpack_require__("./resources/js/components/co
 
 Vue.component('summary-component', __webpack_require__("./resources/js/components/dashboard/SummaryComponent.vue"));
 
-Vue.component('feeds-component', __webpack_require__("./resources/js/components/dashboard/FeedsComponent.vue"));
+Vue.component('activity-log', __webpack_require__("./resources/js/components/dashboard/ActivityLog.vue"));
 
 Vue.component('default-event-activity', __webpack_require__("./resources/js/components/dashboard/partials/DefaultEventActivity.vue"));
 
@@ -53659,15 +53683,15 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ "./resources/js/components/dashboard/FeedsComponent.vue":
+/***/ "./resources/js/components/dashboard/ActivityLog.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
 /* script */
-var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/dashboard/FeedsComponent.vue")
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/dashboard/ActivityLog.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-931f7ea4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/dashboard/FeedsComponent.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-49214742\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/dashboard/ActivityLog.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -53684,7 +53708,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/dashboard/FeedsComponent.vue"
+Component.options.__file = "resources/js/components/dashboard/ActivityLog.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -53693,9 +53717,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-931f7ea4", Component.options)
+    hotAPI.createRecord("data-v-49214742", Component.options)
   } else {
-    hotAPI.reload("data-v-931f7ea4", Component.options)
+    hotAPI.reload("data-v-49214742", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

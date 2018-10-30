@@ -26,10 +26,7 @@
                     <i class="fas fa-birthday-cake mr2"></i>{{ __('user.contact_birthday_notify', ['firstName' => $user->first_name]) }}
                   </div>
                 @endif
-
-                @if (! $isProfileOwner)
-                  <actions-component :user-id="{{ $user->id }}" :authenticated-user-id="{{ auth()->user()->id }}" :default-type="'{{ $relationship->type }}'"></actions-component>
-                @endif
+                <actions-component :user-id="{{ $user->id }}" :authenticated-user-id="{{ auth()->user()->id }}" :default-type="'{{ $relationship->type }}'"></actions-component>
               </div>
             </div>
             <div>
@@ -52,39 +49,7 @@
       </div>
       <div class="col-md-8">
         <div class="card mb-3">
-          <div class="component-header">
-            <div class="mb-3">
-              <ul class="relative list ma0 pa0 overflow-hidden">
-                <li class="fl">
-                  <a href="/{{ $user->username }}?tab=notes" class="db tc pa3 {{ $activeTab == 'notes' ? 'fw6' : '' }}" style="{{ $activeTab == 'notes' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.notes_tab') }}</a>
-                </li>
-                <li class="fl">
-                  <a href="/{{ $user->username }}?tab=reminders" class="db tc pa3 {{ $activeTab == 'reminders' ? 'fw6' : '' }}" style="{{ $activeTab == 'reminders' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.reminders_tab') }}</a>
-                </li>
-                <li class="fl">
-                  <a href="/{{ $user->username }}?tab=contact-logs" class="db tc pa3 {{ $activeTab == 'contact-logs' ? 'fw6' : '' }}" style="{{ $activeTab == 'contact-logs' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.contact_logs_tab') }}</a>
-                </li>
-
-                @if($isProfileOwner)
-                  <li class="fr">
-                    <a href="/{{ $user->username }}/activity-log" class="db tc pa3" style="color: #8c9396;"><i class="fas fa-list-ul mr2"></i><span class="dn di-ns">Activity Log</span></a>
-                  </li>
-                @endif
-              </ul>
-            </div>
-          </div>
-          
-          @if($activeTab == 'notes')
-            @include('contacts.notes.index')
-          @endif
-
-          @if($activeTab == 'reminders')
-            @include('contacts.reminder.index')
-          @endif
-
-          @if($activeTab == 'contact-logs')
-            @include('contacts.log.index')
-          @endif
+          <activity-log></activity-log>
         </div>
       </div>
     </div>

@@ -38,6 +38,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'username' => \App\User::generateUniqueUsername($email),
         'email' => $email,
         'password' => Hash::make('secret'),
+        'timezone' => 'UTC',
         'remember_token' => str_random(10),
         'default_avatar_color' => $colors[mt_rand(0, count($colors) - 1)],
         'referral_code' => \App\User::randomCode(),

@@ -122,7 +122,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function feeds()
     {
-        return $this->hasMany('App\Feed')->orderBy('id', 'desc');
+        return $this->hasMany('App\Feed')->orderBy('created_at', 'desc');
     }
 
     /**
