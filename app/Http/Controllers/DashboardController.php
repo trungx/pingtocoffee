@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\DateHelper;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -13,7 +14,16 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+        $user = auth()->user();
+        $user->joined_on = $user->created_at->format('M Y');
+
+        if ($user->birthday) {
+            $user->born_on = Carbon::createFromFormat('Y-m-d', $user->birthday)->format('F d, Y');
+        }
+
+        return view('dashboard.index', [
+            'user' => $user,
+        ]);
     }
 
     /**
