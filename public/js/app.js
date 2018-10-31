@@ -3464,6 +3464,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3559,6 +3561,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_epic_spinners__ = __webpack_require__("./node_modules/epic-spinners/src/lib.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -40665,7 +40679,11 @@ var render = function() {
                       staticClass: "pa2 b light-gray-text absolute",
                       staticStyle: { top: "-22px", left: "16px" }
                     },
-                    [_vm._v(_vm._s(feed.object.calendar))]
+                    [
+                      _vm._v(
+                        "\n        " + _vm._s(feed.object.calendar) + "\n      "
+                      )
+                    ]
                   )
                 : _vm._e(),
               _vm._v(" "),
@@ -41277,50 +41295,60 @@ var render = function() {
     "div",
     {
       staticClass: "bg-white br2 pa3",
-      staticStyle: { "box-shadow": "0 1px 1px #ccc" }
+      staticStyle: { "box-shadow": "0 1px 1px #d9d9d9" }
     },
     [
-      _c("ul", { staticClass: "nav nav-tabs", attrs: { role: "tablist" } }, [
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              class: [
-                _vm.activeTab === "logs" ? "nav-link show active" : "nav-link"
-              ],
-              attrs: { "data-toggle": "tab", href: "#logs" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.setActiveTab("logs")
+      _c(
+        "ul",
+        {
+          staticClass: "nav pa2",
+          staticStyle: { "border-bottom": "1px solid #d9d9d9" },
+          attrs: { role: "tablist" }
+        },
+        [
+          _c("li", { staticClass: "nav-item gray-text" }, [
+            _c(
+              "a",
+              {
+                class: [
+                  _vm.activeTab === "logs"
+                    ? "nav-link gray-text show active b"
+                    : "nav-link gray-text"
+                ],
+                attrs: { "data-toggle": "tab", href: "#logs" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.setActiveTab("logs")
+                  }
                 }
-              }
-            },
-            [_vm._v("Recents")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "nav-item" }, [
-          _c(
-            "a",
-            {
-              class: [
-                _vm.activeTab === "reminders"
-                  ? "nav-link show active"
-                  : "nav-link"
-              ],
-              attrs: { "data-toggle": "tab", href: "#reminders" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.setActiveTab("reminders")
+              },
+              [_vm._v("Recents")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "nav-item gray-text" }, [
+            _c(
+              "a",
+              {
+                class: [
+                  _vm.activeTab === "reminders"
+                    ? "nav-link gray-text show active b"
+                    : "nav-link gray-text"
+                ],
+                attrs: { "data-toggle": "tab", href: "#reminders" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.setActiveTab("reminders")
+                  }
                 }
-              }
-            },
-            [_vm._v("Next Reminders")]
-          )
-        ])
-      ]),
+              },
+              [_vm._v("Next Reminders")]
+            )
+          ])
+        ]
+      ),
       _vm._v(" "),
       _c("div", { staticClass: "tab-content" }, [
         _c(
@@ -41355,7 +41383,7 @@ var render = function() {
                 : _vm._e(),
               _vm._v(" "),
               !_vm.contactLogsLoading && _vm.contactLogs.length === 0
-                ? _c("div", { staticClass: "tc light-gray-text" }, [
+                ? _c("div", { staticClass: "tc light-gray-text pa3" }, [
                     _c("div", { staticClass: "f5 mv2 b" }, [
                       _vm._v(_vm._s(_vm.__("user.contact_logs_oops")))
                     ]),
@@ -41368,13 +41396,31 @@ var render = function() {
               _vm._v(" "),
               !_vm.contactLogsLoading && _vm.contactLogs.length !== 0
                 ? _c(
-                    "ul",
-                    { staticClass: "relative list pl3" },
+                    "div",
+                    { staticClass: "pv3 ph3-ns" },
                     _vm._l(_vm.contactLogs, function(contactLog) {
                       return _c(
-                        "li",
-                        { key: contactLog.id, staticClass: "pt2 pb2" },
+                        "div",
+                        { key: contactLog.id, staticClass: "mb3 ml2" },
                         [
+                          _c("div", { staticClass: "dib light-gray-text" }, [
+                            _c("i", {
+                              staticClass: "mr2",
+                              class: contactLog.log_icon_class
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "span",
+                              {
+                                staticClass: "light-gray-text",
+                                attrs: { title: contactLog.full_contact_time }
+                              },
+                              [_vm._v(_vm._s(contactLog.contact_time))]
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "middotDivider" }),
+                          _vm._v(" "),
                           _c(
                             "a",
                             {
@@ -41385,25 +41431,7 @@ var render = function() {
                                   "?tab=contact-logs"
                               }
                             },
-                            [
-                              _c("i", {
-                                staticClass: "light-gray-text mr3",
-                                class: contactLog.log_icon_class
-                              }),
-                              _vm._v(
-                                _vm._s(contactLog.contact_name) +
-                                  "\n            "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            {
-                              staticClass: "fr light-gray-text",
-                              attrs: { title: contactLog.full_contact_time }
-                            },
-                            [_vm._v(_vm._s(contactLog.contact_time))]
+                            [_vm._v(_vm._s(contactLog.contact_name))]
                           )
                         ]
                       )
@@ -41425,97 +41453,92 @@ var render = function() {
             attrs: { id: "reminders" }
           },
           [
-            _c("div", { staticClass: "pt3" }, [
-              _vm.remindersLoading
-                ? _c("div", { staticClass: "tc pv3" }, [
-                    _c(
-                      "div",
-                      { staticClass: "m-auto", staticStyle: { width: "20px" } },
-                      [
-                        _c("half-circle-spinner", {
-                          attrs: {
-                            "animation-duration": 1000,
-                            size: 15,
-                            color: "#808080"
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              !_vm.remindersLoading && _vm.reminders.length === 0
-                ? _c("div", { staticClass: "tc light-gray-text" }, [
-                    _c("div", { staticClass: "f5 mv2 b" }, [
-                      _vm._v(_vm._s(_vm.__("user.reminder_oops")))
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "f6 mv2" }, [
-                      _vm._v(_vm._s(_vm.__("user.reminder_empty_state")))
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              !_vm.remindersLoading && _vm.reminders.length !== 0
-                ? _c(
-                    "ul",
-                    { staticClass: "pa0 relative list" },
-                    _vm._l(_vm.reminders, function(reminder) {
-                      return _c(
-                        "li",
-                        {
-                          key: reminder.id,
-                          staticClass: "mb3 relative pa2 pl3 br1",
-                          staticStyle: { border: "1px solid #dee2e6" }
-                        },
-                        [
-                          _c("p", [_vm._v(_vm._s(reminder.title))]),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "f7 light-gray-text" }, [
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    "/" +
-                                    reminder.contact_username +
-                                    "?tab=reminders"
-                                }
-                              },
-                              [_vm._v(_vm._s(reminder.contact_name))]
-                            ),
-                            _vm._v(" - "),
-                            _c(
-                              "span",
-                              {
-                                attrs: {
-                                  title: reminder.full_next_expected_date
-                                }
-                              },
-                              [_vm._v(_vm._s(reminder.next_expected_date))]
-                            ),
-                            _c(
-                              "a",
-                              {
-                                staticClass: "fr",
-                                attrs: {
-                                  href:
-                                    "/contact/" +
-                                    reminder.contact_id +
-                                    "/reminder/" +
-                                    reminder.id
-                                }
-                              },
-                              [_vm._v(_vm._s(_vm.__("user.edit")))]
-                            )
-                          ])
-                        ]
-                      )
-                    })
+            _vm.remindersLoading
+              ? _c("div", { staticClass: "tc pv3" }, [
+                  _c(
+                    "div",
+                    { staticClass: "m-auto", staticStyle: { width: "20px" } },
+                    [
+                      _c("half-circle-spinner", {
+                        attrs: {
+                          "animation-duration": 1000,
+                          size: 15,
+                          color: "#808080"
+                        }
+                      })
+                    ],
+                    1
                   )
-                : _vm._e()
-            ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.remindersLoading && _vm.reminders.length === 0
+              ? _c("div", { staticClass: "tc light-gray-text p" }, [
+                  _c("div", { staticClass: "f5 mv2 b" }, [
+                    _vm._v(_vm._s(_vm.__("user.reminder_oops")))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "f6 mv2" }, [
+                    _vm._v(_vm._s(_vm.__("user.reminder_empty_state")))
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.remindersLoading && _vm.reminders.length !== 0
+              ? _c(
+                  "div",
+                  { staticClass: "pv3 ph3-ns ml2-ns" },
+                  _vm._l(_vm.reminders, function(reminder) {
+                    return _c(
+                      "div",
+                      { key: reminder.id, staticClass: "mb3 cf" },
+                      [
+                        reminder.show_calendar
+                          ? _c("div", { staticClass: "mb3 b dark-text" }, [
+                              _vm._v(_vm._s(reminder.calendar))
+                            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tc fl gray-text pt2",
+                            staticStyle: { width: "100px" },
+                            attrs: { title: reminder.full_next_expected_date }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-bell db mb2" }),
+                            _vm._v(
+                              _vm._s(reminder.next_expected_date) +
+                                "\n          "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("div", { staticStyle: { "margin-left": "100px" } }, [
+                          _c("div", { staticClass: "mb2" }, [
+                            _vm._v(_vm._s(reminder.title))
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "f7 light-gray-text",
+                              attrs: {
+                                href:
+                                  "/" +
+                                  reminder.contact_username +
+                                  "?tab=reminders"
+                              }
+                            },
+                            [_vm._v(_vm._s(reminder.contact_name))]
+                          )
+                        ])
+                      ]
+                    )
+                  })
+                )
+              : _vm._e()
           ]
         )
       ])
