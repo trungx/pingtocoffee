@@ -21,8 +21,20 @@ class DashboardController extends Controller
             $user->born_on = Carbon::createFromFormat('Y-m-d', $user->birthday)->format('F d, Y');
         }
 
+        // Count contacts.
+        $contactsCounted = $user->contacts()->count();
+
+        // Count notes.
+        $notesCounted = $user->notes()->count();
+
+        // Count reminders.
+        $remindersCounted = $user->reminders()->count();
+
         return view('dashboard.index', [
             'user' => $user,
+            'contactsCounted' => $contactsCounted,
+            'notesCounted' => $notesCounted,
+            'remindersCounted' => $remindersCounted,
         ]);
     }
 

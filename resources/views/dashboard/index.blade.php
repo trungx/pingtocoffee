@@ -34,6 +34,47 @@
           </div>
         </div>
         <div class="col-md-9 mb-3">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="white">
+                <div class="br2 pa3 bg-light-blue mb3" style="box-shadow: 0 1px 1px #ccc;">
+                  <div class="media-body">
+                    <div class="f3">
+                      <span class="fw6">{{ $contactsCounted }}</span>
+                      <span class="fr"><i class="far fa-address-book"></i></span>
+                    </div>
+                    <p>{{ __('dashboard.contacts') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="white">
+                <div class="br2 pa3 bg-light-red mb3" style="box-shadow: 0 1px 1px #ccc;">
+                  <div class="media-body">
+                    <div class="f3">
+                      <span class="fw6">{{ $notesCounted }}</span>
+                      <span class="fr"><i class="far fa-edit"></i></span>
+                    </div>
+                    <p>{{ __('dashboard.notes') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="white">
+                <div class="br2 pa3 bg-light-silver mb3" style="box-shadow: 0 1px 1px #ccc;">
+                  <div class="media-body">
+                    <div class="f3">
+                      <span class="fw6">{{ $remindersCounted }}</span>
+                      <span class="fr"><i class="far fa-bell"></i></span>
+                    </div>
+                    <p>{{ __('dashboard.reminders') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <summary-component :default-active-tab="'logs'"></summary-component>
         </div>
       </div>

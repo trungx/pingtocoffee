@@ -25,4 +25,7 @@ return [
 
     'joined_on' => 'Joined :date',
     'born_on' => 'Born :date',
+    'contacts' => 'Contacts',
+    'notes' => 'Notes',
+    'reminders' => 'Reminders',
 ];
