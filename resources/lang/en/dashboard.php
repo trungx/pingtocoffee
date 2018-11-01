@@ -22,4 +22,10 @@ return [
     // Button
     'load_more' => 'Load more',
     'loading' => 'Loading...',
+
+    'joined_on' => 'Joined :date',
+    'born_on' => 'Born :date',
+    'contacts' => 'Contacts',
+    'notes' => 'Notes',
+    'reminders' => 'Reminders',
 ];
