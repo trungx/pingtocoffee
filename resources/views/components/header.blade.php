@@ -52,11 +52,6 @@
             </a>
           </li>
           <li>
-            <a class="nav-link" href="/dashboard">
-              {{ __('app.header_dashboard_link') }}
-            </a>
-          </li>
-          <li>
             <a class="nav-link" href="/contacts">
               {{ __('app.header_contacts_link') }}
             </a>
