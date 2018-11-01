@@ -41494,7 +41494,7 @@ var render = function() {
                       { key: reminder.id, staticClass: "mb3 cf" },
                       [
                         reminder.show_calendar
-                          ? _c("div", { staticClass: "mb3 b dark-text" }, [
+                          ? _c("div", { staticClass: "b ttu gray-text" }, [
                               _vm._v(_vm._s(reminder.calendar))
                             ])
                           : _vm._e(),

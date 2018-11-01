@@ -10554,12 +10554,12 @@ a {
 }
 
 .middotDivider:after {
-  color: #42526e;
-  content: "\B7";
+  color: rgba(0, 0, 0, .5);
+  content: "\2022";
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  width: 12px;
+  width: 14px;
 }
 
 .navbar-laravel {

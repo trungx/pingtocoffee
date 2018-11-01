@@ -66,7 +66,7 @@
         <div v-if="!remindersLoading && reminders.length !== 0" class="pv3 ph3-ns ml2-ns">
           <div v-for="reminder in reminders" :key="reminder.id" class="mb3 cf">
             <!--Calendar-->
-            <div v-if="reminder.show_calendar" class="mb3 b dark-text">{{ reminder.calendar }}</div>
+            <div v-if="reminder.show_calendar" class="b ttu gray-text">{{ reminder.calendar }}</div>
 
             <div class="tc fl gray-text pt2" style="width:100px;" :title="reminder.full_next_expected_date">
               <i class="fas fa-bell db mb2"></i>{{ reminder.next_expected_date }}

@@ -36,12 +36,12 @@ a {
 
 .middotDivider {
   &:after {
-    color: rgb(66, 82, 110);
-    content: "·";
+    color: rgba(0, 0, 0, .5);
+    content: "•";
     display: inline-block;
     text-align: center;
     vertical-align: middle;
-    width: 12px;
+    width: 14px;
   }
 }
 
