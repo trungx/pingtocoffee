@@ -23,5 +23,7 @@
         "tailwindcss": "^0.6.5",
         "vue": "^2.5.7"
     },
-    "dependencies": {}
+    "dependencies": {
+        "vue-input-tag": "^2.0.1"
+    }
 }
