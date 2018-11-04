@@ -215,11 +215,23 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * Get contacts of user.
      *
+     * @param Tag|null $tag
      * @return mixed
      */
-    public function contacts()
+    public function contacts(Tag $tag = null)
     {
-        return User::whereIn('id', Relationship::contactIds($this->id))->get();
+        $contactIds = Relationship::contactIds($this->id);
+
+        if ($tag) {
+            $taggedContactIds = UserTag::where('from_user_id', $this->id)
+                ->where('tag_id', $tag->id)
+                ->pluck('to_user_id')
+                ->toArray();
+
+            $contactIds = array_intersect($contactIds, $taggedContactIds);
+        }
+
+        return User::whereIn('id', array_unique($contactIds))->get();
     }
 
     /**

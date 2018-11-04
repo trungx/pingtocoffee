@@ -42578,9 +42578,14 @@ var render = function() {
           [
             _vm._l(_vm.tags, function(tag) {
               return _c("li", [
-                _c("a", { staticClass: "tag", attrs: { href: "#" } }, [
-                  _vm._v(_vm._s(tag))
-                ])
+                _c(
+                  "a",
+                  {
+                    staticClass: "tag",
+                    attrs: { href: "/contacts?tag=" + encodeURI(tag) }
+                  },
+                  [_vm._v(_vm._s(tag))]
+                )
               ])
             }),
             _vm._v(" "),

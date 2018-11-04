@@ -17,7 +17,7 @@
 
     <ul v-if="!editable" class="tags f7">
       <li v-for="tag in tags">
-        <a href="#" class="tag">{{ tag }}</a>
+        <a :href="'/contacts?tag=' + tag" class="tag">{{ tag }}</a>
       </li>
       <li>
         <a v-if="tags.length === 0" href="javascript:void(0);" class="edit-tag-link underline" @click="turnOnEdit()">
