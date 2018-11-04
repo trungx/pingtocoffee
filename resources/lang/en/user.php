@@ -156,4 +156,12 @@ return [
     'referrals_send_mail_desc' => 'Send an invite email to your friends',
     'referrals_share_link_desc' => 'or copy and share your invite\'s link to them',
     'referrals_small_explain' => 'If your friends accept the invitation or register by your link, we\'ll give you a small gift in the future when the app more grows',
+
+    // Tags
+    'tags' => 'Tags',
+    'tags_save' => 'Save',
+    'tags_cancel' => 'Cancel',
+    'tags_add_cta' => 'Add tag',
+    'tags_edit_cta' => 'Edit tag',
+    'add_tag_placeholder' => 'add tag...',
 ];

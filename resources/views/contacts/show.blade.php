@@ -46,6 +46,11 @@
                 <div class="f5 mb3">{{ __('user.custom_information_heading') }}</div>
                 @include('contacts.partials.custom')
               </div>
+
+              @if (! $isProfileOwner)
+                <!-- Tags -->
+                <tags-component :user-id="{{ $user->id }}"></tags-component>
+              @endif
             </div>
           </div>
         </div>

@@ -107,4 +107,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/received-requests', 'RelationshipsController@receivedRequests')->name('.received-requests');
         Route::get('/requests-sent', 'RelationshipsController@requestsSent')->name('.requests-sent');
     });
+
+    // Tags
+    Route::get('/{user}/tags', 'TagsController@list')->name('tags.list');
+    Route::post('/{user}/tags', 'TagsController@update')->name('tags.update');
 });
