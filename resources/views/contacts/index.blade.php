@@ -42,6 +42,21 @@
             @endif
           </div>
           <div class="col-12 col-md-4">
+            <!-- Tags -->
+            <div class="sidebar relative bg-white mb-3 br2">
+              <div class="db mb2 ph3 pv2" style="border-bottom: 1px solid #e4e6e8;">
+                <div class="light-gray-text dib"><i class="fas fa-tags mr2"></i>{{ __('user.tags') }}</div>
+                <a href="#" class="dib fr light-gray-text">{{ __('user.tags_edit_lc') }}</a>
+              </div>
+              <div class="pa3">
+                <ul class="tags f7">
+                  @foreach($tags as $tag)
+                    <li><a href="/contacts?tag={{ $tag->name }}" class="tag">{{ $tag->name }}</a></li>
+                  @endforeach
+                </ul>
+              </div>
+            </div>
+
             <!-- Received Requests -->
             <received-requests></received-requests>
             

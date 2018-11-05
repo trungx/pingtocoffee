@@ -164,4 +164,5 @@ return [
     'tags_add_cta' => 'Add tag',
     'tags_edit_cta' => 'Edit tag',
     'add_tag_placeholder' => 'add tag...',
+    'tags_edit_lc' => 'edit',
 ];

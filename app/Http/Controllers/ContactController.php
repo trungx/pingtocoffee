@@ -17,10 +17,14 @@ class ContactController extends Controller
      */
     public function index(Request $request)
     {
+        // Filter contacts by tags.
         $filterTag = auth()->user()->tags()->where('name', $request->tag)->first();
+
+        $tags = auth()->user()->tags()->get();
 
         return view('contacts.index', [
             'contacts' => auth()->user()->contacts($filterTag),
+            'tags' => $tags,
         ]);
     }
 
