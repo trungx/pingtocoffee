@@ -18,7 +18,7 @@ return [
 
     // Contacts
     'contact_empty' => 'You have no contact yet.',
-    'contact_list_total' => 'You have total <strong>:total</strong> contacts',
+    'contacts_under_nothing' => 'You have total <strong>:total</strong> contacts',
     'contact_empty_suggestion' => 'Use the search box to find friends and see their information',
     'contact_birthday_notify' => 'Today is :firstName\'s birthday',
 
@@ -156,4 +156,13 @@ return [
     'referrals_send_mail_desc' => 'Send an invite email to your friends',
     'referrals_share_link_desc' => 'or copy and share your invite\'s link to them',
     'referrals_small_explain' => 'If your friends accept the invitation or register by your link, we\'ll give you a small gift in the future when the app more grows',
+
+    // Tags
+    'tags' => 'Tags',
+    'tags_save' => 'Save',
+    'tags_cancel' => 'Cancel',
+    'tags_add_cta' => 'Add tag',
+    'tags_edit_cta' => 'Edit tag',
+    'add_tag_placeholder' => 'add tag...',
+    'contacts_under_tag' => 'You have <strong>:total</strong> contacts under tag',
 ];

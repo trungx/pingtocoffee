@@ -136,13 +136,118 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Get contacts of user.
+     * Get tags was created by user.
      *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tags()
+    {
+        return $this->hasMany('App\Tag', 'creator_id');
+    }
+
+    /**
+     * Get tags was tagged by user.
+     *
+     * @param string $ofUser
      * @return mixed
      */
-    public function contacts()
+    public function tagged($ofUser = "")
     {
-        return User::whereIn('id', Relationship::contactIds($this->id))->get();
+        $tagsBuilder = UserTag::where('from_user_id', $this->id);
+
+        if ($ofUser) {
+            $tagsBuilder->where('to_user_id', $ofUser->id);
+        }
+        return $tagsBuilder->with(['tag'])->get();
+    }
+
+    /**
+     * Add a tag for user.
+     *
+     * @param $ofUser
+     * @param $tagName
+     * @return mixed
+     */
+    public function attachTag($ofUser, $tagName)
+    {
+        $tag = $this->tags()->firstOrCreate(['name' => $tagName]);
+
+        return UserTag::firstOrCreate([
+            'from_user_id' => $this->id,
+            'to_user_id' => $ofUser->id,
+            'tag_id' => $tag->id,
+        ]);
+    }
+
+    /**
+     * Remove tags was tagged by user.
+     *
+     * @param string $ofUser
+     * @return mixed
+     */
+    public function detachTags($ofUser = "")
+    {
+        $tagsBuilder = UserTag::where('from_user_id', $this->id);
+
+        if ($ofUser) {
+            $tagsBuilder->where('to_user_id', $ofUser->id);
+        }
+
+        return $tagsBuilder->delete();
+    }
+
+    /**
+     * Remove a tag was tagged by user.
+     *
+     * @param $ofUser
+     * @param Tag $tag
+     * @return mixed
+     */
+    public function detachTag($ofUser, Tag $tag)
+    {
+        $result = UserTag::where([
+            'from_user_id' => $this->id,
+            'to_user_id' => $ofUser->id,
+            'tag_id' => $tag->id,
+        ])->delete();
+
+        // checking tag is being used or not
+        $tagIsUsing = UserTag::where([
+            'from_user_id' => $this->id,
+            'tag_id' => $tag->id,
+        ])->exists();
+
+        // delete when tag isn't used.
+        if (!$tagIsUsing) {
+            Tag::where([
+                'id' => $tag->id,
+                'creator_id' => $this->id,
+            ])->delete();
+        }
+
+        return $result;
+    }
+
+    /**
+     * Get contacts of user.
+     *
+     * @param Tag|null $tag
+     * @return mixed
+     */
+    public function contacts(Tag $tag = null)
+    {
+        $contactIds = Relationship::contactIds($this->id);
+
+        if ($tag) {
+            $taggedContactIds = UserTag::where('from_user_id', $this->id)
+                ->where('tag_id', $tag->id)
+                ->pluck('to_user_id')
+                ->toArray();
+
+            $contactIds = array_intersect($contactIds, $taggedContactIds);
+        }
+
+        return User::whereIn('id', array_unique($contactIds))->get();
     }
 
     /**

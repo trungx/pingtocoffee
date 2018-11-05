@@ -29,6 +29,8 @@ Vue.component('default-event-activity', require('./components/dashboard/partials
 
 Vue.component('event-activity', require('./components/dashboard/partials/EventActivity.vue'));
 
+Vue.component('tags-component', require('./components/contact/TagsComponent.vue'));
+
 /**
  * This let us access the `__` method for localization in VueJS templates
  * ({{ __('user.add_contact_cta') }})

@@ -12,12 +12,19 @@ class ContactController extends Controller
     /**
      * Retrieve list contacts
      *
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
+        // Filter contacts by tags.
+        $filterTag = auth()->user()->tags()->where('name', $request->tag)->first();
+
+        $tags = auth()->user()->tags()->get();
+
         return view('contacts.index', [
-            'contacts' => auth()->user()->contacts(),
+            'contacts' => auth()->user()->contacts($filterTag),
+            'tags' => $tags,
         ]);
     }
 
