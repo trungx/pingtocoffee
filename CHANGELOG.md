@@ -3,6 +3,7 @@
 ## UNRELEASED CHANGES
 
 * Add feature notes for contact
+* Add tags for contact
 
 ## RELEASED VERSIONS
 
