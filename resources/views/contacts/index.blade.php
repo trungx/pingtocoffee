@@ -15,10 +15,16 @@
               </div>
             @else
               <ul class="relative list pa0 ma0 bg-white mb-3 br2" style="border:1px solid #d1d5da;">
-                <li class="user-list-header pa2 relative">
-                  <i class="fa fa-users light-gray-text"></i>
-                  {!! __('user.contact_list_total', ['total' => $contacts->count()]) !!}
-                </li>
+                @if (request()->tag)
+                  <li class="user-list-header pa2 relative">
+                    <i class="fa fa-users light-gray-text mr2"></i>{!! __('user.contacts_under_tag', ['total' => $contacts->count()]) !!}<a href="javascript:void(0)" class="tag ma0 ml2 f7">{{ request()->tag }}</a>
+                  </li>
+                @else
+                  <li class="user-list-header pa2 relative">
+                    <i class="fa fa-users light-gray-text mr2"></i>{!! __('user.contacts_under_nothing', ['total' => $contacts->count()]) !!}
+                  </li>
+                @endif
+
                 @foreach($contacts as $contact)
                   <li class="user-list-item">
                     <a class="_item" href="/{{ $contact->username }}">
@@ -43,19 +49,20 @@
           </div>
           <div class="col-12 col-md-4">
             <!-- Tags -->
-            <div class="sidebar relative bg-white mb-3 br2">
-              <div class="db mb2 ph3 pv2" style="border-bottom: 1px solid #e4e6e8;">
-                <div class="light-gray-text dib"><i class="fas fa-tags mr2"></i>{{ __('user.tags') }}</div>
-                <a href="#" class="dib fr light-gray-text">{{ __('user.tags_edit_lc') }}</a>
+            @if ($tags->count() > 0)
+              <div class="sidebar relative bg-white mb-3 br2">
+                <div class="db mb2 ph3 pv2" style="border-bottom: 1px solid #e4e6e8;">
+                  <div class="light-gray-text dib"><i class="fas fa-tags mr2"></i>{{ __('user.tags') }}</div>
+                </div>
+                <div class="pa3">
+                  <ul class="tags f7">
+                    @foreach($tags as $tag)
+                      <li><a href="/contacts?tag={{ $tag->name }}" class="tag">{{ $tag->name }}</a></li>
+                    @endforeach
+                  </ul>
+                </div>
               </div>
-              <div class="pa3">
-                <ul class="tags f7">
-                  @foreach($tags as $tag)
-                    <li><a href="/contacts?tag={{ $tag->name }}" class="tag">{{ $tag->name }}</a></li>
-                  @endforeach
-                </ul>
-              </div>
-            </div>
+            @endif
 
             <!-- Received Requests -->
             <received-requests></received-requests>

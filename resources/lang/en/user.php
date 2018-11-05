@@ -18,7 +18,7 @@ return [
 
     // Contacts
     'contact_empty' => 'You have no contact yet.',
-    'contact_list_total' => 'You have total <strong>:total</strong> contacts',
+    'contacts_under_nothing' => 'You have total <strong>:total</strong> contacts',
     'contact_empty_suggestion' => 'Use the search box to find friends and see their information',
     'contact_birthday_notify' => 'Today is :firstName\'s birthday',
 
@@ -164,5 +164,5 @@ return [
     'tags_add_cta' => 'Add tag',
     'tags_edit_cta' => 'Edit tag',
     'add_tag_placeholder' => 'add tag...',
-    'tags_edit_lc' => 'edit',
+    'contacts_under_tag' => 'You have <strong>:total</strong> contacts under tag',
 ];

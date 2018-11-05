@@ -205,11 +205,27 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function detachTag($ofUser, Tag $tag)
     {
-        return UserTag::where([
+        $result = UserTag::where([
             'from_user_id' => $this->id,
             'to_user_id' => $ofUser->id,
             'tag_id' => $tag->id,
         ])->delete();
+
+        // checking tag is being used or not
+        $tagIsUsing = UserTag::where([
+            'from_user_id' => $this->id,
+            'tag_id' => $tag->id,
+        ])->exists();
+
+        // delete when tag isn't used.
+        if (!$tagIsUsing) {
+            Tag::where([
+                'id' => $tag->id,
+                'creator_id' => $this->id,
+            ])->delete();
+        }
+
+        return $result;
     }
 
     /**
