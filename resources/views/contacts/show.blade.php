@@ -9,9 +9,9 @@
               <div class="header mv3">
                 <div class="avatar-container tc mb-2">
                   @if ($user->has_avatar)
-                    <img class="br-100" src="{{ $user->getAvatarUrl(\App\Helpers\ImageHelper::MEDIUM_SIZE) }}" alt="Avatar" style="width:87px;">
+                    <img class="br-100" src="{{ $user->getAvatarUrl(\App\Helpers\ImageHelper::MEDIUM_SIZE) }}" style="width: 87px;">
                   @else
-                    <div class="br-100 default-avatar" style="background-color: {{ $user->default_avatar_color }}; width: 87px; height: 87px; font-size:25px; padding-top:24px;">
+                    <div class="default-avatar br-100" style="background-color: {{ $user->default_avatar_color }}; width: 87px; height: 87px; font-size: 25px; line-height: 87px;">
                       {{ $user->getInitials() }}
                     </div>
                   @endif

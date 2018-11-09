@@ -42318,8 +42318,9 @@ var render = function() {
                     [
                       contact.avatar
                         ? _c("img", {
-                            staticClass: "mr-2",
-                            attrs: { src: contact.avatar, width: "30" }
+                            staticClass: "mr-2 br-100",
+                            staticStyle: { width: "30px" },
+                            attrs: { src: contact.avatar }
                           })
                         : _vm._e(),
                       _vm._v(" "),
@@ -42327,12 +42328,12 @@ var render = function() {
                         ? _c(
                             "div",
                             {
-                              staticClass: "default-avatar mr-2",
+                              staticClass: "default-avatar mr-2 br-100",
                               staticStyle: {
                                 width: "30px",
                                 height: "30px",
                                 "font-size": "10px",
-                                "padding-top": "7px"
+                                "line-height": "30px"
                               },
                               style: {
                                 backgroundColor: contact.default_avatar_color
@@ -42582,7 +42583,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "tag",
-                    attrs: { href: "/contacts?tag=" + encodeURI(tag) }
+                    attrs: { href: "/contacts?tag=" + tag }
                   },
                   [_vm._v(_vm._s(tag))]
                 )
@@ -42793,8 +42794,9 @@ var render = function() {
                         [
                           contact.avatar
                             ? _c("img", {
-                                staticClass: "mr-2",
-                                attrs: { src: contact.avatar, width: "30" }
+                                staticClass: "mr-2 br-100",
+                                staticStyle: { width: "30px" },
+                                attrs: { src: contact.avatar }
                               })
                             : _vm._e(),
                           _vm._v(" "),
@@ -42802,12 +42804,12 @@ var render = function() {
                             ? _c(
                                 "div",
                                 {
-                                  staticClass: "default-avatar mr-2",
+                                  staticClass: "default-avatar mr-2 br-100",
                                   staticStyle: {
                                     width: "30px",
                                     height: "30px",
                                     "font-size": "10px",
-                                    "padding-top": "7px"
+                                    "line-height": "30px"
                                   },
                                   style: {
                                     backgroundColor:
@@ -56496,9 +56498,9 @@ var HeaderSearch = Search($('.header-search > form'), $('.header-search-input'),
     results.forEach(function (result) {
         html += '<li class="header-search-result pa2 relative bg-white">';
         if (result.avatar === null) {
-            html += '<div class="default-avatar mr-2" style="background-color: ' + result.default_avatar_color + '; width:40px; height:40px; font-size:14px; padding-top:8px;">' + result.initials + '</div>';
+            html += '<div class="default-avatar mr-2 br-100" style="background-color: ' + result.default_avatar_color + '; width: 40px; height: 40px; line-height: 40px;">' + result.initials + '</div>';
         } else {
-            html += '<img src="' + result.avatar + '" alt="Avatar" class="mr-2" width="40">';
+            html += '<img src="' + result.avatar + '" class="mr-2 br-100" style="width: 40px;">';
         }
 
         html += '<a href="' + result.url + '" class="search-item-name">' + result.name + '<span /></a></li>';

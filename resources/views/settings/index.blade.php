@@ -19,9 +19,9 @@
                     <label for="account-avatar">{{ __('settings.profile-picture') }}</label>
                     <div id="account-avatar">
                       @if (auth()->user()->has_avatar)
-                        <img class="br2" src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::LARGE_SIZE) }}" width="200">
+                        <img class="br2" src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::LARGE_SIZE) }}" style="width: 200px;">
                       @else
-                        <div class="default-avatar pt5 f1 br2" style="background-color: {{ auth()->user()->default_avatar_color }}; width:200px; height:200px;">
+                        <div class="default-avatar f1 br2" style="background-color: {{ auth()->user()->default_avatar_color }}; width: 200px; height: 200px; line-height: 200px;">
                           {{ auth()->user()->getInitials() }}
                         </div>
                       @endif
@@ -165,7 +165,7 @@
             hideLoading();
             if (data.status == 'success') {
               $('#print-msg').html(data.msg).addClass('db').removeClass('dn').addClass('alert-success').removeClass('alert-danger').css('width', 200);
-              $('#account-avatar').html(`<img class="br2" src="${data.src}" width="200">`);
+              $('#account-avatar').html(`<img class="br2" src="${data.src}" style="width: 200px;">`);
             } else {
               let errorsText = "";
               for (let i = 0; i < data.errors.length; i++) {

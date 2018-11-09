@@ -123,9 +123,9 @@ const HeaderSearch = Search(
         results.forEach(function (result) {
             html += `<li class="header-search-result pa2 relative bg-white">`;
             if (result.avatar === null) {
-                html += `<div class="default-avatar mr-2" style="background-color: ${result.default_avatar_color}; width:40px; height:40px; font-size:14px; padding-top:8px;">${result.initials}</div>`;
+                html += `<div class="default-avatar mr-2 br-100" style="background-color: ${result.default_avatar_color}; width: 40px; height: 40px; line-height: 40px;">${result.initials}</div>`;
             } else {
-                html += `<img src="${result.avatar}" alt="Avatar" class="mr-2" width="40">`;
+                html += `<img src="${result.avatar}" class="mr-2 br-100" style="width: 40px;">`;
             }
 
             html += `<a href="${result.url}" class="search-item-name">${result.name}<span /></a></li>`;

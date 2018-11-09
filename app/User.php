@@ -327,9 +327,9 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getInitialsAttribute()
     {
-        preg_match_all('/(?<=\s|^)[a-zA-Z0-9]/i', $this->getCompleteName(), $initials);
-
-        return implode('', $initials[0]);
+        preg_match_all('/(?<=\s|^)[a-zA-Z0-9]/i', $this->first_name, $initials);
+        
+        return end($initials[0]);
     }
 
     /**

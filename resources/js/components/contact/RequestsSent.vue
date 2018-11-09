@@ -21,8 +21,8 @@
         <li v-for="contact in requestsSent" :key="contact.id" v-if="contact.state !== 'removed'" class="pv2">
           <div class="fl">
             <a :href="'/' + contact.username" class="mb-1 dib">
-              <img :src="contact.avatar" v-if="contact.avatar" class="mr-2" width="30">
-              <div v-if="contact.initials" class="default-avatar mr-2" :style="{backgroundColor: contact.default_avatar_color}" style="width:30px; height:30px; font-size:10px; padding-top:7px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
+              <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 30px;">
+              <div v-if="contact.initials" class="default-avatar mr-2 br-100" :style="{backgroundColor: contact.default_avatar_color}" style="width: 30px; height: 30px; font-size: 10px; line-height: 30px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
             </a>
           </div>
           
