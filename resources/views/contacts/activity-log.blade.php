@@ -16,7 +16,7 @@
                     </div>
                   @endif
                 </div>
-                <div class="people-name tc f4">{{ $user->getCompleteName() }}</div>
+                <div class="people-name tc f4 fw6">{{ $user->getCompleteName() }}</div>
                 <div class="f6 tc mb-2 gray-text">
                   @<a href="/{{ $user->username }}" class="gray-text">{{ $user->username }}</a>
                 </div>

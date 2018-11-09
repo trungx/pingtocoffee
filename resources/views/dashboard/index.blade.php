@@ -3,7 +3,7 @@
   <div class="dashboard">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-3 dn db-ns">
           <div class="mb3">
             <div class="sidebar-profile">
               <div class="avatar-container mb-2">
