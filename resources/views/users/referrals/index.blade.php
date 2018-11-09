@@ -25,7 +25,7 @@
                     <label for="email" class="sr-only">Friend's email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Friend's email">
                   </div>
-                  <button type="submit" class="btn default-btn b mb-2">{{ __('settings.send_invite') }}</button>
+                  <button type="submit" class="btn default-btn fw6 mb-2">{{ __('settings.send_invite') }}</button>
                 </form>
                 <p>{{ __('user.referrals_share_link_desc') }}</p>
                 <form onsubmit="return false">
@@ -33,7 +33,7 @@
                     <label for="email" class="sr-only">Invite link</label>
                     <input type="text" class="form-control" id="affiliate-link" value="{{ config('app.url') }}/register?ref={{ $referralCode }}" style="min-width: 290px;" readonly>
                   </div>
-                  <button type="submit" class="btn default-btn b mb-2" id="copy-to-clipboard-btn" data-clipboard-target="#affiliate-link">{{ __('settings.copy') }}</button>
+                  <button type="submit" class="btn default-btn fw6 mb-2" id="copy-to-clipboard-btn" data-clipboard-target="#affiliate-link">{{ __('settings.copy') }}</button>
                 </form>
                 <small class="form-text light-gray-text">{{ __('user.referrals_small_explain') }}</small>
               </div>

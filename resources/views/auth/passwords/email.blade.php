@@ -26,7 +26,7 @@
               </div>
               <div class="form-group row mb-0">
                 <div class="col-md-6 offset-md-4">
-                  <button type="submit" class="btn default-btn b">
+                  <button type="submit" class="btn default-btn fw6">
                     {{ __('auth.reset-password-cta') }}
                   </button>
                   <a href="/login" class="btn btn-link gray-text">{{ __('auth.cancel-link') }}</a>

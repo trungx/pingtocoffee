@@ -21,8 +21,8 @@
       </li>
     </ul>
     <div class="load-more tc" v-if="shouldShowLoadMore">
-      <button v-if="!loadingMore" @click="loadMore()" class="btn default-btn pv1 ph3 mv2 br4 fw6">{{ __('dashboard.load_more') }}</button>
-      <button v-else class="btn default-btn pv1 ph3 mv2 br4 fw6 disabled">{{ __('dashboard.loading') }}</button>
+      <button v-if="!loadingMore" @click="loadMore()" class="btn default-btn fw6 pv1 ph3 mv2 br4">{{ __('dashboard.load_more') }}</button>
+      <button v-else class="btn default-btn fw6 pv1 ph3 mv2 br4 disabled">{{ __('dashboard.loading') }}</button>
     </div>
   </div>
 </template>

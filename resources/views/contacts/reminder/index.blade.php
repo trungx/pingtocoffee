@@ -5,7 +5,7 @@
         <div class="fl f5">{{ __('user.reminders') }}</div>
       </div>
       <!-- Add cta -->
-      <a href="/contact/{{ $user->id }}/reminder" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.reminder_add_cta') }}</a>
+      <a href="/contact/{{ $user->id }}/reminder" class="default-btn fw6 pv1 ph3 absolute top-0 right-0">{{ __('user.reminder_add_cta') }}</a>
     </div>
 
     @if ($reminders->count() == 0)

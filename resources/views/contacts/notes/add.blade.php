@@ -15,7 +15,7 @@
           </div>
           <div class="form-group tr">
             <a href="javascript:void(0);" class="btn btn-link gray-text" data-dismiss="modal">{{ __('user.notes_cancel_cta') }}</a>
-            <button type="submit" class="btn default-btn b">{{ __('user.notes_add_cta') }}</button>
+            <button type="submit" class="btn default-btn fw6">{{ __('user.notes_add_cta') }}</button>
           </div>
         </form>
       </div>

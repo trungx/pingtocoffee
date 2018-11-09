@@ -5,7 +5,7 @@
         <div class="fl f5">{{ __('user.notes') }}</div>
       </div>
       <!-- Add cta -->
-      <a href="javascript:void(0);" data-toggle="modal" data-target="#noteModal" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.notes_add_cta') }}</a>
+      <a href="javascript:void(0);" data-toggle="modal" data-target="#noteModal" class="default-btn fw6 pv1 ph3 absolute top-0 right-0">{{ __('user.notes_add_cta') }}</a>
     </div>
 
     @if ($notes->count() == 0)

@@ -5,7 +5,7 @@
         <div class="fl f5">{{ __('user.contact_logs_heading') }}</div>
       </div>
       <!-- Add cta -->
-      <a href="/contact/{{ $user->id }}/contact-log" class="default-btn b pv1 ph3 absolute top-0 right-0">{{ __('user.contact_logs_add_cta') }}</a>
+      <a href="/contact/{{ $user->id }}/contact-log" class="default-btn fw6 pv1 ph3 absolute top-0 right-0">{{ __('user.contact_logs_add_cta') }}</a>
     </div>
     @if ($contactLogs->count() == 0)
       <!-- Empty state -->

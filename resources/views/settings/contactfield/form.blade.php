@@ -42,7 +42,7 @@
     <div class="col-12">
       <div class="tr">
         <a href="/settings/contactfield" class="btn btn-link gray-text">{{ __('settings.cancel') }}</a>
-        <button type="submit" class="btn default-btn b">{{ __('settings.save-changes') }}</button>
+        <button type="submit" class="btn default-btn fw6">{{ __('settings.save-changes') }}</button>
       </div>
     </div>
   </div>
