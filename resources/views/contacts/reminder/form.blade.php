@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-12">
       <div class="pt3">
-        <button type="submit" class="btn default-btn b">
+        <button type="submit" class="btn default-btn fw6">
           @if ($add_or_edit == 'add')
             {{ __('user.reminder_add_cta') }}
           @elseif ($add_or_edit == 'edit')

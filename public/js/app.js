@@ -42351,7 +42351,7 @@ var render = function() {
                     ? _c(
                         "button",
                         {
-                          staticClass: "btn btn-sm item default-btn b f7",
+                          staticClass: "btn btn-sm item default-btn fw6 f7",
                           on: {
                             click: function($event) {
                               _vm.accept(contact.id)
@@ -42531,7 +42531,7 @@ var render = function() {
               _c(
                 "a",
                 {
-                  staticClass: "default-btn b pv1 ph3 mr2",
+                  staticClass: "btn default-btn fw6 pv1 ph3 f7",
                   attrs: { href: "javascript:void(0);" },
                   on: {
                     click: function($event) {
@@ -42549,7 +42549,7 @@ var render = function() {
               _c(
                 "a",
                 {
-                  staticClass: "btn-link light-gray-text",
+                  staticClass: "btn btn-link light-gray-text f7",
                   attrs: { href: "javascript:void(0);" },
                   on: {
                     click: function($event) {
@@ -42582,7 +42582,7 @@ var render = function() {
                   "a",
                   {
                     staticClass: "tag",
-                    attrs: { href: "/contacts?tag=" + encodeURI(tag) }
+                    attrs: { href: "/contacts?tag=" + tag }
                   },
                   [_vm._v(_vm._s(tag))]
                 )
@@ -42827,7 +42827,7 @@ var render = function() {
                         ? _c(
                             "button",
                             {
-                              staticClass: "btn default-btn b btn-sm f7",
+                              staticClass: "btn default-btn fw6 btn-sm f7",
                               on: {
                                 click: function($event) {
                                   _vm.add(contact.id)
@@ -43055,7 +43055,7 @@ var render = function() {
               ? _c(
                   "button",
                   {
-                    staticClass: "btn default-btn pv1 ph3 mv2 br4 fw6",
+                    staticClass: "btn default-btn fw6 pv1 ph3 mv2 br4",
                     on: {
                       click: function($event) {
                         _vm.loadMore()
@@ -43067,7 +43067,7 @@ var render = function() {
               : _c(
                   "button",
                   {
-                    staticClass: "btn default-btn pv1 ph3 mv2 br4 fw6 disabled"
+                    staticClass: "btn default-btn fw6 pv1 ph3 mv2 br4 disabled"
                   },
                   [_vm._v(_vm._s(_vm.__("dashboard.loading")))]
                 )
@@ -43101,7 +43101,7 @@ var render = function() {
           ? _c(
               "a",
               {
-                staticClass: "btn default-btn pv1 ph3 b w-100",
+                staticClass: "btn default-btn fw6 pv1 ph3 w-100",
                 attrs: { href: "javascript:void(0)" },
                 on: {
                   click: function($event) {
@@ -43125,7 +43125,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "btn default-btn pv1 ph3 b dropdown-toggle w-100",
+                    "btn default-btn fw6 pv1 ph3 dropdown-toggle w-100",
                   attrs: {
                     type: "button",
                     "data-toggle": "dropdown",
@@ -43172,7 +43172,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "btn default-btn pv1 ph3 b dropdown-toggle w-100",
+                    "btn default-btn fw6 pv1 ph3 dropdown-toggle w-100",
                   attrs: {
                     type: "button",
                     "data-toggle": "dropdown",
@@ -43224,7 +43224,7 @@ var render = function() {
                 "button",
                 {
                   staticClass:
-                    "btn default-btn pv1 ph3 b dropdown-toggle w-100",
+                    "btn default-btn fw6 pv1 ph3 dropdown-toggle w-100",
                   attrs: {
                     type: "button",
                     "data-toggle": "dropdown",

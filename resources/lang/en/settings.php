@@ -66,7 +66,7 @@ return [
     'only_me_privacy_desc' => 'This information will be seen by only you',
 
     // Security
-    'delete_account_title' => 'Delete Account',
+    'danger_zone_title' => 'Danger Zone',
     'delete_account_desc' => 'This application don\'t save your personal information, so this is hard delete. All your related data will be removed out our system.',
     'deleted_account_desc' => 'Your account will be deleted at <b>:destroy_date</b>',
     'delete_account_confirmation' => 'Are you sure about permanently delete account?',

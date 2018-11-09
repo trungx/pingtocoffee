@@ -1,11 +1,11 @@
 <template>
   <div class="actions" v-if="userId !== authenticatedUserId">
-    <a v-if="type === 'none'" @click="addRelationship(userId)" href="javascript:void(0)" class="btn default-btn pv1 ph3 b w-100">
+    <a v-if="type === 'none'" @click="addRelationship(userId)" href="javascript:void(0)" class="btn default-btn fw6 pv1 ph3 w-100">
       <i class="fa fa-user-plus mr-2"></i>{{ __('user.add_cta') }}
     </a>
     
     <div class="dropdown" v-if="(type === 'pending_first_second' && authenticatedUserId < userId) || (type === 'pending_second_first' && authenticatedUserId > userId)">
-      <button class="btn default-btn pv1 ph3 b dropdown-toggle w-100"
+      <button class="btn default-btn fw6 pv1 ph3 dropdown-toggle w-100"
               type="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-user-times mr-2"></i>{{ __('user.waiting_status') }}
@@ -18,7 +18,7 @@
     </div>
     
     <div class="dropdown" v-if="(type === 'pending_first_second' && authenticatedUserId > userId) || (type === 'pending_second_first' && authenticatedUserId < userId)">
-      <button class="btn default-btn pv1 ph3 b dropdown-toggle w-100"
+      <button class="btn default-btn fw6 pv1 ph3 dropdown-toggle w-100"
               type="button" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
         <i class="fa fa-exclamation-circle mr-2"></i>{{ __('user.confirm_status') }}
@@ -30,7 +30,7 @@
     </div>
     
     <div class="dropdown" v-if="type === 'friends'">
-      <button class="btn default-btn pv1 ph3 b dropdown-toggle w-100"
+      <button class="btn default-btn fw6 pv1 ph3 dropdown-toggle w-100"
               type="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
         <i class="fa fa-user-check mr-2"></i>{{ __('user.friends_status') }}

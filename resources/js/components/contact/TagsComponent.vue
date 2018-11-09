@@ -6,10 +6,10 @@
       <input-tag v-model="tags"></input-tag>
 
       <div class="mv2">
-        <a href="javascript:void(0);" class="default-btn b pv1 ph3 mr2" @click="save()">
+        <a href="javascript:void(0);" class="btn default-btn fw6 pv1 ph3 f7" @click="save()">
           {{ __('user.tags_save') }}
         </a>
-        <a href="javascript:void(0);" class="btn-link light-gray-text" @click="cancel()">
+        <a href="javascript:void(0);" class="btn btn-link light-gray-text f7" @click="cancel()">
           {{ __('user.tags_cancel') }}
         </a>
       </div>

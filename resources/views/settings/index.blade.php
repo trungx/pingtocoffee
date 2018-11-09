@@ -28,7 +28,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="relative tc default-btn pv1 ph3 b" style="width: 200px;">
+                    <label class="relative tc default-btn fw6 pv1 ph3" style="width: 200px;">
                       <span id="upload-button-label">{{ __('settings.upload_new_picture') }}</span>
                       <input id="avatar" class="absolute top-0 left-0 pa0 w-100 o-0 pointer" name="avatar" type="file">
                     </label>
@@ -118,7 +118,7 @@
                   <label for="timezone">{{ __('settings.timezone') }}</label>
                   @include('settings.countries')
                 </div>
-                <button type="submit" class="btn default-btn b">{{ __('settings.save') }}</button>
+                <button type="submit" class="btn default-btn fw6">{{ __('settings.save') }}</button>
               </form>
 
               <!-- Resend verification email form -->

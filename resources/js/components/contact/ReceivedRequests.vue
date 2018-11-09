@@ -28,7 +28,7 @@
           <!-- Actions -->
           <div class="fr dib">
             <!-- Accept Friend Request -->
-            <button v-if="contact.state === 'none'" class="btn btn-sm item default-btn b f7" @click="accept(contact.id)">
+            <button v-if="contact.state === 'none'" class="btn btn-sm item default-btn fw6 f7" @click="accept(contact.id)">
               {{ __('user.accept_cta') }}
             </button>
 

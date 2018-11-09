@@ -29,7 +29,7 @@
           <!-- Actions -->
           <div class="fr dib">
             <!-- Send Friend Request -->
-            <button v-if="contact.state === 'canceled'" class="btn default-btn b btn-sm f7" @click="add(contact.id)">
+            <button v-if="contact.state === 'canceled'" class="btn default-btn fw6 btn-sm f7" @click="add(contact.id)">
               {{ __('user.add_cta') }}
             </button>
 
