@@ -23,9 +23,9 @@
                   <li class="user-list-item">
                     <a class="_item" href="/{{ $contact->username }}">
                       @if ($contact->has_avatar)
-                        <img src="{{ $contact->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-2" alt="Avatar" width="43">
+                        <img src="{{ $contact->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-2 br-100" style="width: 42px;">
                       @else
-                        <div class="default-avatar mr-2" style="background-color: {{ $contact->default_avatar_color }}; width:43px; height:43px; font-size:14px; padding-top:10px;">
+                        <div class="default-avatar mr-2 br-100" style="background-color: {{ $contact->default_avatar_color }}; width: 42px; height: 42px; line-height: 42px;">
                           {{ $contact->getInitials() }}
                         </div>
                       @endif

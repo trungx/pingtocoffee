@@ -20,9 +20,9 @@
           <li class="mb3 relative pa2 pl3 data-row">
             <div class="avatar-container fl mr2 mb2" title="{{ $user->getCompleteName() }}">
               @if ($note->owner->has_avatar)
-                <img class="br-100" src="{{ $note->owner->getAvatarUrl(\App\Helpers\ImageHelper::MEDIUM_SIZE) }}" alt="Avatar" style="width:42px;">
+                <img class="br-100" src="{{ $note->owner->getAvatarUrl(\App\Helpers\ImageHelper::MEDIUM_SIZE) }}" style="width: 42px;">
               @else
-                <div class="br-100 default-avatar" style="background-color: {{ $note->owner->default_avatar_color }}; width: 42px; height: 42px; font-size:14px; padding-top:10px;">
+                <div class="default-avatar br-100" style="background-color: {{ $note->owner->default_avatar_color }}; width: 42px; height: 42px; line-height: 42px;">
                   {{ $note->owner->getInitials() }}
                 </div>
               @endif

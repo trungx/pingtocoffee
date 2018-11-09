@@ -3,14 +3,14 @@
   <div class="dashboard">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3 mb-3 dn db-ns">
           <div class="mb3">
             <div class="sidebar-profile">
               <div class="avatar-container mb-2">
                 @if ($user->has_avatar)
-                  <img src="{{ $user->getAvatarUrl(\App\Helpers\ImageHelper::LARGE_SIZE) }}" class="br-100" style="width:150px;">
+                  <img src="{{ $user->getAvatarUrl(\App\Helpers\ImageHelper::LARGE_SIZE) }}" class="br-100" style="width: 150px;">
                 @else
-                  <div class="default-avatar br-100" style="background-color: {{ $user->default_avatar_color }}; width:150px;height:150px;font-size:50px;padding-top:35px;">
+                  <div class="default-avatar br-100" style="background-color: {{ $user->default_avatar_color }}; width: 150px; height: 150px; font-size: 50px; line-height: 150px;">
                     {{ $user->getInitials() }}
                   </div>
                 @endif
