@@ -40,9 +40,9 @@
             <a class="nav-link" href="/{{ auth()->user()->username }}" title="{{ __('app.header_profile_link') }}">
               <span>
                 @if (auth()->user()->has_avatar)
-                  <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-1 br-100 v-mid" style="width: 30px;">
+                  <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="br-100 v-mid" style="width: 30px;">
                 @else
-                  <div class="default-avatar mr-1 br-100 v-mid" style="background-color: {{ auth()->user()->default_avatar_color }}; width: 30px; height: 30px; line-height: 30px; font-size:9px;">
+                  <div class="default-avatar mr-1 br-100 v-mid f7" style="background-color: {{ auth()->user()->default_avatar_color }}; width: 30px; height: 30px; line-height: 30px;">
                     {{ auth()->user()->getInitials() }}
                   </div>
                 @endif

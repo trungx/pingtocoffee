@@ -65,10 +65,9 @@
             @endif
 
             <!-- Received Requests -->
-            <received-requests></received-requests>
-            
-            <!-- Requests Sent -->
-            <requests-sent></requests-sent>
+            @if (!request()->tag)
+              <received-requests></received-requests>
+            @endif
           </div>
         </div>
       </div>

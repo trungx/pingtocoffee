@@ -9,56 +9,6 @@ use App\Relationship;
 class RelationshipsController extends Controller
 {
     /**
-     * Retrieve received requests.
-     *
-     * @return mixed
-     */
-    public function receivedRequests()
-    {
-        $enableSeeAll = false;
-        $receivedRequests = auth()->user()->receivedRequests();
-
-        if ($receivedRequests->count() > User::RECEIVED_REQUESTS_LIMIT) {
-            $enableSeeAll = true;
-            $receivedRequests = $receivedRequests->take(User::RECEIVED_REQUESTS_LIMIT);
-        }
-
-        $receivedRequests->each(function($item) {
-            $item->state = 'none';
-        });
-
-        return response()->json([
-            'receivedRequests' => $receivedRequests,
-            'enableSeeAll' => $enableSeeAll,
-        ]);
-    }
-
-    /**
-     * Retrieve requests sent.
-     *
-     * @return mixed
-     */
-    public function requestsSent()
-    {
-        $enableSeeAll = false;
-        $requestsSent = auth()->user()->requestsSent();
-
-        if ($requestsSent->count() > User::REQUESTS_SENT_LIMIT) {
-            $enableSeeAll = true;
-            $requestsSent = $requestsSent->take(User::REQUESTS_SENT_LIMIT);
-        }
-
-        $requestsSent->each(function($item) {
-            $item->state = 'requestSent';
-        });
-
-        return response()->json([
-            'requestsSent' => $requestsSent,
-            'enableSeeAll' => $enableSeeAll,
-        ]);
-    }
-
-    /**
      * Store new relationship
      *
      * @param User $user

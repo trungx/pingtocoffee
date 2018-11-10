@@ -10774,14 +10774,6 @@ a {
   border: 1px solid #d1d5da;
 }
 
-.sidebar .content ul li {
-  border-bottom: 1px dashed #eee;
-}
-
-.sidebar .content ul li:last-child {
-  border-bottom: 0;
-}
-
 .sidebar .content ul li:after {
   content: " ";
   display: block;

@@ -3,6 +3,7 @@
 return [
     'contact_information' => 'Contact Information',
     'received_requests_title' => 'Received Requests',
+    'requests_sent_title' => 'Requests Sent',
     'empty_received_requests' => 'No new friend requests',
     'requests_sent_title' => 'Requests Sent',
     'empty_requests_sent' => 'No request was sent',
@@ -21,6 +22,8 @@ return [
     'contacts_under_nothing' => 'You have total <strong>:total</strong> contacts',
     'contact_empty_suggestion' => 'Use the search box to find friends and see their information',
     'contact_birthday_notify' => 'Today is :firstName\'s birthday',
+    'view_received_requests' => 'View Received Requests',
+    'view_requests_sent' => 'View Requests Sent',
 
     // Actions
     'add_cta' => 'Add Friend',
