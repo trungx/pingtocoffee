@@ -66,7 +66,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/referrals', 'UsersController@sendInvite');
 
     // Contacts
-    Route::get('/contacts', 'ContactController@index')->name('contact.index');
+    Route::get('/contacts', 'ContactController@index')->name('contacts.index');
+    Route::get('/contacts/all-received-requests', 'ContactController@allReceivedRequests')->name('contacts.all-received-requests');
+    Route::get('/contacts/all-requests-sent', 'ContactController@allRequestsSent')->name('contacts.all-requests-sent');
+    Route::get('/contacts/received-requests', 'ContactController@receivedRequests')->name('contacts.received-requests');
+    Route::get('/contacts/requests-sent', 'ContactController@requestsSent')->name('contacts.requests-sent');
 
     // Contacts Requests
     Route::get('/contacts/requests', 'ContactController@requests')->name('contact.requests');
@@ -104,8 +108,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/{user}/accept', 'RelationshipsController@update')->name('.update');
         Route::post('/{user}/decline', 'RelationshipsController@destroy')->name('.destroy');
         Route::post('/{user}/block', 'RelationshipsController@block')->name('.block');
-        Route::get('/received-requests', 'RelationshipsController@receivedRequests')->name('.received-requests');
-        Route::get('/requests-sent', 'RelationshipsController@requestsSent')->name('.requests-sent');
     });
 
     // Tags

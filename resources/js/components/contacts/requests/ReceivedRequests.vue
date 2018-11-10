@@ -25,6 +25,7 @@
               <div v-if="contact.initials" class="default-avatar mr-2 br-100" :style="{backgroundColor: contact.default_avatar_color}" style="width:30px; height:30px; font-size:10px; line-height: 30px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
             </a>
           </div>
+
           <!-- Actions -->
           <received-requests-action :contact="contact"></received-requests-action>
         </li>
@@ -65,7 +66,7 @@
       },
       
       getReceivedRequestsData() {
-        axios.get('/relationships/received-requests')
+        axios.get('/contacts/received-requests')
         .then(response => {
           this.enableSeeAll = response.data.enableSeeAll;
           this.receivedRequests = response.data.receivedRequests;

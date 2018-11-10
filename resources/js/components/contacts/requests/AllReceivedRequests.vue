@@ -2,7 +2,7 @@
   <div class="sidebar relative pa3 bg-white mb-3 br2">
     <div class="db mb2">
       <h6 class="light-gray-text dib fw6">{{ __('user.received_requests_title') }}</h6>
-      <a v-if="enableSeeAll" href="/contacts/requests?outgoing=1" class="dib fr gray-text">{{ __('user.view_requests_sent') }}</a>
+      <a href="/contacts/requests?outgoing=1" class="dib fr gray-text">{{ __('user.view_requests_sent') }}</a>
     </div>
     <div class="content">
       <!--Loading spinner-->
@@ -25,6 +25,7 @@
               <div v-if="contact.initials" class="default-avatar mr-2 br-100" :style="{backgroundColor: contact.default_avatar_color}" style="width:30px; height:30px; font-size:10px; line-height: 30px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
             </a>
           </div>
+
           <!-- Actions -->
           <received-requests-action :contact="contact"></received-requests-action>
         </li>
@@ -47,7 +48,6 @@
 
     data () {
       return {
-        enableSeeAll: false,
         loading: true,
         receivedRequests: [],
       };
@@ -65,9 +65,8 @@
       },
 
       getReceivedRequestsData() {
-        axios.get('/relationships/received-requests')
+        axios.get('/contacts/all-received-requests')
           .then(response => {
-            this.enableSeeAll = response.data.enableSeeAll;
             this.receivedRequests = response.data.receivedRequests;
             this.loading = false;
           });

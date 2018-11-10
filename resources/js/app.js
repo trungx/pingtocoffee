@@ -17,13 +17,17 @@ window.Vue = require('vue');
 
 Vue.component('actions-component', require('./components/relationships/ActionsComponent.vue'));
 
-Vue.component('received-requests-action', require('./components/contact/ReceivedRequestsAction.vue'));
+Vue.component('received-requests-action', require('./components/contacts/requests/actions/ReceivedRequestsAction.vue'));
 
-Vue.component('all-received-requests', require('./components/contact/AllReceivedRequests.vue'));
+Vue.component('requests-sent-action', require('./components/contacts/requests/actions/RequestsSentAction.vue'));
 
-Vue.component('received-requests', require('./components/contact/ReceivedRequests.vue'));
+Vue.component('all-received-requests', require('./components/contacts/requests/AllReceivedRequests.vue'));
 
-Vue.component('requests-sent', require('./components/contact/RequestsSent.vue'));
+Vue.component('all-requests-sent', require('./components/contacts/requests/AllRequestsSent.vue'));
+
+Vue.component('received-requests', require('./components/contacts/requests/ReceivedRequests.vue'));
+
+Vue.component('requests-sent', require('./components/contacts/requests/RequestsSent.vue'));
 
 Vue.component('summary-component', require('./components/dashboard/SummaryComponent.vue'));
 
@@ -33,7 +37,7 @@ Vue.component('default-event-activity', require('./components/dashboard/partials
 
 Vue.component('event-activity', require('./components/dashboard/partials/EventActivity.vue'));
 
-Vue.component('tags-component', require('./components/contact/TagsComponent.vue'));
+Vue.component('tags-component', require('./components/contacts/TagsComponent.vue'));
 
 
 

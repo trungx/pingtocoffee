@@ -3,6 +3,7 @@
 return [
     'contact_information' => 'Contact Information',
     'received_requests_title' => 'Received Requests',
+    'requests_sent_title' => 'Requests Sent',
     'empty_received_requests' => 'No new friend requests',
     'requests_sent_title' => 'Requests Sent',
     'empty_requests_sent' => 'No request was sent',

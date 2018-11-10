@@ -95,15 +95,47 @@ class ContactController extends Controller
     {
         if ($request->has('outgoing')) {
             $outgoingRequests = true;
-            $contacts = $this->requestsSent();
         } else {
             $outgoingRequests = false;
-            $contacts = $this->receivedRequests();
         }
 
         return view('contacts.requests.index', [
             'outgoingRequests' => $outgoingRequests,
-            'contacts' => $contacts,
+        ]);
+    }
+
+    /**
+     * Retrieve all received requests.
+     *
+     * @return mixed
+     */
+    protected function allReceivedRequests()
+    {
+        $receivedRequests = auth()->user()->receivedRequests();
+        $receivedRequests->each(function($item) {
+            $item->state = 'none';
+        });
+
+        return response()->json([
+            'receivedRequests' => $receivedRequests,
+        ]);
+
+    }
+
+    /**
+     * Retrieve all requests sent.
+     *
+     * @return mixed
+     */
+    protected function allRequestsSent()
+    {
+        $requestsSent = auth()->user()->requestsSent();
+        $requestsSent->each(function($item) {
+            $item->state = 'requestSent';
+        });
+
+        return response()->json([
+            'requestsSent' => $requestsSent,
         ]);
     }
 
@@ -112,9 +144,24 @@ class ContactController extends Controller
      *
      * @return mixed
      */
-    protected function receivedRequests()
+    public function receivedRequests()
     {
-        return auth()->user()->receivedRequests();
+        $enableSeeAll = false;
+        $receivedRequests = auth()->user()->receivedRequests();
+
+        if ($receivedRequests->count() > User::RECEIVED_REQUESTS_LIMIT) {
+            $enableSeeAll = true;
+            $receivedRequests = $receivedRequests->take(User::RECEIVED_REQUESTS_LIMIT);
+        }
+
+        $receivedRequests->each(function($item) {
+            $item->state = 'none';
+        });
+
+        return response()->json([
+            'receivedRequests' => $receivedRequests,
+            'enableSeeAll' => $enableSeeAll,
+        ]);
     }
 
     /**
@@ -122,9 +169,24 @@ class ContactController extends Controller
      *
      * @return mixed
      */
-    protected function requestsSent()
+    public function requestsSent()
     {
-        return auth()->user()->requestsSent();
+        $enableSeeAll = false;
+        $requestsSent = auth()->user()->requestsSent();
+
+        if ($requestsSent->count() > User::REQUESTS_SENT_LIMIT) {
+            $enableSeeAll = true;
+            $requestsSent = $requestsSent->take(User::REQUESTS_SENT_LIMIT);
+        }
+
+        $requestsSent->each(function($item) {
+            $item->state = 'requestSent';
+        });
+
+        return response()->json([
+            'requestsSent' => $requestsSent,
+            'enableSeeAll' => $enableSeeAll,
+        ]);
     }
 
     /**

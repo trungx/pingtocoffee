@@ -27,22 +27,7 @@
           </div>
           
           <!-- Actions -->
-          <div class="fr dib">
-            <!-- Send Friend Request -->
-            <button v-if="contact.state === 'canceled'" class="btn default-btn fw6 btn-sm f7" @click="add(contact.id)">
-              {{ __('user.add_cta') }}
-            </button>
-
-            <!-- Remove User -->
-            <button v-if="contact.state === 'canceled'" class="btn btn-sm btn-link light-gray-text f7" @click="remove(contact.id)">
-              {{ __('user.remove_cta') }}
-            </button>
-
-            <!-- Cancel Request -->
-            <button v-if="contact.state === 'requestSent'" class="btn btn-sm btn-link light-gray-text f7" @click="cancel(contact.id)">
-              {{ __('user.cancel_cta') }}
-            </button>
-          </div>
+          <requests-sent-action :contact="contact"></requests-sent-action>
         </li>
       </ul>
 
@@ -81,32 +66,11 @@
       },
   
       getRequestsSent() {
-        axios.get('/relationships/requests-sent')
+        axios.get('/contacts/requests-sent')
         .then(response => {
           this.enableSeeAll = response.data.enableSeeAll;
           this.requestsSent = response.data.requestsSent;
           this.loading = false;
-        });
-      },
-
-      add(userId) {
-        axios.post('/relationships/' + userId + '/add')
-        .then(response => {
-          let contact = this.requestsSent.find(contact => contact.id === userId);
-          contact.state = 'requestSent';
-        });
-      },
-
-      remove(userId) {
-        let contact = this.requestsSent.find(contact => contact.id === userId);
-        contact.state = 'removed';
-      },
-      
-      cancel(userId) {
-        axios.post('/relationships/' + userId + '/cancel')
-        .then(response => {
-          let contact = this.requestsSent.find(contact => contact.id === userId);
-          contact.state = 'canceled';
         });
       },
     }
