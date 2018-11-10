@@ -65,7 +65,9 @@
             @endif
 
             <!-- Received Requests -->
-            <received-requests></received-requests>
+            @if (!request()->tag)
+              <received-requests></received-requests>
+            @endif
           </div>
         </div>
       </div>
