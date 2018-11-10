@@ -66,9 +66,6 @@
 
             <!-- Received Requests -->
             <received-requests></received-requests>
-            
-            <!-- Requests Sent -->
-            <requests-sent></requests-sent>
           </div>
         </div>
       </div>

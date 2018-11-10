@@ -10,8 +10,10 @@
               <li class="user-list-header pa2 relative b">
                 @if ($outgoingRequests)
                   {{ __('user.requests_sent_title') }}
+                  <a href="/contacts/requests" class="fr f7 fw4">View Received Requests</a>
                 @else
                   {{ __('user.received_requests_title') }}
+                  <a href="/contacts/requests?outgoing=1" class="fr f7 fw4">View Requests Sent</a>
                 @endif
               </li>
 

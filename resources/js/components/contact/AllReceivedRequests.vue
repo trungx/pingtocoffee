@@ -2,7 +2,7 @@
   <div class="sidebar relative pa3 bg-white mb-3 br2">
     <div class="db mb2">
       <h6 class="light-gray-text dib fw6">{{ __('user.received_requests_title') }}</h6>
-      <a v-if="enableSeeAll" href="/contacts/requests" class="dib fr gray-text">{{ __('user.see_all') }}</a>
+      <a v-if="enableSeeAll" href="/contacts/requests?outgoing=1" class="dib fr gray-text">{{ __('user.view_requests_sent') }}</a>
     </div>
     <div class="content">
       <!--Loading spinner-->
@@ -52,25 +52,25 @@
         receivedRequests: [],
       };
     },
-    
+
     mounted() {
       this.prepareComponent();
     },
-    
+
     props: [],
-    
+
     methods: {
       prepareComponent() {
         this.getReceivedRequestsData();
       },
-      
+
       getReceivedRequestsData() {
         axios.get('/relationships/received-requests')
-        .then(response => {
-          this.enableSeeAll = response.data.enableSeeAll;
-          this.receivedRequests = response.data.receivedRequests;
-          this.loading = false;
-        });
+          .then(response => {
+            this.enableSeeAll = response.data.enableSeeAll;
+            this.receivedRequests = response.data.receivedRequests;
+            this.loading = false;
+          });
       },
     }
   }

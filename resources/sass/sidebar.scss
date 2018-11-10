@@ -4,12 +4,6 @@
   .content {
     ul {
       li {
-        border-bottom: 1px dashed #eee;
-
-        &:last-child {
-          border-bottom: 0;
-        }
-
         &:after {
           content: " ";
           display: block;

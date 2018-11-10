@@ -17,6 +17,10 @@ window.Vue = require('vue');
 
 Vue.component('actions-component', require('./components/relationships/ActionsComponent.vue'));
 
+Vue.component('received-requests-action', require('./components/contact/ReceivedRequestsAction.vue'));
+
+Vue.component('all-received-requests', require('./components/contact/AllReceivedRequests.vue'));
+
 Vue.component('received-requests', require('./components/contact/ReceivedRequests.vue'));
 
 Vue.component('requests-sent', require('./components/contact/RequestsSent.vue'));
@@ -30,6 +34,8 @@ Vue.component('default-event-activity', require('./components/dashboard/partials
 Vue.component('event-activity', require('./components/dashboard/partials/EventActivity.vue'));
 
 Vue.component('tags-component', require('./components/contact/TagsComponent.vue'));
+
+
 
 /**
  * This let us access the `__` method for localization in VueJS templates
