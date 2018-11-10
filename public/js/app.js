@@ -43618,7 +43618,7 @@ var render = function() {
       _c(
         "a",
         {
-          staticClass: "dib fr gray-text",
+          staticClass: "db dib-ns fn fr-ns gray-text",
           attrs: { href: "/contacts/requests" }
         },
         [_vm._v(_vm._s(_vm.__("user.view_received_requests")))]
@@ -43659,14 +43659,14 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "mb-1 dib",
+                            staticClass: "dib",
                             attrs: { href: "/" + contact.username }
                           },
                           [
                             contact.avatar
                               ? _c("img", {
                                   staticClass: "mr-2 br-100",
-                                  staticStyle: { width: "30px" },
+                                  staticStyle: { width: "42px" },
                                   attrs: { src: contact.avatar }
                                 })
                               : _vm._e(),
@@ -43677,10 +43677,9 @@ var render = function() {
                                   {
                                     staticClass: "default-avatar mr-2 br-100",
                                     staticStyle: {
-                                      width: "30px",
-                                      height: "30px",
-                                      "font-size": "10px",
-                                      "line-height": "30px"
+                                      width: "42px",
+                                      height: "42px",
+                                      "line-height": "42px"
                                     },
                                     style: {
                                       backgroundColor:
@@ -43845,7 +43844,7 @@ var render = function() {
       _c(
         "a",
         {
-          staticClass: "dib fr gray-text",
+          staticClass: "db dib-ns fn fr-ns gray-text",
           attrs: { href: "/contacts/requests?outgoing=1" }
         },
         [_vm._v(_vm._s(_vm.__("user.view_requests_sent")))]
@@ -43885,14 +43884,14 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "mb-1 dib",
+                        staticClass: "dib",
                         attrs: { href: "/" + contact.username }
                       },
                       [
                         contact.avatar
                           ? _c("img", {
                               staticClass: "mr-2 br-100",
-                              staticStyle: { width: "30px" },
+                              staticStyle: { width: "42px" },
                               attrs: { src: contact.avatar }
                             })
                           : _vm._e(),
@@ -43903,10 +43902,9 @@ var render = function() {
                               {
                                 staticClass: "default-avatar mr-2 br-100",
                                 staticStyle: {
-                                  width: "30px",
-                                  height: "30px",
-                                  "font-size": "10px",
-                                  "line-height": "30px"
+                                  width: "42px",
+                                  height: "42px",
+                                  "line-height": "42px"
                                 },
                                 style: {
                                   backgroundColor: contact.default_avatar_color

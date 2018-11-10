@@ -2,7 +2,7 @@
   <div class="sidebar relative pa3 bg-white mb-3 br2">
     <div class="db mb2">
       <h6 class="light-gray-text dib fw6">{{ __('user.requests_sent_title') }}</h6>
-      <a href="/contacts/requests" class="dib fr gray-text">{{ __('user.view_received_requests') }}</a>
+      <a href="/contacts/requests" class="db dib-ns fn fr-ns gray-text">{{ __('user.view_received_requests') }}</a>
     </div>
     <div class="content">
       <!--Loading spinner-->
@@ -20,9 +20,9 @@
       <ul v-if="!loading && requestsSent.length > 0" class="relative list pa0 ma0">
         <li v-for="contact in requestsSent" :key="contact.id" v-if="contact.state !== 'removed'" class="pv2">
           <div class="fl">
-            <a :href="'/' + contact.username" class="mb-1 dib">
-              <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 30px;">
-              <div v-if="contact.initials" class="default-avatar mr-2 br-100" :style="{backgroundColor: contact.default_avatar_color}" style="width: 30px; height: 30px; font-size: 10px; line-height: 30px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
+            <a :href="'/' + contact.username" class="dib">
+              <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 42px;">
+              <div v-if="contact.initials" class="default-avatar mr-2 br-100" :style="{backgroundColor: contact.default_avatar_color}" style="width: 42px; height: 42px; line-height: 42px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
             </a>
           </div>
 
