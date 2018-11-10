@@ -34,6 +34,14 @@ a {
   }
 }
 
+.lightest-gray-text {
+  color: hsl(0, 0%, 75%);
+
+  &:hover, &:focus {
+    color: hsl(0, 0%, 75%);
+  }
+}
+
 .darkest-red {
   color: $darkest-red-color !important;
 }

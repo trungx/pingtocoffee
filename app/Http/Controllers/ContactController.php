@@ -22,8 +22,14 @@ class ContactController extends Controller
 
         $tags = auth()->user()->tags()->get();
 
+        $contacts = auth()->user()->contacts($filterTag);
+
+        $contacts->each(function ($contact) {
+            $contact->joined_on = $contact->created_at->format('M Y');
+        });
+
         return view('contacts.index', [
-            'contacts' => auth()->user()->contacts($filterTag),
+            'contacts' => $contacts,
             'tags' => $tags,
         ]);
     }

@@ -33,6 +33,7 @@ return [
 
     // Contact Information
     'contact_field_title' => 'Contact Information',
+    'contact_field_desc' => 'Contact information makes your friends easy know how to contact you. They will not struggle to find your correct phone, email,...',
     'contact_field_action_title' => 'Contact Information - :type',
     'contact_field_type' => 'Type',
     'contact_field_value' => 'Value',

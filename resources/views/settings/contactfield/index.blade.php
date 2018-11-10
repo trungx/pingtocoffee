@@ -19,6 +19,8 @@
 
                 @include('components.errors')
 
+                <div class="mb3 light-gray-text">{{ __('settings.contact_field_desc') }}</div>
+
                 @if (session('status'))
                   <div class="alert alert-success alert-dismissible fade show" role="alert">
                     {{ session('status') }}

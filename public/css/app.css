@@ -10553,6 +10553,15 @@ a {
   color: #737373;
 }
 
+.lightest-gray-text {
+  color: #bfbfbf;
+}
+
+.lightest-gray-text:hover,
+.lightest-gray-text:focus {
+  color: #bfbfbf;
+}
+
 .darkest-red {
   color: #cb2431 !important;
 }

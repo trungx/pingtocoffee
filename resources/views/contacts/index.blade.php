@@ -26,7 +26,7 @@
                 @endif
 
                 @foreach($contacts as $contact)
-                  <li class="user-list-item">
+                  <li class="user-list-item relative">
                     <a class="_item" href="/{{ $contact->username }}">
                       @if ($contact->has_avatar)
                         <img src="{{ $contact->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="mr-2 br-100" style="width: 42px;">
@@ -41,6 +41,8 @@
                           <i class="fas fa-birthday-cake"></i>
                         </span>
                       @endif
+
+                      <div class="absolute lightest-gray-text i f7" style="top: 50%; right: 10px; margin-top: -9px;">{{ __('dashboard.joined_on', ['date' => $contact->joined_on]) }}</div>
                     </a>
                   </li>
                 @endforeach

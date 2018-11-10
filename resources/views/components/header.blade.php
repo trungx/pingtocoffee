@@ -37,7 +37,7 @@
           </li>
         @else
           <li>
-            <a class="nav-link" href="/{{ auth()->user()->username }}" title="{{ __('app.header_profile_link') }}">
+            <a class="nav-link mr2" href="/{{ auth()->user()->username }}" title="{{ __('app.header_profile_link') }}">
               <span>
                 @if (auth()->user()->has_avatar)
                   <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="br-100 v-mid" style="width: 30px;">
@@ -52,18 +52,21 @@
             </a>
           </li>
           <li>
-            <a class="nav-link" href="/contacts">
+            <a class="nav-link mr2" href="/contacts">
+              <i class="fas fa-users"></i>
               {{ __('app.header_contacts_link') }}
             </a>
           </li>
           <li>
-            <a class="nav-link" href="/settings">
+            <a class="nav-link mr2" href="/settings">
+              <i class="fas fa-cogs"></i>
               {{ __('app.header_settings_link') }}
             </a>
           </li>
           <li>
-            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              {{ __('app.header_logout_link') }}
+            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ __('app.header_logout_link') }}">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="dn-ns">{{ __('app.header_logout_link') }}</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
