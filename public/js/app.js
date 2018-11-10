@@ -42475,7 +42475,7 @@ var render = function() {
                     _c(
                       "a",
                       {
-                        staticClass: "mb-1 dib",
+                        staticClass: "dib",
                         attrs: { href: "/" + contact.username }
                       },
                       [
@@ -42491,11 +42491,10 @@ var render = function() {
                           ? _c(
                               "div",
                               {
-                                staticClass: "default-avatar mr-2 br-100",
+                                staticClass: "default-avatar mr-2 br-100 f7",
                                 staticStyle: {
                                   width: "30px",
                                   height: "30px",
-                                  "font-size": "10px",
                                   "line-height": "30px"
                                 },
                                 style: {
@@ -42754,7 +42753,7 @@ var render = function() {
                         _c(
                           "a",
                           {
-                            staticClass: "mb-1 dib",
+                            staticClass: "dib",
                             attrs: { href: "/" + contact.username }
                           },
                           [
@@ -42770,11 +42769,11 @@ var render = function() {
                               ? _c(
                                   "div",
                                   {
-                                    staticClass: "default-avatar mr-2 br-100",
+                                    staticClass:
+                                      "default-avatar mr-2 br-100 f7",
                                     staticStyle: {
                                       width: "30px",
                                       height: "30px",
-                                      "font-size": "10px",
                                       "line-height": "30px"
                                     },
                                     style: {

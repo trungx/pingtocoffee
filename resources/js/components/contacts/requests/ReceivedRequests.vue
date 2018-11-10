@@ -20,9 +20,9 @@
       <ul v-if="!loading && receivedRequests.length > 0" class="list pa0 ma0">
         <li v-for="contact in receivedRequests" :key="contact.id" class="pv2 mb2">
           <div class="fl">
-            <a :href="'/' + contact.username" class="mb-1 dib">
+            <a :href="'/' + contact.username" class="dib">
               <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 30px;">
-              <div v-if="contact.initials" class="default-avatar mr-2 br-100" :style="{backgroundColor: contact.default_avatar_color}" style="width:30px; height:30px; font-size:10px; line-height: 30px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
+              <div v-if="contact.initials" class="default-avatar mr-2 br-100 f7" :style="{backgroundColor: contact.default_avatar_color}" style="width:30px; height:30px; line-height: 30px;">{{ contact.initials }}</div><span>{{ contact.first_name }}</span>
             </a>
           </div>
 
