@@ -42434,7 +42434,7 @@ var render = function() {
         ? _c(
             "a",
             {
-              staticClass: "dib fr gray-text",
+              staticClass: "dib fr black-50 hover-black-70",
               attrs: { href: "/contacts/requests" }
             },
             [_vm._v(_vm._s(_vm.__("user.see_all")))]
@@ -42469,7 +42469,7 @@ var render = function() {
             _vm._l(_vm.receivedRequests, function(contact) {
               return _c(
                 "li",
-                { key: contact.id, staticClass: "pv2 mb2" },
+                { key: contact.id, staticClass: "pv2 mb2 relative" },
                 [
                   _c("div", { staticClass: "fl" }, [
                     _c(
@@ -42548,66 +42548,73 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "fr dib" }, [
-    _vm.contact.state === "none"
-      ? _c(
-          "button",
-          {
-            staticClass: "btn btn-sm item default-btn fw6 f7",
-            on: {
-              click: function($event) {
-                _vm.accept(_vm.contact.id)
+  return _c(
+    "div",
+    {
+      staticClass: "absolute",
+      staticStyle: { right: "0", top: "50%", "margin-top": "-14px" }
+    },
+    [
+      _vm.contact.state === "none"
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-sm item default-btn fw6 f7",
+              on: {
+                click: function($event) {
+                  _vm.accept(_vm.contact.id)
+                }
               }
-            }
-          },
-          [_vm._v("\n    " + _vm._s(_vm.__("user.accept_cta")) + "\n  ")]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contact.state === "none"
-      ? _c(
-          "button",
-          {
-            staticClass: "btn btn-sm btn-link light-gray-text f7",
-            on: {
-              click: function($event) {
-                _vm.decline(_vm.contact.id)
+            },
+            [_vm._v("\n    " + _vm._s(_vm.__("user.accept_cta")) + "\n  ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contact.state === "none"
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-sm btn-link light-gray-text f7",
+              on: {
+                click: function($event) {
+                  _vm.decline(_vm.contact.id)
+                }
               }
-            }
-          },
-          [_vm._v("\n    " + _vm._s(_vm.__("user.decline_cta")) + "\n  ")]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contact.state === "declined"
-      ? _c(
-          "button",
-          {
-            staticClass: "btn btn-sm item btn-link light-gray-text f7",
-            on: {
-              click: function($event) {
-                _vm.block(_vm.contact.id)
+            },
+            [_vm._v("\n    " + _vm._s(_vm.__("user.decline_cta")) + "\n  ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contact.state === "declined"
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-sm item btn-link light-gray-text f7",
+              on: {
+                click: function($event) {
+                  _vm.block(_vm.contact.id)
+                }
               }
-            }
-          },
-          [_vm._v("\n    " + _vm._s(_vm.__("user.block_cta")) + "\n  ")]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contact.state === "accepted"
-      ? _c("div", { staticClass: "pv1 ph2 br1 bg-lightest-blue f7" }, [
-          _c("i", { staticClass: "fa fa-user-check mr-2" }),
-          _vm._v(_vm._s(_vm.__("user.friends_status")) + "\n  ")
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contact.state === "blocked"
-      ? _c("div", { staticClass: "pv1 ph2 br1 bg-black-10 f7" }, [
-          _c("i", { staticClass: "fas fa-ban mr-2" }),
-          _vm._v(_vm._s(_vm.__("user.blocked_status")) + "\n  ")
-        ])
-      : _vm._e()
-  ])
+            },
+            [_vm._v("\n    " + _vm._s(_vm.__("user.block_cta")) + "\n  ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contact.state === "accepted"
+        ? _c("div", { staticClass: "pv1 ph2 br1 bg-lightest-blue f7" }, [
+            _c("i", { staticClass: "fa fa-user-check mr-2" }),
+            _vm._v(_vm._s(_vm.__("user.friends_status")) + "\n  ")
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contact.state === "blocked"
+        ? _c("div", { staticClass: "pv1 ph2 br1 bg-black-10 f7" }, [
+            _c("i", { staticClass: "fas fa-ban mr-2" }),
+            _vm._v(_vm._s(_vm.__("user.blocked_status")) + "\n  ")
+          ])
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -42711,7 +42718,7 @@ var render = function() {
         ? _c(
             "a",
             {
-              staticClass: "dib fr",
+              staticClass: "dib fr black-50 hover-black-70",
               attrs: { href: "/contacts/requests?outgoing=1" }
             },
             [_vm._v(_vm._s(_vm.__("user.see_all")))]
@@ -42747,7 +42754,7 @@ var render = function() {
               return contact.state !== "removed"
                 ? _c(
                     "li",
-                    { key: contact.id, staticClass: "pv2" },
+                    { key: contact.id, staticClass: "pv2 mb2 relative" },
                     [
                       _c("div", { staticClass: "fl" }, [
                         _c(
@@ -43652,7 +43659,7 @@ var render = function() {
               return contact.state !== "removed"
                 ? _c(
                     "li",
-                    { key: contact.id, staticClass: "pv2" },
+                    { key: contact.id, staticClass: "pv2 mb2 relative" },
                     [
                       _c("div", { staticClass: "fl" }, [
                         _c(
@@ -43877,7 +43884,7 @@ var render = function() {
             _vm._l(_vm.receivedRequests, function(contact) {
               return _c(
                 "li",
-                { key: contact.id, staticClass: "pv2 mb2" },
+                { key: contact.id, staticClass: "pv2 mb2 relative" },
                 [
                   _c("div", { staticClass: "fl" }, [
                     _c(
@@ -43956,52 +43963,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "fr dib" }, [
-    _vm.contact.state === "canceled"
-      ? _c(
-          "button",
-          {
-            staticClass: "btn default-btn fw6 btn-sm f7",
-            on: {
-              click: function($event) {
-                _vm.add(_vm.contact.id)
+  return _c(
+    "div",
+    {
+      staticClass: "absolute",
+      staticStyle: { right: "0", top: "50%", "margin-top": "-14px" }
+    },
+    [
+      _vm.contact.state === "canceled"
+        ? _c(
+            "button",
+            {
+              staticClass: "btn default-btn fw6 btn-sm f7",
+              on: {
+                click: function($event) {
+                  _vm.add(_vm.contact.id)
+                }
               }
-            }
-          },
-          [_vm._v("\n    " + _vm._s(_vm.__("user.add_cta")) + "\n  ")]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contact.state === "canceled"
-      ? _c(
-          "button",
-          {
-            staticClass: "btn btn-sm btn-link light-gray-text f7",
-            on: {
-              click: function($event) {
-                _vm.remove()
+            },
+            [_vm._v("\n    " + _vm._s(_vm.__("user.add_cta")) + "\n  ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contact.state === "canceled"
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-sm btn-link light-gray-text f7",
+              on: {
+                click: function($event) {
+                  _vm.remove()
+                }
               }
-            }
-          },
-          [_vm._v("\n    " + _vm._s(_vm.__("user.remove_cta")) + "\n  ")]
-        )
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.contact.state === "requestSent"
-      ? _c(
-          "button",
-          {
-            staticClass: "btn btn-sm btn-link light-gray-text f7",
-            on: {
-              click: function($event) {
-                _vm.cancel(_vm.contact.id)
+            },
+            [_vm._v("\n    " + _vm._s(_vm.__("user.remove_cta")) + "\n  ")]
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.contact.state === "requestSent"
+        ? _c(
+            "button",
+            {
+              staticClass: "btn btn-sm btn-link light-gray-text f7",
+              on: {
+                click: function($event) {
+                  _vm.cancel(_vm.contact.id)
+                }
               }
-            }
-          },
-          [_vm._v("\n    " + _vm._s(_vm.__("user.cancel_cta")) + "\n  ")]
-        )
-      : _vm._e()
-  ])
+            },
+            [_vm._v("\n    " + _vm._s(_vm.__("user.cancel_cta")) + "\n  ")]
+          )
+        : _vm._e()
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44107,11 +44121,13 @@ var render = function() {
             _c(
               "a",
               {
-                class: [
-                  _vm.activeTab === "logs"
-                    ? "nav-link gray-text show active b"
-                    : "nav-link gray-text"
-                ],
+                staticClass:
+                  "no-underline mr2 black-50 hover-black-70 pv1 ph2 db",
+                class: [_vm.activeTab === "logs" ? "show active b" : ""],
+                staticStyle: {
+                  "text-decoration": "none",
+                  "line-height": "32px"
+                },
                 attrs: { "data-toggle": "tab", href: "#logs" },
                 on: {
                   click: function($event) {
@@ -44128,11 +44144,13 @@ var render = function() {
             _c(
               "a",
               {
-                class: [
-                  _vm.activeTab === "reminders"
-                    ? "nav-link gray-text show active b"
-                    : "nav-link gray-text"
-                ],
+                staticClass:
+                  "no-underline mr2 black-50 hover-black-70 pv1 ph2 db",
+                class: [_vm.activeTab === "reminders" ? "show active b" : ""],
+                staticStyle: {
+                  "text-decoration": "none",
+                  "line-height": "32px"
+                },
                 attrs: { "data-toggle": "tab", href: "#reminders" },
                 on: {
                   click: function($event) {

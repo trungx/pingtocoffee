@@ -3,10 +3,10 @@
 
     <ul class="nav pa2" role="tablist" style="border-bottom: 1px solid #d9d9d9;">
       <li class="nav-item gray-text">
-        <a @click.prevent="setActiveTab('logs')" :class="[activeTab === 'logs' ? 'nav-link gray-text show active b' : 'nav-link gray-text']" data-toggle="tab" href="#logs">Recents</a>
+        <a @click.prevent="setActiveTab('logs')" :class="[activeTab === 'logs' ? 'show active b' : '']" class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" data-toggle="tab" href="#logs">Recents</a>
       </li>
       <li class="nav-item gray-text">
-        <a @click.prevent="setActiveTab('reminders')" :class="[activeTab === 'reminders' ? 'nav-link gray-text show active b' : 'nav-link gray-text']" data-toggle="tab" href="#reminders">Next Reminders</a>
+        <a @click.prevent="setActiveTab('reminders')" :class="[activeTab === 'reminders' ? 'show active b' : '']" class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" data-toggle="tab" href="#reminders">Next Reminders</a>
       </li>
     </ul>
 

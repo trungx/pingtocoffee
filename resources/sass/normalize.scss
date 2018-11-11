@@ -65,13 +65,6 @@ a {
   }
 }
 
-.navbar-laravel {
-  background-color: #464240;
-  box-shadow: none;
-  border-bottom: 1px solid #dddfe2;
-  border-top: 4px solid #29a8ab;
-}
-
 .body-empty-state {
   padding: 60px 15px!important;
   text-align: center;
@@ -88,15 +81,12 @@ a {
 }
 
 .default-btn {
-  background-color: #eff3f6;
-  background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
   border-radius: 4px;
   border: 1px solid rgba(27,31,35,0.2);
   color: #24292e;
 
   &:hover, &:focus {
     background-color: #e6ebf1;
-    background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
     border-color: rgba(27,31,35,0.35);
     color: #24292e;
     text-decoration: none;

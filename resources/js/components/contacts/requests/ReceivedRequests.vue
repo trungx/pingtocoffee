@@ -2,7 +2,7 @@
   <div class="sidebar relative pa3 bg-white mb-3 br2">
     <div class="db mb2">
       <h6 class="light-gray-text dib fw6">{{ __('user.received_requests_title') }}</h6>
-      <a v-if="enableSeeAll" href="/contacts/requests" class="dib fr gray-text">{{ __('user.see_all') }}</a>
+      <a v-if="enableSeeAll" href="/contacts/requests" class="dib fr black-50 hover-black-70">{{ __('user.see_all') }}</a>
     </div>
     <div class="content">
       <!--Loading spinner-->
@@ -18,7 +18,7 @@
 
       <!-- Exist request -->
       <ul v-if="!loading && receivedRequests.length > 0" class="list pa0 ma0">
-        <li v-for="contact in receivedRequests" :key="contact.id" class="pv2 mb2">
+        <li v-for="contact in receivedRequests" :key="contact.id" class="pv2 mb2 relative">
           <div class="fl">
             <a :href="'/' + contact.username" class="dib">
               <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 30px;">

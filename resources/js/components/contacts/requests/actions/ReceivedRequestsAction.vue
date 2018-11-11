@@ -1,5 +1,5 @@
 <template>
-  <div class="fr dib">
+  <div class="absolute" style="right: 0; top: 50%; margin-top: -14px;">
     <!-- Accept Friend Request -->
     <button v-if="contact.state === 'none'" class="btn btn-sm item default-btn fw6 f7" @click="accept(contact.id)">
       {{ __('user.accept_cta') }}

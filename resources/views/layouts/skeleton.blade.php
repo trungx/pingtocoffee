@@ -54,7 +54,7 @@
 <body>
   <div id="app">
     @include('components.header')
-    <main class="py-4">
+    <main class="pv3 pv4-ns">
       @yield('content')
     </main>
   </div>

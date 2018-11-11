@@ -18,7 +18,7 @@
 
       <!-- Exist request -->
       <ul v-if="!loading && requestsSent.length > 0" class="relative list pa0 ma0">
-        <li v-for="contact in requestsSent" :key="contact.id" v-if="contact.state !== 'removed'" class="pv2">
+        <li v-for="contact in requestsSent" :key="contact.id" v-if="contact.state !== 'removed'" class="pv2 mb2 relative">
           <div class="fl">
             <a :href="'/' + contact.username" class="dib">
               <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 42px;">

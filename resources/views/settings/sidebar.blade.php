@@ -1,6 +1,6 @@
 <div class="col-12 col-md-3">
-  <div class="list-group mb-3" style="box-shadow: rgb(204, 204, 204) 0px 1px 1px;">
-    <div class="list-group-item fw6 bn light-gray-text" style="background: #f3f5f8;">
+  <div class="list-group mb-3 br2" style="box-shadow: rgb(204, 204, 204) 0px 1px 1px;">
+    <div class="list-group-item fw6 bn light-gray-text">
       {{ __('settings.sidebar_title') }}
     </div>
     <a href="/settings" class="list-group-item list-group-item-action bn @if (Route::currentRouteName() == 'settings.show') active @endif">
