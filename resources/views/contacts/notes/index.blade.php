@@ -61,3 +61,9 @@
     @include('contacts.notes.add')
   </div>
 </div>
+
+@push('scripts')
+  <!-- Laravel Javascript Validation -->
+  <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+  {!! JsValidator::formRequest('App\Http\Requests\NoteRequest'); !!}
+@endpush
