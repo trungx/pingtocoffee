@@ -10932,19 +10932,28 @@ a {
   }
 }
 
-.entry-list:before {
+.entry-milestone:before {
   content: "";
   display: block;
   width: 0;
   height: 100%;
-  border: 1px dashed #ccc;
+  border: 1px solid #eff1f3;
   position: absolute;
   top: 0;
-  left: 84px;
+  left: 24px;
+  z-index: -1;
 }
 
-.entry-list .entry-item {
-  border: 1px solid #d9d9d9;
+.entry-milestone .milestone {
+  margin-left: -30px;
+}
+
+.entry-milestone .milestone .icon {
+  background-color: #fff;
+  color: #c6cbd1;
+  display: inline-block;
+  fill: currentColor;
+  vertical-align: text-bottom;
 }
 
 .entry-list .entry-item > span {
@@ -10952,7 +10961,6 @@ a {
   display: block;
   width: 0;
   height: 100%;
-  border: 1px solid #ccc;
   position: absolute;
   top: 0;
   left: -29px;

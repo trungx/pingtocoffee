@@ -3757,6 +3757,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3766,17 +3774,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   data: function data() {
     return {
-      feeds: [],
+      activityLogsData: [],
       loadingMore: false,
-      feedsLoading: true
+      loading: true
     };
   },
 
 
   computed: {
     shouldShowLoadMore: function shouldShowLoadMore() {
-      var total = this.feeds.per_page * this.feeds.current_page;
-      return total < this.feeds.total;
+      var total = this.activityLogsData.per_page * this.activityLogsData.current_page;
+      return total < this.activityLogsData.total;
     }
   },
 
@@ -3787,31 +3795,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     prepareComponent: function prepareComponent() {
-      this.getTimelines();
+      this.getActivityLogs();
     },
-    getTimelines: function getTimelines() {
+    getActivityLogs: function getActivityLogs() {
       var _this = this;
 
       axios.get('/activity-log').then(function (response) {
-        _this.feeds = response.data;
-        _this.feeds.current_page = response.data.current_page;
-        _this.feeds.next_page_url = response.data.next_page_url;
-        _this.feeds.per_page = response.data.per_page;
-        _this.feeds.prev_page_url = response.data.prev_page_url;
-        _this.feeds.total = response.data.total;
-        _this.feedsLoading = false;
+        _this.activityLogsData = response.data;
+        _this.activityLogsData.current_page = response.data.current_page;
+        _this.activityLogsData.next_page_url = response.data.next_page_url;
+        _this.activityLogsData.per_page = response.data.per_page;
+        _this.activityLogsData.prev_page_url = response.data.prev_page_url;
+        _this.activityLogsData.total = response.data.total;
+        _this.loading = false;
       });
     },
     loadMore: function loadMore() {
       var _this2 = this;
 
       this.loadingMore = true;
-      axios.get('/activity-log?page=' + (this.feeds.current_page + 1)).then(function (response) {
-        _this2.feeds.current_page = response.data.current_page;
-        _this2.feeds.next_page_url = response.data.next_page_url;
-        _this2.feeds.per_page = response.data.per_page;
-        _this2.feeds.prev_page_url = response.data.prev_page_url;
-        _this2.feeds.total = response.data.total;
+      axios.get('/activity-log?page=' + (this.activityLogsData.current_page + 1)).then(function (response) {
+        _this2.activityLogsData.current_page = response.data.current_page;
+        _this2.activityLogsData.next_page_url = response.data.next_page_url;
+        _this2.activityLogsData.per_page = response.data.per_page;
+        _this2.activityLogsData.prev_page_url = response.data.prev_page_url;
+        _this2.activityLogsData.total = response.data.total;
 
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
@@ -3821,7 +3829,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           for (var _iterator = response.data.data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var i = _step.value;
 
-            _this2.feeds.data.push(i);
+            _this2.activityLogsData.data.push(i);
           }
         } catch (err) {
           _didIteratorError = true;
@@ -4015,7 +4023,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4025,7 +4032,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
-  props: ['feed'],
+  props: ['log'],
 
   mounted: function mounted() {
     this.prepareComponent();
@@ -4034,7 +4041,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     prepareComponent: function prepareComponent() {
-      this.defaultEvent = this.feed.object;
+      this.defaultEvent = this.log.object;
     }
   }
 });
@@ -4056,7 +4063,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -4066,7 +4072,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
 
-  props: ['feed'],
+  props: ['log'],
 
   mounted: function mounted() {
     this.prepareComponent();
@@ -4075,7 +4081,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     prepareComponent: function prepareComponent() {
-      this.event = this.feed.object;
+      this.event = this.log.object;
     }
   }
 });
@@ -42982,7 +42988,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "bg-white br2 pa3",
+      staticClass: "bg-white br2 pa3 z-0",
       staticStyle: { "box-shadow": "0 1px 1px #ccc" }
     },
     [
@@ -42990,7 +42996,7 @@ var render = function() {
         _vm._v(_vm._s(_vm.__("dashboard.feed_heading")))
       ]),
       _vm._v(" "),
-      _vm.feedsLoading
+      _vm.loading
         ? _c("div", { staticClass: "tc pv3" }, [
             _c(
               "div",
@@ -43010,37 +43016,66 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c(
-        "ul",
-        { staticClass: "entry-list list ma0 pa0 relative" },
-        _vm._l(_vm.feeds.data, function(feed) {
+        "div",
+        {
+          staticClass: "entry-milestone relative mb3",
+          staticStyle: { "padding-left": "3rem" }
+        },
+        _vm._l(_vm.activityLogsData.data, function(activityLogObject) {
           return _c(
-            "li",
-            { staticClass: "relative" },
+            "div",
             [
-              feed.show_calendar
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "pa2 b light-gray-text absolute",
-                      staticStyle: { top: "-22px", left: "16px" }
-                    },
-                    [
-                      _vm._v(
-                        "\n        " + _vm._s(feed.object.calendar) + "\n      "
-                      )
-                    ]
-                  )
-                : _vm._e(),
+              _c("div", { staticClass: "milestone mt3 mb2 black-60" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "icon mr3",
+                    attrs: {
+                      viewBox: "0 0 14 16",
+                      version: "1.1",
+                      width: "14",
+                      height: "16",
+                      "aria-hidden": "true"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        "fill-rule": "evenodd",
+                        d:
+                          "M10.86 7c-.45-1.72-2-3-3.86-3-1.86 0-3.41 1.28-3.86 3H0v2h3.14c.45 1.72 2 3 3.86 3 1.86 0 3.41-1.28 3.86-3H14V7h-3.14zM7 10.2c-1.22 0-2.2-.98-2.2-2.2 0-1.22.98-2.2 2.2-2.2 1.22 0 2.2.98 2.2 2.2 0 1.22-.98 2.2-2.2 2.2z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(_vm._s(activityLogObject.logDate) + "\n      ")
+              ]),
               _vm._v(" "),
-              feed.feedable_type == "App\\Event"
-                ? _c("event-activity", { attrs: { feed: feed } })
-                : _vm._e(),
-              _vm._v(" "),
-              feed.feedable_type == "App\\DefaultEvent"
-                ? _c("default-event-activity", { attrs: { feed: feed } })
-                : _vm._e()
+              _vm._l(activityLogObject.logData, function(log) {
+                return _c(
+                  "ol",
+                  { staticClass: "entry-list list ma0 pa0 relative" },
+                  [
+                    _c(
+                      "li",
+                      [
+                        log.feedable_type == "App\\Event"
+                          ? _c("event-activity", { attrs: { log: log } })
+                          : _vm._e(),
+                        _vm._v(" "),
+                        log.feedable_type == "App\\DefaultEvent"
+                          ? _c("default-event-activity", {
+                              attrs: { log: log }
+                            })
+                          : _vm._e()
+                      ],
+                      1
+                    )
+                  ]
+                )
+              })
             ],
-            1
+            2
           )
         })
       ),
@@ -43334,12 +43369,10 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "entry-item relative mv4 mr2 pv2 ph3 br3",
-      staticStyle: { "margin-left": "7rem" }
+      staticClass:
+        "entry-item relative pv2 ph3 ba b--black-10 hover-bg-washed-blue"
     },
     [
-      _c("span"),
-      _vm._v(" "),
       _c("div", {
         staticClass: "info",
         domProps: { innerHTML: _vm._s(_vm.event.body) }
@@ -43352,9 +43385,9 @@ var render = function() {
           "span",
           {
             staticClass: "f7 light-gray-text",
-            attrs: { title: _vm.feed.full_datetime }
+            attrs: { title: _vm.log.full_datetime }
           },
-          [_vm._v(_vm._s(_vm.feed.datetime))]
+          [_vm._v(_vm._s(_vm.log.datetime))]
         )
       ])
     ]
@@ -43743,12 +43776,10 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "entry-item relative mv4 mr2 pv2 ph3 br3",
-      staticStyle: { "margin-left": "7rem" }
+      staticClass:
+        "entry-item relative pv2 ph3 ba b--black-10 hover-bg-washed-blue"
     },
     [
-      _c("span"),
-      _vm._v(" "),
       _c("div", { staticClass: "info" }, [
         _vm._v(_vm._s(_vm.defaultEvent.body))
       ]),
@@ -43760,9 +43791,9 @@ var render = function() {
           "span",
           {
             staticClass: "f7 light-gray-text",
-            attrs: { title: _vm.feed.full_datetime }
+            attrs: { title: _vm.log.full_datetime }
           },
-          [_vm._v(_vm._s(_vm.feed.datetime))]
+          [_vm._v(_vm._s(_vm.log.datetime))]
         )
       ])
     ]

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Relationship;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Helpers\DateHelper;
 
@@ -202,48 +203,71 @@ class ContactController extends Controller
      */
     protected function getActivityLogData()
     {
+        $data = collect([]);
         $activityLogCollect = collect([]);
-        $activityLogs = auth()->user()->feeds()->paginate(20);
+        $activityLogs = auth()->user()->feeds()->paginate(30);
         $userTimezone = auth()->user()->timezone;
 
         // determine if we need to display calendar milestone
         $previousLogDate = 0;
-        $showCalendar = true;
 
-        foreach ($activityLogs as $activityLog) {
-            $logDate = $activityLog->created_at->copy()->format('Y-m-d');
-            if ($previousLogDate == $logDate) {
-                $showCalendar = false;
+        $activityLogsCollection = $activityLogs->getCollection();
+
+        foreach ($activityLogsCollection as $activityLog) {
+            $logDate = $activityLog->created_at->format('Y-m-d');
+
+            // Save data of a day.
+            if ($previousLogDate != $logDate && $previousLogDate != 0) {
+                $logDateFormatted = $activityLog->created_at->format('M d, Y');
+
+                $activityLogObject = [
+                    'logDate' => $logDateFormatted,
+                    'logData' => $activityLogCollect,
+                ];
+
+                $data->push($activityLogObject);
+
+                // Reset.
+                $activityLogCollect = collect([]);
             }
 
-            $data = [
+            // Set log to data of the day.
+            $log = [
                 'id' => $activityLog->id,
                 'feedable_id' => $activityLog->feedable_id,
                 'feedable_type' => $activityLog->feedable_type,
                 'object' => $activityLog->getObjectData(),
                 'datetime' => \Carbon\Carbon::createFromTimestamp(strtotime($activityLog->datetime))->diffForHumans(),
                 'full_datetime' => DateHelper::convertToTimezone($activityLog->datetime, $userTimezone)->format('F d, Y, h:i A'),
-                'show_calendar' => $showCalendar,
             ];
 
-            $activityLogCollect->push($data);
-
+            $activityLogCollect->push($log);
             $previousLogDate = $logDate;
-            $showCalendar = true;
         }
 
-        return [
+        if ($data->count() == 0 || ($activityLogsCollection->first()->created_at->format('Y-m-d') != $activityLogsCollection->last()->created_at->format('Y-m-d'))) {
+            $logDateFormatted = Carbon::createFromFormat('Y-m-d', $previousLogDate)->format('M d , Y');
+
+            $activityLogObject = [
+                'logDate' => $logDateFormatted,
+                'logData' => $activityLogCollect,
+            ];
+
+            $data->push($activityLogObject);
+        }
+
+        return response()->json([
             'total' => $activityLogs->total(),
             'per_page' => $activityLogs->perPage(),
             'current_page' => $activityLogs->currentPage(),
             'next_page_url' => $activityLogs->nextPageUrl(),
             'prev_page_url' => $activityLogs->previousPageUrl(),
-            'data' => $activityLogCollect,
-        ];
+            'data' => $data,
+        ]);
     }
 
     /**
-     * Get activity log
+     * Get activity logs
      *
      * @param User $user
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
