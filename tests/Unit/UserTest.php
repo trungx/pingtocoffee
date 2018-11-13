@@ -102,12 +102,7 @@ class UserTest extends TestCase
     {
         $user = factory(User::class)->create();
 
-        // Set config
-        config(['user.resend_email_after' => 30]);
-
         $this->actingAs($user);
-
-        dd($user);
 
         $this->assertEquals(30, $user->sendNextVerificationEmailAfter());
 
