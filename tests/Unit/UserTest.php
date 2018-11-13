@@ -107,6 +107,8 @@ class UserTest extends TestCase
         // Set config
         config(['user.resend_email_after' => 30]);
 
+        $this->actingAs($user);
+
         $this->assertEquals(30, $user->sendNextVerificationEmailAfter());
 
         $user->last_verification_email_sent = Carbon::now()->subMinutes(20);
