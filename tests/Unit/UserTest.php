@@ -107,7 +107,7 @@ class UserTest extends TestCase
 
         $this->actingAs($user);
 
-        dd($user->sendNextVerificationEmailAfter());
+        dd($user);
 
         $this->assertEquals(30, $user->sendNextVerificationEmailAfter());
 
