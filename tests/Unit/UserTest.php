@@ -104,8 +104,6 @@ class UserTest extends TestCase
 
         $this->actingAs($user);
 
-        $this->assertEquals(30, $user->sendNextVerificationEmailAfter());
-
         $user->last_verification_email_sent = Carbon::now()->subMinutes(20);
         $user->save();
 
