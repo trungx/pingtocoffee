@@ -1,8 +1,8 @@
 <template>
   <div class="sidebar relative pa3 bg-white mb-3 br2">
     <div class="db mb2">
-      <h6 class="light-gray-text dib fw6">{{ __('user.received_requests_title') }}</h6>
-      <a href="/contacts/requests?outgoing=1" class="db dib-ns fn fr-ns gray-text">{{ __('user.view_requests_sent') }}</a>
+      <div class="light-gray-text dib fw6">{{ __('user.received_requests_title') }}</div>
+      <a href="/contacts/requests?outgoing=1" class="db dib-ns fn fr-ns">{{ __('user.view_requests_sent') }}</a>
     </div>
     <div class="content">
       <!--Loading spinner-->

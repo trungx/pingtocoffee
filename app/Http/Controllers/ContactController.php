@@ -204,31 +204,31 @@ class ContactController extends Controller
     protected function getActivityLogData()
     {
         $data = collect([]);
-        $activityLogCollect = collect([]);
+        $logs = collect([]);
         $activityLogs = auth()->user()->feeds()->paginate(30);
-        $userTimezone = auth()->user()->timezone;
 
-        // determine if we need to display calendar milestone
+        // determine if we need to display log date
         $previousLogDate = 0;
 
-        $activityLogsCollection = $activityLogs->getCollection();
+        $activityLogCollect = $activityLogs->getCollection();
 
-        foreach ($activityLogsCollection as $activityLog) {
+        foreach ($activityLogCollect as $activityLog) {
             $logDate = $activityLog->created_at->format('Y-m-d');
 
-            // Save data of a day.
+            // if cycle is new day, push data of previous day
             if ($previousLogDate != $logDate && $previousLogDate != 0) {
-                $logDateFormatted = $activityLog->created_at->format('M d, Y');
 
-                $activityLogObject = [
+                $logDateFormatted = $activityLog->created_at->format('F d, Y');
+
+                $logData = [
                     'logDate' => $logDateFormatted,
-                    'logData' => $activityLogCollect,
+                    'logs' => $logs,
                 ];
 
-                $data->push($activityLogObject);
+                $data->push($logData);
 
                 // Reset.
-                $activityLogCollect = collect([]);
+                $logs = collect([]);
             }
 
             // Set log to data of the day.
@@ -237,23 +237,28 @@ class ContactController extends Controller
                 'feedable_id' => $activityLog->feedable_id,
                 'feedable_type' => $activityLog->feedable_type,
                 'object' => $activityLog->getObjectData(),
-                'datetime' => \Carbon\Carbon::createFromTimestamp(strtotime($activityLog->datetime))->diffForHumans(),
-                'full_datetime' => DateHelper::convertToTimezone($activityLog->datetime, $userTimezone)->format('F d, Y, h:i A'),
+                'date' => Carbon::createFromTimestamp(strtotime($activityLog->datetime))->diffForHumans(),
             ];
 
-            $activityLogCollect->push($log);
+            $logs->push($log);
             $previousLogDate = $logDate;
         }
 
-        if ($data->count() == 0 || ($activityLogsCollection->first()->created_at->format('Y-m-d') != $activityLogsCollection->last()->created_at->format('Y-m-d'))) {
-            $logDateFormatted = Carbon::createFromFormat('Y-m-d', $previousLogDate)->format('M d , Y');
+        // determine activity logs data in same day or not
+        // if same day, push all to data collection
+        // if difference day, push data of last day to data collection (because previous day already be pushed)
+        $firstLogDate = $activityLogCollect->first()->created_at->format('Y-m-d');
+        $lastLogDate = $activityLogCollect->last()->created_at->format('Y-m-d');
 
-            $activityLogObject = [
+        if ($data->count() == 0 || $firstLogDate != $lastLogDate) {
+            $logDateFormatted = Carbon::createFromFormat('Y-m-d', $previousLogDate)->format('F d , Y');
+
+            $logData = [
                 'logDate' => $logDateFormatted,
-                'logData' => $activityLogCollect,
+                'logs' => $logs,
             ];
 
-            $data->push($activityLogObject);
+            $data->push($logData);
         }
 
         return response()->json([

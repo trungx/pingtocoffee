@@ -1,9 +1,9 @@
 <template>
-  <div class="entry-item relative pv2 ph3 ba b--black-10 hover-bg-washed-blue">
+  <div class="entry-item relative pv2 ph3 hover-bg-washed-blue">
     <div class="info" v-html="event.body"></div>
     <div class="mv1">
       <i :class="event.icon_class" class="mr-2"></i>
-      <span class="f7 light-gray-text" :title="log.full_datetime">{{ log.datetime }}</span>
+      <span class="f7 light-gray-text">{{ log.date }}</span>
     </div>
   </div>
 </template>
