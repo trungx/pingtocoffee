@@ -2,10 +2,19 @@
 
 ## UNRELEASED CHANGES
 
-* Add feature notes for contact
+## RELEASED VERSIONS
+
+### v0.2.0 (2018-11-13)
+
+Added
+
+* Add notes for contact
 * Add tags for contact
 
-## RELEASED VERSIONS
+Changed
+
+* UI of activity log.
+* UI of dashboard.
 
 ### v0.1.1 (2018-10-23)
 
