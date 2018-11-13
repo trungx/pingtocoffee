@@ -43,33 +43,29 @@
             <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="/{{ auth()->user()->username }}" title="{{ __('app.header_profile_link') }}">
               <span>
                 @if (auth()->user()->has_avatar)
-                  <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="br-100 v-mid" style="width: 30px;">
+                  <img src="{{ auth()->user()->getAvatarUrl(\App\Helpers\ImageHelper::SMALL_SIZE) }}" class="br-100 v-mid mr1" style="width: 30px;">
                 @else
-                  <div class="default-avatar mr-1 br-100 v-mid f7" style="background-color: {{ auth()->user()->default_avatar_color }}; width: 30px; height: 30px; line-height: 30px;">
+                  <div class="default-avatar br-100 v-mid mr1 f7" style="background-color: {{ auth()->user()->default_avatar_color }}; width: 30px; height: 30px; line-height: 30px;">
                     {{ auth()->user()->getInitials() }}
                   </div>
                 @endif
-                
                 <span>{{ auth()->user()->first_name }}</span>
               </span>
             </a>
           </li>
           <li>
-            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="/contacts">
-              <i class="fas fa-users"></i>
-              {{ __('app.header_contacts_link') }}
+            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="/contacts" title="{{ __('app.header_contacts_link') }}">
+              <i class="fas fa-users mr1"></i>{{ __('app.header_contacts_link') }}
             </a>
           </li>
           <li>
-            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="/settings">
-              <i class="fas fa-cogs"></i>
-              {{ __('app.header_settings_link') }}
+            <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db mr2" style="text-decoration: none; line-height: 32px;" href="/settings" title="{{ __('app.header_settings_link') }}">
+              <i class="fas fa-cogs mr1"></i>{{ __('app.header_settings_link') }}
             </a>
           </li>
           <li>
             <a class="no-underline mr2 black-50 hover-black-70 pv1 ph2 db" style="text-decoration: none; line-height: 32px;" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" title="{{ __('app.header_logout_link') }}">
-              <i class="fas fa-sign-out-alt"></i>
-              <span class="dn-ns">{{ __('app.header_logout_link') }}</span>
+              <i class="fas fa-sign-out-alt mr1"></i><span class="dn-ns">{{ __('app.header_logout_link') }}</span>
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
