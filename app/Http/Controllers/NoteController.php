@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
-use Illuminate\Http\Request;
+use App\Http\Requests\NoteRequest;
 use App\User;
 use App\Note;
 
@@ -12,11 +12,11 @@ class NoteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param NoteRequest $request
      * @param User $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request, User $user)
+    public function store(NoteRequest $request, User $user)
     {
         $noteData = [
             'from_user_id' => auth()->user()->id,

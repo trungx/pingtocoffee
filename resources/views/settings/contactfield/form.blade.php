@@ -25,8 +25,8 @@
     </div>
     <div class="col-12">
       <div class="nice-select-box">
-        <div class="light-gray-text">{{ __('settings.privacy_title_lbl') }}</div>
-        <select class="default-btn" name="privacy_id">
+        <div class="light-gray-text mb1">{{ __('settings.privacy_title_lbl') }}</div>
+        <select name="privacy_id">
           <option disabled>{{ __('settings.privacy_settings_lbl') }}</option>
           @foreach($privacyCollect as $privacy)
             <option value="{{ $privacy->id }}" {{ $field->privacy_id == $privacy->id ? 'selected' : '' }}>

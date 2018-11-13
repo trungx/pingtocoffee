@@ -597,7 +597,8 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function sendNextVerificationEmailAfter()
     {
-        $minutes = Carbon::now()->diffInMinutes($this->last_verification_email_sent);
+        $minutes = now()->diffInMinutes($this->last_verification_email_sent);
+
         if ($minutes > config('user.resend_email_after')) {
             return 0;
         }

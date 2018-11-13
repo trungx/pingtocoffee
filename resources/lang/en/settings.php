@@ -33,6 +33,7 @@ return [
 
     // Contact Information
     'contact_field_title' => 'Contact Information',
+    'contact_field_desc' => 'Contact information makes your friends easy know how to contact you. They will not struggle to find your correct phone, email,...',
     'contact_field_action_title' => 'Contact Information - :type',
     'contact_field_type' => 'Type',
     'contact_field_value' => 'Value',
@@ -50,10 +51,10 @@ return [
     'email_type_lc' => 'email',
     'social_type_lc' => 'social',
     'label' => 'Label',
-    'add_new_email_cta' => 'Add new email',
-    'add_new_phone_cta' => 'Add new phone',
-    'add_new_address_cta' => 'Add new address',
-    'add_new_link_cta' => 'Add new link',
+    'add_new_email_cta' => 'Add a email',
+    'add_new_phone_cta' => 'Add a phone',
+    'add_new_address_cta' => 'Add a address',
+    'add_new_link_cta' => 'Add a link',
 
     // Privacy
     'privacy_title_lbl' => 'Who should see this information?',

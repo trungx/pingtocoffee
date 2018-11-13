@@ -2,7 +2,7 @@
 <div class="pa3 mb3 br2 bg-white" style="box-shadow: 0 1px 1px #ccc;">
   <div class="header relative mb-2">
     <h6>{{ __('settings.email_type') }}</h6>
-    <a href="/settings/contactfield/create?type=email" class="default-btn fw6 pv1 ph3 absolute top-0 right-0">
+    <a href="/settings/contactfield/create?type=email" class="absolute top-0 right-0">
       {{ __('settings.add_new_email_cta') }}
     </a>
   </div>

@@ -27,18 +27,4 @@ class LoginTest extends DuskTestCase
                 ->assertPathIs("/dashboard");
         });
     }
-
-    /**
-     * Test redirect after logout.
-     *
-     * @throws \Throwable
-     */
-    public function testRedirectCorrectAfterLogout()
-    {
-        // No need re-login because session still have after testRedirectCorrectAfterLogin.
-        $this->browse(function (Browser $browser) {
-            $browser->clickLink("Logout")
-                ->assertPathIs("/login");
-        });
-    }
 }

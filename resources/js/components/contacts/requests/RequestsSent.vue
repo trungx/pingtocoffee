@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar relative pa3 bg-white mb-3 br2">
     <div class="db mb2">
-      <h6 class="light-gray-text dib fw6">{{ __('user.requests_sent_title') }}</h6>
+      <div class="light-gray-text dib fw6">{{ __('user.requests_sent_title') }}</div>
       <a v-if="enableSeeAll" href="/contacts/requests?outgoing=1" class="dib fr">{{ __('user.see_all') }}</a>
     </div>
     <div class="content">
@@ -18,7 +18,7 @@
 
       <!-- Exist request -->
       <ul v-if="!loading && requestsSent.length > 0" class="relative list pa0 ma0">
-        <li v-for="contact in requestsSent" :key="contact.id" v-if="contact.state !== 'removed'" class="pv2">
+        <li v-for="contact in requestsSent" :key="contact.id" v-if="contact.state !== 'removed'" class="pv2 mb2 relative">
           <div class="fl">
             <a :href="'/' + contact.username" class="dib">
               <img :src="contact.avatar" v-if="contact.avatar" class="mr-2 br-100" style="width: 30px;">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Relationship;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Helpers\DateHelper;
 
@@ -22,8 +23,14 @@ class ContactController extends Controller
 
         $tags = auth()->user()->tags()->get();
 
+        $contacts = auth()->user()->contacts($filterTag);
+
+        $contacts->each(function ($contact) {
+            $contact->joined_on = $contact->created_at->format('M Y');
+        });
+
         return view('contacts.index', [
-            'contacts' => auth()->user()->contacts($filterTag),
+            'contacts' => $contacts,
             'tags' => $tags,
         ]);
     }
@@ -196,48 +203,76 @@ class ContactController extends Controller
      */
     protected function getActivityLogData()
     {
-        $activityLogCollect = collect([]);
-        $activityLogs = auth()->user()->feeds()->paginate(20);
-        $userTimezone = auth()->user()->timezone;
+        $data = collect([]);
+        $logs = collect([]);
+        $activityLogs = auth()->user()->feeds()->paginate(30);
 
-        // determine if we need to display calendar milestone
+        // determine if we need to display log date
         $previousLogDate = 0;
-        $showCalendar = true;
 
-        foreach ($activityLogs as $activityLog) {
-            $logDate = $activityLog->created_at->copy()->format('Y-m-d');
-            if ($previousLogDate == $logDate) {
-                $showCalendar = false;
+        $activityLogCollect = $activityLogs->getCollection();
+
+        foreach ($activityLogCollect as $activityLog) {
+            $logDate = $activityLog->created_at->format('Y-m-d');
+
+            // if cycle is new day, push data of previous day
+            if ($previousLogDate != $logDate && $previousLogDate != 0) {
+
+                $logDateFormatted = $activityLog->created_at->format('F d, Y');
+
+                $logData = [
+                    'logDate' => $logDateFormatted,
+                    'logs' => $logs,
+                ];
+
+                $data->push($logData);
+
+                // Reset.
+                $logs = collect([]);
             }
 
-            $data = [
+            // Set log to data of the day.
+            $log = [
                 'id' => $activityLog->id,
                 'feedable_id' => $activityLog->feedable_id,
                 'feedable_type' => $activityLog->feedable_type,
                 'object' => $activityLog->getObjectData(),
-                'datetime' => \Carbon\Carbon::createFromTimestamp(strtotime($activityLog->datetime))->diffForHumans(),
-                'full_datetime' => DateHelper::convertToTimezone($activityLog->datetime, $userTimezone)->format('F d, Y, h:i A'),
-                'show_calendar' => $showCalendar,
+                'date' => Carbon::createFromTimestamp(strtotime($activityLog->datetime))->diffForHumans(),
             ];
 
-            $activityLogCollect->push($data);
-
+            $logs->push($log);
             $previousLogDate = $logDate;
-            $showCalendar = true;
         }
 
-        return [
+        // determine activity logs data in same day or not
+        // if same day, push all to data collection
+        // if difference day, push data of last day to data collection (because previous day already be pushed)
+        $firstLogDate = $activityLogCollect->first()->created_at->format('Y-m-d');
+        $lastLogDate = $activityLogCollect->last()->created_at->format('Y-m-d');
+
+        if ($data->count() == 0 || $firstLogDate != $lastLogDate) {
+            $logDateFormatted = Carbon::createFromFormat('Y-m-d', $previousLogDate)->format('F d , Y');
+
+            $logData = [
+                'logDate' => $logDateFormatted,
+                'logs' => $logs,
+            ];
+
+            $data->push($logData);
+        }
+
+        return response()->json([
             'total' => $activityLogs->total(),
             'per_page' => $activityLogs->perPage(),
             'current_page' => $activityLogs->currentPage(),
             'next_page_url' => $activityLogs->nextPageUrl(),
             'prev_page_url' => $activityLogs->previousPageUrl(),
-            'data' => $activityLogCollect,
-        ];
+            'data' => $data,
+        ]);
     }
 
     /**
-     * Get activity log
+     * Get activity logs
      *
      * @param User $user
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

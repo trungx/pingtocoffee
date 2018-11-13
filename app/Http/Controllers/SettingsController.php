@@ -51,12 +51,12 @@ class SettingsController extends Controller
             // Reset email verified data.
             $updatingData['email_verified_at'] = null;
             $updatingData['last_verification_email_sent'] = $request->user()->freshTimestamp();
+
+            // Send verify new email.
+            $request->user()->sendEmailVerificationNotification();
         }
 
         $request->user()->update($updatingData);
-
-        // Send verify new email.
-        $request->user()->sendEmailVerificationNotification();
 
         return redirect('settings')->with('status', __('settings.account_information_changed'));
     }
