@@ -100,9 +100,7 @@ class UserTest extends TestCase
 
     public function testSendNextVerificationEmailAfterReturnCorrect()
     {
-        $user = factory(User::class)->create([
-            'last_verification_email_sent' => Carbon::now()
-        ]);
+        $user = factory(User::class)->create();
 
         // Set config
         config(['user.resend_email_after' => 30]);
