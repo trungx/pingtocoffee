@@ -183,7 +183,6 @@ class User extends Authenticatable implements MustVerifyEmail
      * Remove tags was tagged by user.
      *
      * @param string $ofUser
-     * @return mixed
      */
     public function detachTags($ofUser = "")
     {
@@ -193,7 +192,17 @@ class User extends Authenticatable implements MustVerifyEmail
             $tagsBuilder->where('to_user_id', $ofUser->id);
         }
 
-        return $tagsBuilder->delete();
+        $userTags = $tagsBuilder->get();
+
+        foreach ($userTags as $userTag) {
+            $tag = $userTag->tag()->first();
+
+            // Detach tag
+            $userTag->delete();
+
+            // Remove if that tag not being used in another contact
+            $this->removeTagNotBeingUsed($tag);
+        }
     }
 
     /**
@@ -211,21 +220,29 @@ class User extends Authenticatable implements MustVerifyEmail
             'tag_id' => $tag->id,
         ])->delete();
 
+        // Remove if that tag not being used in another contact
+        $this->removeTagNotBeingUsed($tag);
+
+        return $result;
+    }
+
+    /**
+     * Remove tag not being used.
+     *
+     * @param $tag
+     */
+    public function removeTagNotBeingUsed($tag)
+    {
         // checking tag is being used or not
-        $tagIsUsing = UserTag::where([
+        $tagIsBeingUsing = UserTag::where([
             'from_user_id' => $this->id,
             'tag_id' => $tag->id,
         ])->exists();
 
-        // delete when tag isn't used.
-        if (!$tagIsUsing) {
-            Tag::where([
-                'id' => $tag->id,
-                'creator_id' => $this->id,
-            ])->delete();
+        // delete when tag not being used.
+        if (! $tagIsBeingUsing) {
+            Tag::where('id', $tag->id)->delete();
         }
-
-        return $result;
     }
 
     /**
