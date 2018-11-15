@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white bb b--black-10">
   <div class="container">
-    <a class="navbar-brand ttu b" href="{{ url('/') }}">
-      {{ config('app.name') }}
-    </a>
+    <div class="brand-container tc mr2 br2">
+      <a class="navbar-brand b white ma0 pa0 dib w-100" href="{{ url('/') }}" title="{{ config('app.name') }}">P</a>
+    </div>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
