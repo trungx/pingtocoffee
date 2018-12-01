@@ -171,7 +171,8 @@ class Relationship extends Model
     /**
      * Get relationship type.
      *
-     * @return mixed|string
+     * @param $value
+     * @return string
      */
     public function getTypeAttribute($value)
     {
