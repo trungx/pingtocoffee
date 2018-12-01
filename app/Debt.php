@@ -18,4 +18,28 @@ class Debt extends Model
         'amount',
         'reason',
     ];
+
+    /**
+     * Scope of debt owner.
+     *
+     * @param $query
+     * @param $userId
+     * @return mixed
+     */
+    public function scopeOfOwner($query, $userId)
+    {
+        return $query->where('from_user_id', $userId);
+    }
+
+    /**
+     * Scope of debt contact.
+     *
+     * @param $query
+     * @param $userId
+     * @return mixed
+     */
+    public function scopeOfContact($query, $userId)
+    {
+        return $query->where('to_user_id', $userId);
+    }
 }

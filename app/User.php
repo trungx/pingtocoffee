@@ -116,6 +116,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get debt records
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function debts()
+    {
+        return $this->hasMany('App\Debt', 'from_user_id');
+    }
+
+    /**
      * Get the feed records
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -443,6 +453,17 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get debts of contact
+     *
+     * @param $contactId
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getDebts($contactId)
+    {
+        return $this->debts()->ofContact($contactId)->get();
+    }
+
+    /**
      * Get contact logs of contact
      *
      * @param $contactId
@@ -620,5 +641,26 @@ class User extends Authenticatable implements MustVerifyEmail
             return 0;
         }
         return config('user.resend_email_after') - $minutes;
+    }
+
+    /**
+     * Get total debt user already owed someone.
+     *
+     * @param $user
+     * @return int
+     */
+    public function totalDebt($user)
+    {
+        // Your owe with someone
+        $totalDebt = 0;
+        $this->getDebts($user->id)->each(function ($debt) use (&$totalDebt) {
+            if ($debt->in_debt) {
+                $totalDebt += $debt->amount;
+            } else {
+                $totalDebt -= $debt->amount;
+            }
+        });
+
+        return $totalDebt;
     }
 }
