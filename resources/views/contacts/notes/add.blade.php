@@ -11,7 +11,7 @@
         <form action="/contact/{{ $user->id }}/note" method="POST">
           @csrf
           <div class="form-group">
-            <textarea type="text" class="form-control" id="note" name="note" placeholder="{{ __('user.add_note_placeholder') }}"></textarea>
+            <textarea type="text" class="form-control" id="note" name="note" rows="3" placeholder="{{ __('user.add_note_placeholder') }}"></textarea>
           </div>
           <div class="form-group tr">
             <a href="javascript:void(0);" class="btn btn-link gray-text" data-dismiss="modal">{{ __('user.notes_cancel_cta') }}</a>
