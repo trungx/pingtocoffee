@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use App\Helpers\ImageHelper;
 use App\Http\Requests\SendInviteMailRequest;
 use App\Jobs\SendInvitationEmail;

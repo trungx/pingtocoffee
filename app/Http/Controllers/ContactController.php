@@ -6,7 +6,6 @@ use App\User;
 use App\Relationship;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Helpers\DateHelper;
 
 class ContactController extends Controller
 {
