@@ -59,6 +59,14 @@ class ContactController extends Controller
             case 'reminders':
                 $reminders = auth()->user()->getReminders($user->id);
                 break;
+            case 'debts':
+                $debts = auth()->user()->getDebts($user->id);
+                $debts->each(function ($debt) {
+                    $dateTime = $debt->created_at->format('d M, y');
+                    $debt->date_time = $dateTime;
+                });
+                $totalDebt = auth()->user()->totalDebt($user);
+                break;
             default:
                 $activeTab = 'notes';
                 $notes = auth()->user()->getNotes($user->id);
@@ -84,6 +92,8 @@ class ContactController extends Controller
             'relationship' => $relationship,
             'notes' => $notes,
             'reminders' => $reminders,
+            'debts' => $debts ?? collect(),
+            'totalDebt' => $totalDebt ?? 0,
             'contactLogs' => $contactLogs,
             'customInformation' => $customInformation,
             'contactInformation' => $contactInformation,

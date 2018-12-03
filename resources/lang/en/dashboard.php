@@ -11,6 +11,7 @@ return [
     'add_reminder_event_body' => 'You set new reminder for <a href="/:username?tab=reminders">:fullName</a>',
     'edit_reminder_event_body' => 'You edit reminder of <a href="/:username">:fullName</a>',
     'add_user_event_body' => 'You and <a href="/:username">:fullName</a> has been friends!',
+    'add_debt_event_body' => 'You added a debt for <a href="/:username?tab=debts">:fullName</a>',
 
     // Default event icons
     'signed_up_icon_class' => 'fas fa-trophy',
@@ -18,6 +19,7 @@ return [
     'reminders_icon_class' => 'fas fa-bell',
     'users_icon_class' => 'fas fa-user-friends',
     'contact_logs_icon_class' => 'fas fa-history',
+    'debts_icon_class' => 'fas fa-dollar-sign',
 
     // Button
     'load_more' => 'Load more',

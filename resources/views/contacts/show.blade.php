@@ -67,6 +67,9 @@
                   <a href="/{{ $user->username }}?tab=reminders" class="db tc pa3 {{ $activeTab == 'reminders' ? 'fw6' : '' }}" style="{{ $activeTab == 'reminders' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.reminders_tab') }}</a>
                 </li>
                 <li class="fl">
+                  <a href="/{{ $user->username }}?tab=debts" class="db tc pa3 {{ $activeTab == 'debts' ? 'fw6' : '' }}" style="{{ $activeTab == 'debts' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.debts_tab') }}</a>
+                </li>
+                <li class="fl">
                   <a href="/{{ $user->username }}?tab=contact-logs" class="db tc pa3 {{ $activeTab == 'contact-logs' ? 'fw6' : '' }}" style="{{ $activeTab == 'contact-logs' ? 'border-bottom: 2px solid #29a8ab; color: #29a8ab;' : 'color: #8c9396;' }} text-decoration: none;">{{ __('user.contact_logs_tab') }}</a>
                 </li>
 
@@ -85,6 +88,10 @@
 
           @if($activeTab == 'reminders')
             @include('contacts.reminder.index')
+          @endif
+
+          @if($activeTab == 'debts')
+            @include('contacts.debts.index')
           @endif
 
           @if($activeTab == 'contact-logs')

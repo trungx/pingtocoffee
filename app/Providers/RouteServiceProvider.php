@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\ContactFieldValue;
 use App\ContactLog;
+use App\Debt;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use App\Reminder;
@@ -56,6 +57,17 @@ class RouteServiceProvider extends ServiceProvider
         Route::bind('reminder', function ($value) {
             try {
                 return Reminder::where('from_user_id', auth()->user()->id)->findOrFail($value);
+            } catch (ModelNotFoundException $ex) {
+                redirect('/')->send();
+            }
+        });
+
+        /**
+         * Checking for validity of debt.
+         */
+        Route::bind('debt', function ($value) {
+            try {
+                return Debt::where('from_user_id', auth()->user()->id)->findOrFail($value);
             } catch (ModelNotFoundException $ex) {
                 redirect('/')->send();
             }
