@@ -7,4 +7,5 @@ return [
     'reminder' => 50,
     'contact-field-value' => 300,
     'notes' => 50,
+    'debts' => 50,
 ];

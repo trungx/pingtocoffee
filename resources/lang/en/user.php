@@ -147,6 +147,28 @@ return [
     'many_month_frequency_str' => 'Every :frequency months',
     'many_year_frequency_str' => 'Every :frequency years',
 
+    // Debts
+    'debts_tab' => 'Debts',
+    'debts_heading' => 'Debts',
+    'debts_add_cta' => 'Add a debt',
+    'debts_empty' => 'No debt',
+    'debts_whats' => 'Debts help you manage money between you and your friends.',
+    'no_debts' => 'No debt',
+    'in_debt_you_owe' => 'You owe :name',
+    'in_debt_they_owe' => ':name owes you',
+    'in_debt_yes' => 'You owe :name :amount :currency',
+    'in_debt_no' => ':name owns you :amount :currency',
+    'debt_delete_confirmation' => 'Are you sure you want to delete this debt?',
+    'add_debt_lbl' => 'Add a debt',
+    'debt_add_cta' => 'Add debt',
+    'debt_edit_cta' => 'Save changes',
+    'debt_amount' => 'amount',
+    'debt_reason' => 'for the reason (optional)',
+    'edit_debt_lbl' => 'Edit debt',
+    'debts_add_success' => 'A debt was added successfully',
+    'debts_edit_success' => 'Debt was updated successfully',
+    'debts_delete_success' => 'Debt was deleted successfully',
+
     // Messages
     'reminders_add_success' => 'Add reminder successfully',
     'reminders_edit_success' => 'Edit reminder successfully',

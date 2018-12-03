@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 $this->call(ReminderTableSeeder::class);
                 $this->call(ContactFieldValueTableSeeder::class);
                 $this->call(NoteTableSeeder::class);
+                $this->call(DebtTableSeeder::class);
                 break;
             case 'testing':
                 $this->call(FakeUserTableSeeder::class);
