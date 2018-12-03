@@ -108,13 +108,20 @@ class RemindersController extends Controller
      * @param User $user
      * @param Reminder $reminder
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
      */
     public function destroy(User $user, Reminder $reminder)
     {
-        $reminder->delete();
+        try {
+            $reminder->delete();
 
-        return redirect('/' . $user->username . '?tab=reminders')
-            ->with('success', trans('user.reminders_delete_success'));
+            // Create event log
+            $reminder->createLogForFeed(Event::DELETE_ACTION);
+
+            return redirect('/' . $user->username . '?tab=reminders')
+                ->with('success', trans('user.reminders_delete_success'));
+        } catch (\Exception $e) {
+            return redirect('/' . $user->username . '?tab=reminders')
+                ->with('error', trans('user.something_wrong'));
+        }
     }
 }

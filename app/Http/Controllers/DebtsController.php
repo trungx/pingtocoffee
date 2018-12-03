@@ -88,13 +88,20 @@ class DebtsController extends Controller
      * @param User $user
      * @param Debt $debt
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
      */
     public function destroy(User $user, Debt $debt)
     {
-        $debt->delete();
+        try {
+            $debt->delete();
 
-        return redirect('/' . $user->username . '?tab=debts')
-            ->with('success', trans('user.debts_delete_success'));
+            // Create event log
+            $debt->createLogForFeed(Event::DELETE_ACTION);
+
+            return redirect('/' . $user->username . '?tab=debts')
+                ->with('success', trans('user.debts_delete_success'));
+        } catch (\Exception $e) {
+            return redirect('/' . $user->username . '?tab=debts')
+                ->with('error', trans('user.something_wrong'));
+        }
     }
 }
