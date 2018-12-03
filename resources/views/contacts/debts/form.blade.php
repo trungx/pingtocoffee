@@ -10,8 +10,9 @@
     </label>
   </fieldset>
   <div class="form-group">
-    <label for="amount">{{ __('user.debt_amount') }}</label>
+    <label for="amount">{{ __('user.debt_amount', ['currency' => auth()->user()->currency]) }}</label>
     <input type="text" name="amount" id="amount" value="{{ old('amount') ?? $debt->amount }}" class="form-control">
+    <small class="f7">{{ __('user.change_currency_suggestion') }} <a href="/settings">{{ __('user.account_setting_link') }}</a></small>
   </div>
   <div class="form-group">
     <label for="reason">{{ __('user.debt_reason') }}</label>

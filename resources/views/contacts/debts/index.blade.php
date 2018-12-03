@@ -22,9 +22,9 @@
             <div class="pv2 ph3 tl f6 dtc date f7 light-gray-text">{{ $debt->date_time }}</div>
 
             @if ($debt->in_debt)
-              <div class="pv2 ph3 tl f6 dtc debt-nature">{{ __('user.in_debt_yes', ['name' => $user->first_name, 'amount' => floatval($debt->amount), 'currency' => 'VND']) }}</div>
+              <div class="pv2 ph3 tl f6 dtc debt-nature">{{ __('user.in_debt_yes', ['name' => $user->first_name, 'amount' => floatval($debt->amount), 'currency' => auth()->user()->currency]) }}</div>
             @else
-              <div class="pv2 ph3 tl f6 dtc debt-nature">{{ __('user.in_debt_no', ['name' => $user->first_name, 'amount' => floatval($debt->amount), 'currency' => 'VND']) }}</div>
+              <div class="pv2 ph3 tl f6 dtc debt-nature">{{ __('user.in_debt_no', ['name' => $user->first_name, 'amount' => floatval($debt->amount), 'currency' => auth()->user()->currency]) }}</div>
             @endif
 
             <div class="pv2 ph3 tl f6 dtc reason">{{ $debt->reason }}</div>
@@ -45,9 +45,9 @@
           <div class="pv2 ph3 tl f6 dtc"></div>
 
           @if ($totalDebt > 0)
-            <div class="pv2 ph3 tl f6 dtc b">{{ __('user.in_debt_yes', ['name' => $user->getCompleteName(), 'amount' => $totalDebt, 'currency' => 'VND']) }}</div>
+            <div class="pv2 ph3 tl f6 dtc b">{{ __('user.in_debt_yes', ['name' => $user->getCompleteName(), 'amount' => $totalDebt, 'currency' => auth()->user()->currency]) }}</div>
           @else
-            <div class="pv2 ph3 tl f6 dtc b">{{ __('user.in_debt_no', ['name' => $user->getCompleteName(), 'amount' => substr($totalDebt, 1), 'currency' => 'VND']) }}</div>
+            <div class="pv2 ph3 tl f6 dtc b">{{ __('user.in_debt_no', ['name' => $user->getCompleteName(), 'amount' => substr($totalDebt, 1), 'currency' => auth()->user()->currency]) }}</div>
           @endif
 
           <div class="pv2 ph3 tl f6 dtc"></div>

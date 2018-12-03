@@ -46,6 +46,7 @@ class SettingRequest extends FormRequest
             'email' => 'required|email|max:2083|unique:users,email,' . $this->user()->id,
             'gender' => 'in:male,female,other,none',
             'timezone' => 'required',
+            'currency' => 'required',
         ];
     }
 }

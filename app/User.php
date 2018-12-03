@@ -43,6 +43,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'birthday',
         'gender',
         'timezone',
+        'currency',
         'locale',
         'has_avatar',
         'avatar_file_name',

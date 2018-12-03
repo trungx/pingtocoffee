@@ -79,7 +79,6 @@ return [
     'notes_empty_whats' => 'Let\'s add a new note.',
     'notes_delete_confirmation' => 'Are you sure you want to delete this note?',
     'notes_delete_success' => 'Your note was deleted!',
-    'notes_add_cta' => 'Add a note',
     'notes_cancel_cta' => 'Cancel',
     'notes_add_success' => 'Add note successfully',
 
@@ -162,12 +161,14 @@ return [
     'add_debt_lbl' => 'Add a debt',
     'debt_add_cta' => 'Add debt',
     'debt_edit_cta' => 'Save changes',
-    'debt_amount' => 'amount',
+    'debt_amount' => 'amount (:currency)',
     'debt_reason' => 'for the reason (optional)',
     'edit_debt_lbl' => 'Edit debt',
     'debts_add_success' => 'A debt was added successfully',
     'debts_edit_success' => 'Debt was updated successfully',
     'debts_delete_success' => 'Debt was deleted successfully',
+    'change_currency_suggestion' => 'This is not your currency unit. ',
+    'account_setting_link' => 'Change',
 
     // Messages
     'reminders_add_success' => 'Add reminder successfully',
