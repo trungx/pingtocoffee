@@ -99,6 +99,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{user}/reminder/{reminder}', 'RemindersController@edit')->name('.reminder.edit');
         Route::put('/{user}/reminder/{reminder}', 'RemindersController@update')->name('.reminder.update');
         Route::delete('/{user}/reminder/{reminder}', 'RemindersController@destroy')->name('.reminder.destroy');
+
+        // Debts
+        Route::get('/{user}/debt', 'DebtsController@create')->name('.debt.create');
+        Route::post('/{user}/debt', 'DebtsController@store')->name('.debt.store');
+        Route::get('/{user}/debt/{debt}', 'DebtsController@edit')->name('.debt.edit');
+        Route::put('/{user}/debt/{debt}', 'DebtsController@update')->name('.debt.update');
+        Route::delete('/{user}/debt/{debt}', 'DebtsController@destroy')->name('.debt.destroy');
     });
 
     // Relationships
