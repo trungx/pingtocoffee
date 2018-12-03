@@ -30,6 +30,7 @@ return [
     'gender_female' => 'Female',
     'gender_other' => 'Other',
     'timezone' => 'Timezone',
+    'currency' => 'Currency',
 
     // Contact Information
     'contact_field_title' => 'Contact Information',

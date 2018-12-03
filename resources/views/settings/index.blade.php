@@ -118,6 +118,11 @@
                   <label for="timezone">{{ __('settings.timezone') }}</label>
                   @include('settings.countries')
                 </div>
+                <!-- Currency -->
+                <div class="form-group">
+                  <label for="currency">{{ __('settings.currency') }}</label>
+                  @include('settings.currencies')
+                </div>
                 <button type="submit" class="btn default-btn fw6">{{ __('settings.save') }}</button>
               </form>
 
